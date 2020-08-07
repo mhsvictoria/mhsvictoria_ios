@@ -14,22 +14,24 @@
                     <view key="view" contentMode="scaleToFill" id="wbq-Tq-EsV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.13333333333333333" green="0.36078431372549019" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="cN9-H7-koO"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A36-bh-MVH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="463" y="289"/>
+            <point key="canvasLocation" x="380" y="343"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="AzE-oB-0yK">
             <objects>
-                <tableViewController storyboardIdentifier="masterTableView" clearsSelectionOnViewWillAppear="NO" id="v7W-oS-0UA" customClass="MasterTableViewController" customModule="mhsvictoria_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="masterTableView" modalPresentationStyle="fullScreen" clearsSelectionOnViewWillAppear="NO" id="v7W-oS-0UA" customClass="MasterTableViewController" customModule="mhsvictoria_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="o4h-gs-H5E">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="x2p-F4-hHB">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
@@ -37,7 +39,10 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="x2p-F4-hHB" id="8on-gA-b79">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <segue destination="9tK-tr-hxB" kind="showDetail" id="K2m-zf-otk"/>
                                 </connections>
@@ -48,11 +53,109 @@
                             <outlet property="delegate" destination="v7W-oS-0UA" id="V1a-Q7-vHb"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Root View Controller" id="VeK-A9-0f3"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gc1-AP-Co1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1359" y="-35"/>
+        </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="AHC-cK-7eH">
+            <objects>
+                <viewController id="dgZ-J9-j7v" customClass="MenuViewController" customModule="mhsvictoria_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5zV-18-LCS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brain_white.png" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PlF-g4-qRr">
+                                <rect key="frame" x="20" y="237.5" width="374" height="421"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="PlF-g4-qRr" secondAttribute="height" multiplier="374:421" id="hkg-E5-FIb"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.34999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brain_lrg.png" translatesAutoresizingMaskIntoConstraints="NO" id="hph-B5-BKw">
+                                <rect key="frame" x="40" y="271" width="335" height="364"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hzo-bz-Tgm">
+                                <rect key="frame" x="18" y="271" width="184" height="189"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="184" id="4Ne-Ay-TGj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="titleEdgeInsets" minX="52" minY="0.0" maxX="0.0" maxY="36"/>
+                                <state key="normal" title="Crisis">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTb-hn-xqE">
+                                <rect key="frame" x="210" y="273" width="137" height="184"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="32"/>
+                                <state key="normal" title="Find Resources">
+                                    <color key="titleColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vm2-uP-50A">
+                                <rect key="frame" x="20" y="451" width="184" height="184"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <inset key="titleEdgeInsets" minX="52" minY="0.0" maxX="0.0" maxY="32"/>
+                                <state key="normal" title="Newsletter">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wwH-EC-ega">
+                                <rect key="frame" x="210" y="451" width="184" height="184"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="48" maxY="32"/>
+                                <state key="normal" title="Contact Us">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.47450980392156861" green="0.74509803921568629" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="rw4-Gw-xQP" firstAttribute="trailing" secondItem="PlF-g4-qRr" secondAttribute="trailing" constant="20" id="2va-Km-na9"/>
+                            <constraint firstItem="Hzo-bz-Tgm" firstAttribute="leading" secondItem="rw4-Gw-xQP" secondAttribute="leading" constant="18" id="3MJ-9I-apP"/>
+                            <constraint firstItem="Hzo-bz-Tgm" firstAttribute="top" secondItem="rw4-Gw-xQP" secondAttribute="top" constant="227" id="5JC-42-sLw"/>
+                            <constraint firstItem="vm2-uP-50A" firstAttribute="leading" secondItem="PlF-g4-qRr" secondAttribute="leading" id="7GP-9O-seH"/>
+                            <constraint firstItem="vm2-uP-50A" firstAttribute="bottom" secondItem="wwH-EC-ega" secondAttribute="bottom" id="82o-Fm-9XH"/>
+                            <constraint firstItem="vTb-hn-xqE" firstAttribute="leading" secondItem="vm2-uP-50A" secondAttribute="trailing" constant="6" id="CW3-AK-TBg"/>
+                            <constraint firstItem="hph-B5-BKw" firstAttribute="leading" secondItem="PlF-g4-qRr" secondAttribute="leading" constant="20" id="DBD-ij-H94"/>
+                            <constraint firstItem="wwH-EC-ega" firstAttribute="firstBaseline" secondItem="vm2-uP-50A" secondAttribute="firstBaseline" id="Dfu-eC-sm2"/>
+                            <constraint firstItem="Hzo-bz-Tgm" firstAttribute="centerY" secondItem="vTb-hn-xqE" secondAttribute="centerY" id="FzB-Dx-7YM"/>
+                            <constraint firstItem="rw4-Gw-xQP" firstAttribute="bottom" secondItem="vm2-uP-50A" secondAttribute="bottom" constant="227" id="GOG-Ln-XMK"/>
+                            <constraint firstItem="PlF-g4-qRr" firstAttribute="centerY" secondItem="5zV-18-LCS" secondAttribute="centerY" id="Gq2-78-aux"/>
+                            <constraint firstItem="PlF-g4-qRr" firstAttribute="leading" secondItem="rw4-Gw-xQP" secondAttribute="leading" constant="20" id="HlW-Eq-49p"/>
+                            <constraint firstItem="vTb-hn-xqE" firstAttribute="leading" secondItem="wwH-EC-ega" secondAttribute="leading" id="Lrv-eW-e3t"/>
+                            <constraint firstItem="vTb-hn-xqE" firstAttribute="top" secondItem="rw4-Gw-xQP" secondAttribute="top" constant="229" id="M71-6s-eTY"/>
+                            <constraint firstItem="vTb-hn-xqE" firstAttribute="trailing" secondItem="wwH-EC-ega" secondAttribute="trailing" constant="-47" id="NQh-t9-k8r"/>
+                            <constraint firstItem="hph-B5-BKw" firstAttribute="top" secondItem="PlF-g4-qRr" secondAttribute="top" constant="33.5" id="R3E-9v-J5C"/>
+                            <constraint firstItem="vTb-hn-xqE" firstAttribute="trailing" secondItem="PlF-g4-qRr" secondAttribute="trailing" constant="-47" id="V6r-js-BkZ"/>
+                            <constraint firstItem="vm2-uP-50A" firstAttribute="top" secondItem="rw4-Gw-xQP" secondAttribute="top" constant="407" id="W1y-EI-Zf1"/>
+                            <constraint firstItem="vm2-uP-50A" firstAttribute="top" secondItem="wwH-EC-ega" secondAttribute="top" id="XgW-2q-txJ"/>
+                            <constraint firstItem="wwH-EC-ega" firstAttribute="baseline" secondItem="vm2-uP-50A" secondAttribute="baseline" id="jq6-dh-dbd"/>
+                            <constraint firstItem="hph-B5-BKw" firstAttribute="trailing" secondItem="PlF-g4-qRr" secondAttribute="trailing" constant="-19" id="lNd-M7-Mlc"/>
+                            <constraint firstItem="rw4-Gw-xQP" firstAttribute="bottom" secondItem="Hzo-bz-Tgm" secondAttribute="bottom" constant="402" id="rPA-Dd-KAB"/>
+                            <constraint firstItem="PlF-g4-qRr" firstAttribute="centerX" secondItem="5zV-18-LCS" secondAttribute="centerX" id="sym-FO-37v"/>
+                            <constraint firstItem="vTb-hn-xqE" firstAttribute="leading" secondItem="Hzo-bz-Tgm" secondAttribute="trailing" constant="8" id="vmD-Vg-BAT"/>
+                            <constraint firstItem="hph-B5-BKw" firstAttribute="bottom" secondItem="PlF-g4-qRr" secondAttribute="bottom" constant="-23.5" id="yeA-LB-ITO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rw4-Gw-xQP"/>
+                    </view>
+                    <connections>
+                        <outlet property="brainImage" destination="PlF-g4-qRr" id="JG5-gd-kij"/>
+                        <outlet property="contactUsButton" destination="wwH-EC-ega" id="YqP-wY-bw7"/>
+                        <outlet property="crisisButton" destination="Hzo-bz-Tgm" id="WeH-3s-NBZ"/>
+                        <outlet property="findResourcesButton" destination="vTb-hn-xqE" id="weA-ZN-6mE"/>
+                        <outlet property="newsletterButton" destination="vm2-uP-50A" id="xnk-48-FSN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LMb-Z8-F8N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2417.3913043478265" y="54.910714285714285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Omg-Ef-wBt">
@@ -87,4 +190,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="K2m-zf-otk"/>
     </inferredMetricsTieBreakers>
+    <resources>
+        <image name="brain_lrg.png" width="310" height="340"/>
+        <image name="brain_white.png" width="340" height="340"/>
+    </resources>
 </document>

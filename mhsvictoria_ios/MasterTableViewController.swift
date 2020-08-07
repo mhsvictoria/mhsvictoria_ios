@@ -31,7 +31,7 @@ import UIKit
 */
 class MasterTableViewController: UITableViewController {
 
-    let fakeData = ["Nobody's Perfect", "Smiling Mind", "Mindshift CBT"]
+    let fakeData = ["Nobody's Perfect", "Smiling Mind", "Mindshift CBT", "YMCA"]
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -58,6 +58,30 @@ class MasterTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         cell.textLabel?.text = fakeData[indexPath.row]
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        let imageView = UIImageView(frame: CGRect(x: -20, y: 0, width: tableView.frame.width + 40, height: 100))
+        let brainView = UIImageView(frame: CGRect(x: 80, y: 10, width: 88, height: 80))
+        brainView.image = UIImage(named: "brain_sm_rot.png")
+        
+        let image = UIImage(named: "mnsgv_bg_3.png")
+        imageView.image = image
+        view.addSubview(imageView)
+        view.backgroundColor = UIColor(displayP3Red: 0x79/0xFF, green: 0xBE/0xFF, blue: 0xDD/0xFF, alpha: 1.0)
+        imageView.contentMode = .scaleToFill
+        imageView.addSubview(brainView)
+        let editText = UITextField(frame: CGRect(x:tableView.frame.width/2, y: 60, width: tableView.frame.width/2, height: 36))
+        view.addSubview(editText)
+        editText.bringSubviewToFront(imageView)
+        editText.placeholder = "Enter search string"
+        editText.borderStyle = .line
+        return view
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 100
     }
 
     /*
