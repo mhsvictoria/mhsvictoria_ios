@@ -25,6 +25,12 @@
 		2A6291AF24CBB39000B8E43D /* mnsgv_bg_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A6291AD24CBB39000B8E43D /* mnsgv_bg_3.png */; };
 		2A65B29B24C54E8D00D16B63 /* MasterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A65B29A24C54E8D00D16B63 /* MasterTableViewController.swift */; };
 		2ABF437124DE07E200F7A747 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABF437024DE07E200F7A747 /* ColorPalette.swift */; };
+		2ABF437B24DE247000F7A747 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABF437824DE247000F7A747 /* BaseViewController.swift */; };
+		2ABF437C24DE247000F7A747 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABF437924DE247000F7A747 /* MainViewController.swift */; };
+		2ABF437D24DE247000F7A747 /* MhsgvPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABF437A24DE247000F7A747 /* MhsgvPageViewController.swift */; };
+		2ABF437F24DE254000F7A747 /* Form1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABF437E24DE254000F7A747 /* Form1ViewController.swift */; };
+		2ABF438124DE255B00F7A747 /* Form2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABF438024DE255B00F7A747 /* Form2ViewController.swift */; };
+		2ABF438324DE256900F7A747 /* Form3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABF438224DE256900F7A747 /* Form3ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +75,12 @@
 		2A6291AD24CBB39000B8E43D /* mnsgv_bg_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mnsgv_bg_3.png; sourceTree = "<group>"; };
 		2A65B29A24C54E8D00D16B63 /* MasterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterTableViewController.swift; sourceTree = "<group>"; };
 		2ABF437024DE07E200F7A747 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
+		2ABF437824DE247000F7A747 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		2ABF437924DE247000F7A747 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		2ABF437A24DE247000F7A747 /* MhsgvPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MhsgvPageViewController.swift; sourceTree = "<group>"; };
+		2ABF437E24DE254000F7A747 /* Form1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form1ViewController.swift; sourceTree = "<group>"; };
+		2ABF438024DE255B00F7A747 /* Form2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form2ViewController.swift; sourceTree = "<group>"; };
+		2ABF438224DE256900F7A747 /* Form3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form3ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +131,9 @@
 		2A00753D24BD4A7000BB1AEA /* mhsvictoria_ios */ = {
 			isa = PBXGroup;
 			children = (
+				2ABF437824DE247000F7A747 /* BaseViewController.swift */,
+				2ABF437924DE247000F7A747 /* MainViewController.swift */,
+				2ABF437A24DE247000F7A747 /* MhsgvPageViewController.swift */,
 				2ABF436F24DE07CD00F7A747 /* utils */,
 				2A6291AB24CBB36C00B8E43D /* images */,
 				2A00753E24BD4A7000BB1AEA /* AppDelegate.swift */,
@@ -130,6 +145,9 @@
 				2A00754C24BD4A7000BB1AEA /* Info.plist */,
 				2A65B29A24C54E8D00D16B63 /* MasterTableViewController.swift */,
 				2A5DEDE724D5A25F0076AEE4 /* MenuViewController.swift */,
+				2ABF437E24DE254000F7A747 /* Form1ViewController.swift */,
+				2ABF438024DE255B00F7A747 /* Form2ViewController.swift */,
+				2ABF438224DE256900F7A747 /* Form3ViewController.swift */,
 			);
 			path = mhsvictoria_ios;
 			sourceTree = "<group>";
@@ -316,8 +334,14 @@
 				2A5DEDE824D5A25F0076AEE4 /* MenuViewController.swift in Sources */,
 				2A65B29B24C54E8D00D16B63 /* MasterTableViewController.swift in Sources */,
 				2A00753F24BD4A7000BB1AEA /* AppDelegate.swift in Sources */,
+				2ABF438124DE255B00F7A747 /* Form2ViewController.swift in Sources */,
+				2ABF437D24DE247000F7A747 /* MhsgvPageViewController.swift in Sources */,
 				2A00754124BD4A7000BB1AEA /* SceneDelegate.swift in Sources */,
+				2ABF437B24DE247000F7A747 /* BaseViewController.swift in Sources */,
 				2ABF437124DE07E200F7A747 /* ColorPalette.swift in Sources */,
+				2ABF437F24DE254000F7A747 /* Form1ViewController.swift in Sources */,
+				2ABF438324DE256900F7A747 /* Form3ViewController.swift in Sources */,
+				2ABF437C24DE247000F7A747 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
