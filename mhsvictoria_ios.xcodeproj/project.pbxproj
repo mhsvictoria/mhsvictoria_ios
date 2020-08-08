@@ -20,10 +20,8 @@
 		2A5DEDE224D595830076AEE4 /* brain_lrg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A5DEDE124D595830076AEE4 /* brain_lrg.png */; };
 		2A5DEDE424D5983C0076AEE4 /* brain_lt.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A5DEDE324D5983C0076AEE4 /* brain_lt.png */; };
 		2A5DEDE624D59D370076AEE4 /* brain_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A5DEDE524D59D370076AEE4 /* brain_white.png */; };
-		2A5DEDE824D5A25F0076AEE4 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5DEDE724D5A25F0076AEE4 /* MenuViewController.swift */; };
 		2A6291AE24CBB39000B8E43D /* mnsgv_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A6291AC24CBB39000B8E43D /* mnsgv_bg.png */; };
 		2A6291AF24CBB39000B8E43D /* mnsgv_bg_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A6291AD24CBB39000B8E43D /* mnsgv_bg_3.png */; };
-		2A65B29B24C54E8D00D16B63 /* MasterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A65B29A24C54E8D00D16B63 /* MasterTableViewController.swift */; };
 		2ABF437124DE07E200F7A747 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABF437024DE07E200F7A747 /* ColorPalette.swift */; };
 		2ABF437B24DE247000F7A747 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABF437824DE247000F7A747 /* BaseViewController.swift */; };
 		2ABF437C24DE247000F7A747 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABF437924DE247000F7A747 /* MainViewController.swift */; };
@@ -70,10 +68,8 @@
 		2A5DEDE124D595830076AEE4 /* brain_lrg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brain_lrg.png; sourceTree = "<group>"; };
 		2A5DEDE324D5983C0076AEE4 /* brain_lt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brain_lt.png; sourceTree = "<group>"; };
 		2A5DEDE524D59D370076AEE4 /* brain_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brain_white.png; sourceTree = "<group>"; };
-		2A5DEDE724D5A25F0076AEE4 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		2A6291AC24CBB39000B8E43D /* mnsgv_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mnsgv_bg.png; sourceTree = "<group>"; };
 		2A6291AD24CBB39000B8E43D /* mnsgv_bg_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mnsgv_bg_3.png; sourceTree = "<group>"; };
-		2A65B29A24C54E8D00D16B63 /* MasterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterTableViewController.swift; sourceTree = "<group>"; };
 		2ABF437024DE07E200F7A747 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		2ABF437824DE247000F7A747 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		2ABF437924DE247000F7A747 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -143,8 +139,6 @@
 				2A00754724BD4A7000BB1AEA /* Assets.xcassets */,
 				2A00754924BD4A7000BB1AEA /* LaunchScreen.storyboard */,
 				2A00754C24BD4A7000BB1AEA /* Info.plist */,
-				2A65B29A24C54E8D00D16B63 /* MasterTableViewController.swift */,
-				2A5DEDE724D5A25F0076AEE4 /* MenuViewController.swift */,
 				2ABF437E24DE254000F7A747 /* Form1ViewController.swift */,
 				2ABF438024DE255B00F7A747 /* Form2ViewController.swift */,
 				2ABF438224DE256900F7A747 /* Form3ViewController.swift */,
@@ -331,8 +325,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A00754324BD4A7000BB1AEA /* ViewController.swift in Sources */,
-				2A5DEDE824D5A25F0076AEE4 /* MenuViewController.swift in Sources */,
-				2A65B29B24C54E8D00D16B63 /* MasterTableViewController.swift in Sources */,
 				2A00753F24BD4A7000BB1AEA /* AppDelegate.swift in Sources */,
 				2ABF438124DE255B00F7A747 /* Form2ViewController.swift in Sources */,
 				2ABF437D24DE247000F7A747 /* MhsgvPageViewController.swift in Sources */,
