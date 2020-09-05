@@ -20,3 +20,5 @@ extension  UIColor{
 }
 
 let primaryBlue = UIColor(0x225c77)
+let background = UIColor(0x225c77)
+let toolbar = UIColor(0xcfdee5)
