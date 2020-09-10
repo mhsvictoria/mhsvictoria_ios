@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0VE-Ma-L76">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0VE-Ma-L76">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -15,26 +15,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vKQ-Oc-yVK">
-                                <rect key="frame" x="20" y="323" width="374" height="250"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="vKQ-Oc-yVK" secondAttribute="height" multiplier="187:125" id="VHA-Fc-k3X"/>
-                                </constraints>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vKQ-Oc-yVK">
+                                <rect key="frame" x="20" y="254" width="374" height="365"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <segue destination="8iB-NI-buh" kind="embed" id="5fg-px-YEw"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NUs-2W-LyR">
+                                <rect key="frame" x="0.0" y="44" width="414" height="100"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="EEc-JT-35M"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="vKQ-Oc-yVK" firstAttribute="centerY" secondItem="Dng-D8-V3f" secondAttribute="centerY" id="eL1-lb-6k2"/>
-                            <constraint firstItem="vKQ-Oc-yVK" firstAttribute="leading" secondItem="Dng-D8-V3f" secondAttribute="leadingMargin" id="ey8-gm-Fyf"/>
-                            <constraint firstItem="vKQ-Oc-yVK" firstAttribute="centerX" secondItem="Dng-D8-V3f" secondAttribute="centerX" id="mHV-xU-T5A"/>
+                            <constraint firstItem="NUs-2W-LyR" firstAttribute="top" secondItem="qIf-YH-mXl" secondAttribute="top" id="Fx5-Bv-oFb"/>
+                            <constraint firstItem="NUs-2W-LyR" firstAttribute="leading" secondItem="qIf-YH-mXl" secondAttribute="leading" id="G8a-EW-JqU"/>
+                            <constraint firstItem="NUs-2W-LyR" firstAttribute="trailing" secondItem="qIf-YH-mXl" secondAttribute="trailing" id="zdZ-0X-3wl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qIf-YH-mXl"/>
                     </view>
                     <connections>
                         <outlet property="containerView" destination="vKQ-Oc-yVK" id="TPz-Pu-z9q"/>
+                        <outlet property="header" destination="NUs-2W-LyR" id="69O-Yc-aA8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C8X-qf-zPd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -97,6 +103,7 @@
                             <constraint firstItem="5U1-qB-CRe" firstAttribute="centerY" secondItem="GvO-rA-g8y" secondAttribute="centerY" id="WdC-AN-hER"/>
                             <constraint firstItem="5U1-qB-CRe" firstAttribute="centerX" secondItem="GvO-rA-g8y" secondAttribute="centerX" id="pfJ-mK-VyT"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="QkT-gl-o8h"/>
                     </view>
                     <navigationItem key="navigationItem" id="Mfj-1Y-knd"/>
                 </viewController>

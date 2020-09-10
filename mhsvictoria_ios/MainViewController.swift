@@ -9,17 +9,18 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    
+    @IBOutlet weak var header: UIView!
+    
     @IBOutlet weak var containerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        containerView.clipsToBounds = false
-        containerView.layer.shadowColor = UIColor.black.cgColor
-        containerView.layer.shadowOpacity = 0.7
-        containerView.layer.shadowOffset = .zero
-        containerView.layer.shadowRadius = 3
-        containerView.layer.shadowPath = UIBezierPath(rect: CGRect(x: 2, y: 2, width: containerView.frame.width, height: containerView.frame.height)).cgPath
+        view.backgroundColor = background
+        header.backgroundColor = toolbar
+        let yOffset = header.frame.minY + header.frame.height + 20
+        containerView.frame = CGRect(x: 20, y: yOffset, width: view.frame.width - 40, height: view.frame.height - yOffset - 80)
+        
     }
     
 
