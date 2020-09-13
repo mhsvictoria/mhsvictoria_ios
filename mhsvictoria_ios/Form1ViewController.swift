@@ -10,9 +10,17 @@ import UIKit
 
 class Form1ViewController: BaseViewController {
 
-    var age = 0 {
-        didSet {
-            setAgeFormLabel()
+    var age: Int {
+        get {
+            let preferences = UserDefaults.standard
+            if preferences.object(forKey: "age") != nil {
+                return preferences.integer(forKey: "age")
+            }
+            return 25
+        } set {
+            let preferences = UserDefaults.standard
+            preferences.set(newValue, forKey: "age")
+            
         }
     }
     let ageFormLabel = UILabel()
@@ -20,7 +28,6 @@ class Form1ViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadAge()
         setSliderValue()
         view.addSubview(ageFormLabel)
         view.addSubview(ageSlider)
@@ -47,34 +54,9 @@ class Form1ViewController: BaseViewController {
     
     @objc func sliderValueChanged(sender: UISlider) {
         age = Int(sender.value * 100)
-        saveAge()
     }
     
     func setAgeFormLabel() {
         ageFormLabel.text = "I am \(age) years old..."
     }
-    
-    func saveAge() {
-        let preferences = UserDefaults.standard
-        preferences.set(age, forKey: "age")
-    }
-    
-    func loadAge() {
-        let preferences = UserDefaults.standard
-        if preferences.object(forKey: "age") != nil {
-            age = preferences.integer(forKey: "age")
-        } else {
-            age = 25
-        }
-    }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
