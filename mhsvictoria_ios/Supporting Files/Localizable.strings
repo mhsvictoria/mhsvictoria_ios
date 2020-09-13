@@ -6,5 +6,5 @@
   Copyright © 2020 Ron Allan. All rights reserved.
 */
 
-"age.label" = "%d years of age.";
+"age.label" = "I am %d years old....";
 

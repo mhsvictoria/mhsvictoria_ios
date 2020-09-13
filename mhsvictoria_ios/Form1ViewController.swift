@@ -12,15 +12,13 @@ class Form1ViewController: BaseViewController {
 
     var age: Int {
         get {
-            let preferences = UserDefaults.standard
-            if preferences.object(forKey: "age") != nil {
-                return preferences.integer(forKey: "age")
+            if UserDefaults.standard.object(forKey: "age") != nil {
+                return UserDefaults.standard.integer(forKey: "age")
             }
             return 25
         } set {
-            let preferences = UserDefaults.standard
-            preferences.set(newValue, forKey: "age")
-            
+            UserDefaults.standard.set(newValue, forKey: "age")
+            setLabelText()
         }
     }
     let ageFormLabel = UILabel()
@@ -29,6 +27,7 @@ class Form1ViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setSliderValue()
+        setLabelText()
         view.addSubview(ageFormLabel)
         view.addSubview(ageSlider)
         ageSlider.translatesAutoresizingMaskIntoConstraints = false
@@ -45,7 +44,6 @@ class Form1ViewController: BaseViewController {
         ])
         
         ageSlider.addTarget(self, action: #selector(self.sliderValueChanged), for: .valueChanged)
-        
     }
     
     func setSliderValue() {
@@ -56,7 +54,9 @@ class Form1ViewController: BaseViewController {
         age = Int(sender.value * 100)
     }
     
-    func setAgeFormLabel() {
-        ageFormLabel.text = "I am \(age) years old..."
+    func setLabelText() {
+        let format = NSLocalizedString("age.label", comment: "")
+        ageFormLabel.text = String.localizedStringWithFormat(format, age)
+        
     }
 }
