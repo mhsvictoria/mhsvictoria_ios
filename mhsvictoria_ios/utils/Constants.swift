@@ -10,6 +10,7 @@ import UIKit
 
 let ageKey = "age"
 let defaultAge = 25
+let sliderDivisor: Float = 100
 let margin: CGFloat = 20
 let marginMedLrg: CGFloat = 40
 let marginLrg: CGFloat = 80
