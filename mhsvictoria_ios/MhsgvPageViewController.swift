@@ -10,7 +10,7 @@ import UIKit
 
 class MhsgvPageViewController: UIPageViewController {
     
-    var currentSelection: Int = 0 {
+    var currentSelection: Int = FormFlow.age.rawValue {
         didSet {
             NSLog("<><><> PAGE: currentSelection \(currentSelection)")
             goToPage(currentSelection)
@@ -19,9 +19,9 @@ class MhsgvPageViewController: UIPageViewController {
     
     fileprivate lazy var pages: [BaseViewController] = {
         return [
-            self.getViewController(withIdentifier: viewArray[0], number: 0),
-            self.getViewController(withIdentifier: viewArray[1], number: 1),
-            self.getViewController(withIdentifier: viewArray[2], number: 2),
+            self.getViewController(withIdentifier: viewArray[FormFlow.age.rawValue], number: FormFlow.age.rawValue),
+            self.getViewController(withIdentifier: viewArray[FormFlow.description.rawValue], number: FormFlow.description.rawValue),
+            self.getViewController(withIdentifier: viewArray[FormFlow.resourcePreference.rawValue], number: FormFlow.resourcePreference.rawValue),
            
         ]
     }()
@@ -39,7 +39,7 @@ class MhsgvPageViewController: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.layer.cornerRadius = 10
+        view.layer.cornerRadius = cornerRadius
         
         self.dataSource = self
         self.delegate   = self
@@ -62,7 +62,7 @@ class MhsgvPageViewController: UIPageViewController {
             return
         }
         
-        if page == 3 {
+        if page == FormFlow.end.rawValue {
             if let lastVC = pages.last
             {
                 setViewControllers([lastVC], direction: .forward, animated: true, completion: nil)
@@ -79,7 +79,7 @@ extension MhsgvPageViewController: UIPageViewControllerDataSource
 {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
-        guard let viewControllerIndex = pages.index(of: viewController as! BaseViewController) else {
+        guard let viewControllerIndex = pages.firstIndex(of: viewController as! BaseViewController) else {
             return nil
         }
         
@@ -98,7 +98,7 @@ extension MhsgvPageViewController: UIPageViewControllerDataSource
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController?
     {
-        guard let viewControllerIndex = pages.index(of: viewController as! BaseViewController) else {
+        guard let viewControllerIndex = pages.firstIndex(of: viewController as! BaseViewController) else {
             return nil
         }
         

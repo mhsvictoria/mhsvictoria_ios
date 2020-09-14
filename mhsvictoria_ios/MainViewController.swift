@@ -16,14 +16,31 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = background
-        header.backgroundColor = toolbar
-        let yOffset = header.frame.minY + header.frame.height + 20
-        containerView.frame = CGRect(x: 20, y: yOffset, width: view.frame.width - 40, height: view.frame.height - yOffset - 80)
+        view.backgroundColor = backgroundColor
+        header.backgroundColor = toolbarColor
+        
+        header.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        NSLayoutConstraint.activate([
+            header.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            header.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            header.topAnchor.constraint(equalTo: view.topAnchor, constant: margin),
+            header.heightAnchor.constraint(equalToConstant: toolbarHeight)
+        ])
+        
+        let yOffset = header.frame.minY + header.frame.height + margin
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
+            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
+            containerView.topAnchor.constraint(equalTo: view.topAnchor, constant: yOffset + margin),
+            containerView.heightAnchor.constraint(equalTo: view.heightAnchor, constant: -(yOffset + marginLrg))
+            ])
         
     }
     
-
     /*
     // MARK: - Navigation
 
