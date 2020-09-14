@@ -15,7 +15,7 @@
 		2A00754B24BD4A7000BB1AEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A00754924BD4A7000BB1AEA /* LaunchScreen.storyboard */; };
 		2A00755624BD4A7000BB1AEA /* mhsvictoria_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A00755524BD4A7000BB1AEA /* mhsvictoria_iosTests.swift */; };
 		2A00756124BD4A7100BB1AEA /* mhsvictoria_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A00756024BD4A7100BB1AEA /* mhsvictoria_iosUITests.swift */; };
-		2A09FD68250D966600CDF9CF /* mhsgv.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A09FD67250D966600CDF9CF /* mhsgv.strings */; };
+		2A09FD68250D966600CDF9CF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A09FD67250D966600CDF9CF /* Localizable.strings */; };
 		2A09FD6A250D9A3E00CDF9CF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A09FD69250D9A3E00CDF9CF /* Constants.swift */; };
 		2A57ADAD24DB30A400F9A9ED /* brain_sm.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A57ADAC24DB30A400F9A9ED /* brain_sm.png */; };
 		2A57ADAF24DB313A00F9A9ED /* brain_sm_rot.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A57ADAE24DB313A00F9A9ED /* brain_sm_rot.png */; };
@@ -65,7 +65,7 @@
 		2A00755C24BD4A7100BB1AEA /* mhsvictoria_iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mhsvictoria_iosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A00756024BD4A7100BB1AEA /* mhsvictoria_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mhsvictoria_iosUITests.swift; sourceTree = "<group>"; };
 		2A00756224BD4A7100BB1AEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2A09FD67250D966600CDF9CF /* mhsgv.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = mhsgv.strings; sourceTree = "<group>"; };
+		2A09FD67250D966600CDF9CF /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		2A09FD69250D9A3E00CDF9CF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2A57ADAC24DB30A400F9A9ED /* brain_sm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brain_sm.png; sourceTree = "<group>"; };
 		2A57ADAE24DB313A00F9A9ED /* brain_sm_rot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brain_sm_rot.png; sourceTree = "<group>"; };
@@ -172,7 +172,7 @@
 		2A09FD66250D964100CDF9CF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2A09FD67250D966600CDF9CF /* mhsgv.strings */,
+				2A09FD67250D966600CDF9CF /* Localizable.strings */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -306,7 +306,7 @@
 			files = (
 				2A5DEDE224D595830076AEE4 /* brain_lrg.png in Resources */,
 				2A00754B24BD4A7000BB1AEA /* LaunchScreen.storyboard in Resources */,
-				2A09FD68250D966600CDF9CF /* mhsgv.strings in Resources */,
+				2A09FD68250D966600CDF9CF /* Localizable.strings in Resources */,
 				2A57ADAD24DB30A400F9A9ED /* brain_sm.png in Resources */,
 				2A00754824BD4A7000BB1AEA /* Assets.xcassets in Resources */,
 				2A57ADAF24DB313A00F9A9ED /* brain_sm_rot.png in Resources */,
@@ -523,7 +523,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C98XPK248W;
+				DEVELOPMENT_TEAM = X2A3RDFR7B;
 				INFOPLIST_FILE = mhsvictoria_ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -541,7 +541,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C98XPK248W;
+				DEVELOPMENT_TEAM = X2A3RDFR7B;
 				INFOPLIST_FILE = mhsvictoria_ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
