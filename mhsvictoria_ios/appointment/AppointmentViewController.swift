@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AppointmentKit
 
 class AppointmentViewController: UIViewController {
 
