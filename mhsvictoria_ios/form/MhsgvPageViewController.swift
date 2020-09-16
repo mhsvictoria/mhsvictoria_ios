@@ -30,7 +30,7 @@ class MhsgvPageViewController: UIPageViewController {
     {
         
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier) as? BaseViewController
-        vc?.lessonNumber = number
+        vc?.pageNumber = number
         vc?.mhsgvPageViewController = self
         return vc!
         
