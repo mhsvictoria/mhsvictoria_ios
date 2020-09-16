@@ -25,7 +25,7 @@ class MainViewController: UIViewController {
         NSLayoutConstraint.activate([
             header.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             header.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            header.topAnchor.constraint(equalTo: view.topAnchor, constant: margin),
+            header.topAnchor.constraint(equalTo: view.topAnchor, constant: toolbarOffset),
             header.heightAnchor.constraint(equalToConstant: toolbarHeight)
         ])
         

@@ -7,4 +7,6 @@
 */
 
 "age.label" = "I am %d years old....";
+"cell.personal.preferences" = "Personal Preferences";
+"section.resource.search" = "Resource Search";
 
