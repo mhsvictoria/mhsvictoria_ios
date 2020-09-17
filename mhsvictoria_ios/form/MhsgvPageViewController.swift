@@ -38,9 +38,7 @@ class MhsgvPageViewController: UIPageViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.layer.cornerRadius = cornerRadius
-        
         self.dataSource = self
         self.delegate   = self
         
