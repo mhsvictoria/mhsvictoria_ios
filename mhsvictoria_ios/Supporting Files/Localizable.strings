@@ -7,6 +7,8 @@
 */
 
 "age.label" = "I am %d years old....";
-"cell.personal.preferences" = "Personal Preferences";
-"section.resource.search" = "Resource Search";
+"section.resource.search" = "Personal Preferences";
+"cell.personal.preferences" = "Create filters ...";
+"section.appointments" = "Manage Appointments";
+"cell.appointment.management" = "Create an appointment ...";
 
