@@ -22,11 +22,6 @@
                                     <segue destination="8iB-NI-buh" kind="embed" id="5fg-px-YEw"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NUs-2W-LyR">
-                                <rect key="frame" x="6" y="188" width="414" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="qIf-YH-mXl"/>
@@ -34,7 +29,6 @@
                     <navigationItem key="navigationItem" id="97B-VD-7lQ"/>
                     <connections>
                         <outlet property="containerView" destination="vKQ-Oc-yVK" id="TPz-Pu-z9q"/>
-                        <outlet property="header" destination="NUs-2W-LyR" id="69O-Yc-aA8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C8X-qf-zPd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
