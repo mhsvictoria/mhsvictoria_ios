@@ -21,3 +21,45 @@ extension  UIColor{
 
 let backgroundColor = UIColor(0x225c77)
 let toolbarColor = UIColor(0xcfdee5)
+
+// Background
+let backgroundWhite = UIColor(0xFFFFFF)
+let background = UIColor(0xFAFAFA)
+
+// Indigo 500
+let indigo = UIColor(0x3F51B5)
+let indigoVariantDark = UIColor(0x303F9F)
+let indigoVariantLight = UIColor(0x9FA8DA)
+
+// PRIMARY
+// Teal 500
+// teal: 009688
+let primary = UIColor(0x008896)
+// 0x009688AA
+let primaryAlpha = UIColor(0x009688AA)
+
+// Teal 700
+// 0x00796B
+let primaryVariantDark = UIColor(0x006B79)
+// Teal 200
+// 0x80CBC4
+let primaryVariantLight = UIColor(0x80C4CB)
+
+// SECONDARY
+// Teal A100
+// 0xA7FFEB
+let secondary = UIColor(0xA7EBFF)
+// Teal A400
+// 0x1DE9B6
+let secondaryDark = UIColor(0x1DB6E9)
+
+let accent = UIColor(0xAFFFEF)
+
+// Red 200
+let error = UIColor(0xE57373)
+
+let textDark = UIColor(displayP3Red: 68.0/255.0, green: 68.0/255.0, blue: 68.0/255.0, alpha: 1)
+
+let textLight = UIColor(displayP3Red: 112.0/255.0, green: 112.0/255.0, blue: 112.0/255.0, alpha: 1)
+
+let inactive = UIColor(displayP3Red: 0.7, green: 0.7, blue: 0.7, alpha: 1)

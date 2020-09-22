@@ -30,6 +30,24 @@ class HeaderView: UIView {
         
     }
     
+    var headerLabel: UILabel?
+    
+    convenience init(frame: CGRect, header: String?, font: UIFont?, color: UIColor?) {
+        self.init(frame: frame)
+        
+        headerLabel = UILabel(frame: CGRect(x: 0, y: (frame.height - font!.pointSize)/2, width: frame.width, height: font!.pointSize))
+        headerLabel?.text = header
+        headerLabel?.textColor = color
+        headerLabel?.font = font
+        headerLabel?.textAlignment = .right
+        addSubview(headerLabel!)
+    }
+
+    
+    override func layoutSubviews() {
+        headerLabel?.frame.size.width = frame.width
+    }
+    
     private func initialization() {
         backgroundColor = toolbarColor
         
