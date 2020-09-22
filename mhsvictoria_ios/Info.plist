@@ -60,5 +60,13 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>NSRemindersUsageDescription</key>
+    <string>Needed for managing reminders.</string>
+    <key>NSCalendarsUsageDescription</key>
+    <string>Needed for managing the calendar.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Used to show the proximity of search results.</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Used to locate where the user currently is.</string>
 </dict>
 </plist>

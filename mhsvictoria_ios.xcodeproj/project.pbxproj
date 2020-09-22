@@ -30,6 +30,10 @@
 		2A069C8525198EA300DCDFFE /* MonthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A069C7A25198EA300DCDFFE /* MonthViewController.swift */; };
 		2A069CAD2519B29F00DCDFFE /* ViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A069CAC2519B29F00DCDFFE /* ViewUtil.swift */; };
 		2A069CB02519B33400DCDFFE /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A069CAF2519B33400DCDFFE /* CardView.swift */; };
+		2A069CB9251A255200DCDFFE /* AppointmentDividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A069CB7251A255200DCDFFE /* AppointmentDividerView.swift */; };
+		2A069CBA251A255200DCDFFE /* ActionbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A069CB8251A255200DCDFFE /* ActionbarView.swift */; };
+		2A069CBC251A25AA00DCDFFE /* LogoBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A069CBB251A25AA00DCDFFE /* LogoBarView.swift */; };
+		2A069CBE251A25DE00DCDFFE /* ShadowedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A069CBD251A25DE00DCDFFE /* ShadowedLabel.swift */; };
 		2A09FD68250D966600CDF9CF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A09FD67250D966600CDF9CF /* Localizable.strings */; };
 		2A09FD6A250D9A3E00CDF9CF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A09FD69250D9A3E00CDF9CF /* Constants.swift */; };
 		2A09FD9D2512959200CDF9CF /* AppointmentKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A09FD95251294E500CDF9CF /* AppointmentKit.framework */; };
@@ -130,6 +134,10 @@
 		2A069C7A25198EA300DCDFFE /* MonthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthViewController.swift; sourceTree = "<group>"; };
 		2A069CAC2519B29F00DCDFFE /* ViewUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtil.swift; sourceTree = "<group>"; };
 		2A069CAF2519B33400DCDFFE /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		2A069CB7251A255200DCDFFE /* AppointmentDividerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppointmentDividerView.swift; sourceTree = "<group>"; };
+		2A069CB8251A255200DCDFFE /* ActionbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionbarView.swift; sourceTree = "<group>"; };
+		2A069CBB251A25AA00DCDFFE /* LogoBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoBarView.swift; sourceTree = "<group>"; };
+		2A069CBD251A25DE00DCDFFE /* ShadowedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowedLabel.swift; sourceTree = "<group>"; };
 		2A09FD67250D966600CDF9CF /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		2A09FD69250D9A3E00CDF9CF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2A09FD8F251294E500CDF9CF /* AppointmentKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AppointmentKit.xcodeproj; path = ../AppointmentKit/AppointmentKit.xcodeproj; sourceTree = "<group>"; };
@@ -261,6 +269,10 @@
 		2A069CAE2519B31A00DCDFFE /* view */ = {
 			isa = PBXGroup;
 			children = (
+				2A069CBD251A25DE00DCDFFE /* ShadowedLabel.swift */,
+				2A069CBB251A25AA00DCDFFE /* LogoBarView.swift */,
+				2A069CB8251A255200DCDFFE /* ActionbarView.swift */,
+				2A069CB7251A255200DCDFFE /* AppointmentDividerView.swift */,
 				2A09FDAD25129DB200CDF9CF /* HeaderView.swift */,
 				2A069CAF2519B33400DCDFFE /* CardView.swift */,
 			);
@@ -513,6 +525,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A069CB9251A255200DCDFFE /* AppointmentDividerView.swift in Sources */,
+				2A069CBC251A25AA00DCDFFE /* LogoBarView.swift in Sources */,
 				2A09FD6A250D9A3E00CDF9CF /* Constants.swift in Sources */,
 				2A00753F24BD4A7000BB1AEA /* AppDelegate.swift in Sources */,
 				2A09FDA22512971900CDF9CF /* MhsgvTableViewCell.swift in Sources */,
@@ -525,6 +539,7 @@
 				2A069CB02519B33400DCDFFE /* CardView.swift in Sources */,
 				2A09FDB22512A04A00CDF9CF /* FontUtil.swift in Sources */,
 				2A00754124BD4A7000BB1AEA /* SceneDelegate.swift in Sources */,
+				2A069CBA251A255200DCDFFE /* ActionbarView.swift in Sources */,
 				2A069C6C25198E7500DCDFFE /* AppointmentDetailsView.swift in Sources */,
 				2A09FDA82512988300CDF9CF /* AppointmentViewController.swift in Sources */,
 				2A069C8425198EA300DCDFFE /* CalendarViewController.swift in Sources */,
@@ -538,6 +553,7 @@
 				2A09FDA42512973B00CDF9CF /* MasterTableViewController.swift in Sources */,
 				2ABF438324DE256900F7A747 /* Form3ViewController.swift in Sources */,
 				2ABF437C24DE247000F7A747 /* MainViewController.swift in Sources */,
+				2A069CBE251A25DE00DCDFFE /* ShadowedLabel.swift in Sources */,
 				2A069C8225198EA300DCDFFE /* MonthsCollectionView.swift in Sources */,
 				2A069C6E25198E7500DCDFFE /* AppointmentFormView.swift in Sources */,
 				2A09FDAE25129DB200CDF9CF /* HeaderView.swift in Sources */,

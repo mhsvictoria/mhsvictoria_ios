@@ -41,7 +41,7 @@ class AppointmentFormView: UIView {
     
     private func initViews() {
         self.backgroundColor = UIColor.clear
-        
+         
         titleField = UITextField()
         addSubview(titleField)
         titleField.placeholder = "Enter a title"
@@ -75,7 +75,7 @@ class AppointmentFormView: UIView {
         
         initDatePickers()
     }
-    
+   
     override func layoutSubviews() {
         super.layoutSubviews()
         

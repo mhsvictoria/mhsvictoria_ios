@@ -21,6 +21,9 @@ extension  UIColor{
 
 let backgroundColor = UIColor(0x225c77)
 let toolbarColor = UIColor(0xcfdee5)
+let primaryVariantDark = UIColor(0xbeded5)
+let primaryVariantLight = UIColor(0xdefef5)
+let primaryVariant = toolbarColor
 
 // Background
 let backgroundWhite = UIColor(0xFFFFFF)
@@ -37,13 +40,6 @@ let indigoVariantLight = UIColor(0x9FA8DA)
 let primary = UIColor(0x008896)
 // 0x009688AA
 let primaryAlpha = UIColor(0x009688AA)
-
-// Teal 700
-// 0x00796B
-let primaryVariantDark = UIColor(0x006B79)
-// Teal 200
-// 0x80CBC4
-let primaryVariantLight = UIColor(0x80C4CB)
 
 // SECONDARY
 // Teal A100

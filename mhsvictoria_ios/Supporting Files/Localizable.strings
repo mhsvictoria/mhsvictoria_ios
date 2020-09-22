@@ -5,7 +5,7 @@
   Created by Ron Allan on 2020-09-12.
   Copyright © 2020 Ron Allan. All rights reserved.
 */
-
+"app.name" = "Mental Health Society of Greater Victoria";
 "age.label" = "I am %d years old....";
 "section.resource.search" = "Personal Preferences";
 "cell.personal.preferences" = "Create filters ...";

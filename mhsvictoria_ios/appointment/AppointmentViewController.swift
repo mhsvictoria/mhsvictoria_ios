@@ -9,82 +9,91 @@
 import UIKit
 import AppointmentKit
 
-class AppointmentViewController: UIViewController {
-    
+class AppointmentViewController: UIViewController, ActionbarDelegate {
+
     var appointmentDelegate: AppointmentDelegate?
     var appointmentId: String?
     
     var appointmentManager: AppointmentManager?
-    var appointmentFormView: AppointmentFormView?
-    /*
-    override func initActionbar() {
-        super.initActionbar()
-        actionbarView.actionbarDelegate = self
-        if appointmentFormView?.appointment != nil {
-            manageButtonState(.updating)
-        } else {
-            manageButtonState(.clear)
-        }
+    
+    @IBOutlet weak var appointmentFormView: AppointmentFormView!
+    
+    enum ButtonState {
+        case clear, creating, updating, initial
     }
-    */
+    
+    var currentButtonState: ButtonState = .clear
+    @IBOutlet weak var actionbarView: ActionbarView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        appointmentFormView = AppointmentFormView()
-        self.view.addSubview(appointmentFormView!)
         
         appointmentManager = AppointmentManager(appointmentDelegate: self)
         
         if let _ = AppointmentManager.selected {
-            appointmentFormView?.appointment = AppointmentManager.selected
+            appointmentFormView.appointment = AppointmentManager.selected
         }
         
-        appointmentFormView?.titleField?.addTarget(self, action: #selector(titleFieldDidChange), for: .editingChanged)
+        appointmentFormView.titleField?.addTarget(self, action: #selector(titleFieldDidChange), for: .editingChanged)
         
-        appointmentFormView?.descriptionField?.addTarget(self, action: #selector(descriptionFieldDidChange), for: .editingChanged)
+        appointmentFormView.descriptionField?.addTarget(self, action: #selector(descriptionFieldDidChange), for: .editingChanged)
         
-        //initActionbar()
+        initActionbar()
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
-        appointmentFormView?.translatesAutoresizingMaskIntoConstraints = false
+        actionbarView.translatesAutoresizingMaskIntoConstraints = false
         
-        appointmentFormView?.widthAnchor.constraint(equalToConstant: self.view.frame.width - margin).isActive = true
-        appointmentFormView?.heightAnchor.constraint(equalToConstant: 3 * self.view.frame.height/4).isActive = true
-        appointmentFormView?.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-        appointmentFormView?.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            actionbarView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
+            actionbarView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
+            actionbarView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -margin),
+            actionbarView.heightAnchor.constraint(equalToConstant: 64)
+        ])
+        
+        appointmentFormView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            appointmentFormView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
+            appointmentFormView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
+            appointmentFormView.bottomAnchor.constraint(equalTo: actionbarView.topAnchor, constant: -margin),
+            appointmentFormView.topAnchor.constraint(equalTo: view.topAnchor, constant: marginLrg)
+        ])
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    
+    private func initActionbar() {
+        actionbarView.actionbarDelegate = self
+        if appointmentFormView.appointment != nil {
+            manageButtonState(.updating)
+        } else {
+            manageButtonState(.clear)
+        }
         
-        self.view.backgroundColor = UIColor.clear
-        
-        appointmentFormView?.backgroundColor = UIColor.clear
-        self.view.bringSubviewToFront(appointmentFormView!)
+        actionbarView.backgroundColor = toolbarColor
         
     }
     
     @objc func titleFieldDidChange(_ sender: UITextField) {
-        /*
-        if (sender.text?.count)! > 0  || (appointmentFormView?.descriptionField?.text?.count)! > 0{
+        
+        if (sender.text?.count)! > 0  || (appointmentFormView.descriptionField?.text?.count)! > 0{
             manageButtonState(.creating)
         } else {
             manageButtonState(.clear)
-        }*/
+        }
     }
     
     @objc func descriptionFieldDidChange(_ sender: UITextField) {
-        /*
-        if (sender.text?.count)! > 0 || (appointmentFormView?.titleField?.text?.count)! > 0 {
+        
+        if (sender.text?.count)! > 0 || (appointmentFormView.titleField?.text?.count)! > 0 {
             manageButtonState(.creating)
         } else {
             manageButtonState(.clear)
-        }*/
+        }
     }
-    /*
+    
     func onAction(_ action: SelectedAction, message: String?) {
         switch(action) {
         case .clear:
@@ -101,41 +110,72 @@ class AppointmentViewController: UIViewController {
             break
         }
     }
-    */
+    
+    func manageButtonState(_ state: ButtonState) {
+        
+        switch(state) {
+        case .creating:
+            actionbarView.createButton.setTitle(actionbarView.createText, for: .normal)
+            actionbarView.clearButton.isEnabled = true
+            actionbarView.createButton.isEnabled = true
+            actionbarView.deleteButton.isEnabled = false
+            break
+        case .updating:
+            actionbarView?.createButton.setTitle(actionbarView.updateText, for: .normal)
+            actionbarView.clearButton.isEnabled = true
+            actionbarView.createButton.isEnabled = true
+            actionbarView.deleteButton.isEnabled = true
+            break
+        case .clear:
+            actionbarView.createButton.setTitle(actionbarView.createText, for: .normal)
+            actionbarView.clearButton.isEnabled = false
+            actionbarView.createButton.isEnabled = false
+            actionbarView.deleteButton.isEnabled = false
+            break
+        case .initial:
+            actionbarView.createButton.setTitle(actionbarView.createText, for: .normal)
+            actionbarView.clearButton.isEnabled = true
+            actionbarView.createButton.isEnabled = false
+            actionbarView.deleteButton.isEnabled = false
+            break
+        }
+        currentButtonState = state
+    }
+    
     private func clear() {
-        appointmentFormView?.titleField.text = ""
-        appointmentFormView?.descriptionField.text = ""
-        //manageButtonState(.clear)
+        appointmentFormView.titleField.text = ""
+        appointmentFormView.descriptionField.text = ""
+        manageButtonState(.clear)
     }
     
     private func create() {
-        let appointment = Appointment((appointmentFormView?.titleField?.text)!, startTime: (appointmentFormView?.dateFrom.date)!, endTime: (appointmentFormView?.dateTo.date)!, timeZone: TimeZone.current)
-        appointment.notes = appointmentFormView?.descriptionField?.text
+        let appointment = Appointment((appointmentFormView.titleField?.text)!, startTime: (appointmentFormView.dateFrom.date), endTime: (appointmentFormView.dateTo.date), timeZone: TimeZone.current)
+        appointment.notes = appointmentFormView.descriptionField?.text
         onAppointmentAction(appointment: appointment, action: .make)
         
         // reset
-        appointmentFormView?.fromToSelect?.selectedSegmentIndex = 0
-        appointmentFormView?.dateTo?.isHidden = true
-        appointmentFormView?.dateFrom?.isHidden = false
+        appointmentFormView.fromToSelect?.selectedSegmentIndex = 0
+        appointmentFormView.dateTo?.isHidden = true
+        appointmentFormView.dateFrom?.isHidden = false
         clear()
     }
     
     private func delete() {
-        let appointment = appointmentFormView?.appointment
+        let appointment = appointmentFormView.appointment
         onAppointmentAction(appointment: appointment!, action: .cancel)
         clear()
     }
     
     private func update() {
-        let appointment = Appointment((appointmentFormView?.titleField?.text)!, startTime: (appointmentFormView?.dateFrom.date)!, endTime: (appointmentFormView?.dateTo.date)!, timeZone: TimeZone.current)
-        appointment.notes = appointmentFormView?.descriptionField?.text
+        let appointment = Appointment((appointmentFormView.titleField?.text)!, startTime: (appointmentFormView.dateFrom.date), endTime: (appointmentFormView.dateTo.date), timeZone: TimeZone.current)
+        appointment.notes = appointmentFormView.descriptionField?.text
         onAppointmentAction(appointment: appointment, action: .make)
         appointment.identifier = appointmentId
         onAppointmentAction(appointment: appointment, action: .update)
         // reset
-        appointmentFormView?.fromToSelect?.selectedSegmentIndex = 0
-        appointmentFormView?.dateTo?.isHidden = true
-        appointmentFormView?.dateFrom?.isHidden = false
+        appointmentFormView.fromToSelect?.selectedSegmentIndex = 0
+        appointmentFormView.dateTo?.isHidden = true
+        appointmentFormView.dateFrom?.isHidden = false
         clear()
     }
 }
@@ -160,12 +200,12 @@ extension AppointmentViewController: AppointmentDelegate {
             break
         case .completed:
             DispatchQueue.main.async {
-                self.appointmentFormView?.setNeedsLayout()
+                self.appointmentFormView.setNeedsLayout()
             }
             break
         case .select:
-            appointmentFormView?.appointment = appointment
-            //manageButtonState(.updating)
+            appointmentFormView.appointment = appointment
+            manageButtonState(.updating)
             break
         }
     }
@@ -187,7 +227,7 @@ extension AppointmentViewController: AppointmentDelegate {
         }
         
         DispatchQueue.main.async {
-            self.appointmentFormView?.setNeedsLayout()
+            self.appointmentFormView.setNeedsLayout()
         }
     }
     

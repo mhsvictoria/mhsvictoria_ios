@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HeaderView: UIView {
+public class HeaderView: UIView {
     
     var title: String? {
         didSet {
@@ -27,7 +27,6 @@ class HeaderView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         initialization()
-        
     }
     
     var headerLabel: UILabel?
@@ -43,14 +42,9 @@ class HeaderView: UIView {
         addSubview(headerLabel!)
     }
 
-    
-    override func layoutSubviews() {
-        headerLabel?.frame.size.width = frame.width
-    }
-    
     private func initialization() {
         backgroundColor = toolbarColor
-        
+        headerLabel?.frame.size.width = frame.width
     }
 
     /*

@@ -147,16 +147,31 @@
         <!--Appointment View Controller-->
         <scene sceneID="1g2-kq-2el">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7zk-fY-bYX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="k5c-RY-hlW" customClass="AppointmentViewController" customModule="mhsvictoria_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dWR-qZ-aGH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X1t-Da-QXF" customClass="ActionbarView" customModule="pika" customModuleProvider="target">
+                                <rect key="frame" x="20" y="731" width="374" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SsA-W5-FPu" customClass="AppointmentFormView" customModule="mhsvictoria_ios" customModuleProvider="target">
+                                <rect key="frame" x="20" y="20" width="374" height="669"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="e3f-Pa-4He"/>
                     </view>
-                    <navigationItem key="navigationItem" id="E3v-r4-cHx"/>
+                    <connections>
+                        <outlet property="actionbarView" destination="X1t-Da-QXF" id="ug3-4a-ehe"/>
+                        <outlet property="appointmentFormView" destination="SsA-W5-FPu" id="zPH-50-kjb"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7zk-fY-bYX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="92.753623188405811" y="-244.41964285714283"/>
         </scene>
