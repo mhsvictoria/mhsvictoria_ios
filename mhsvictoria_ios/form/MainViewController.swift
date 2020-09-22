@@ -14,9 +14,8 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var containerView: UIView!
     //NEW CODE
-    let pageButtons = UIPageControl()
-    let imageView = UIImageView(image: UIImage(named: "brain_sm.png"))
-    let imageView2 = UIImageView(image: UIImage(named: "brain_sm.png"))
+    var pageViewController: MhsgvPageViewController? = nil
+    let pageControl = CustomPageControl()
     //NEW CODE END
     
     override func viewDidLoad() {
@@ -24,15 +23,24 @@ class MainViewController: UIViewController {
         view.backgroundColor = backgroundColor
         header.backgroundColor = toolbarColor
         
-        print(containerView.subviews[0].subviews)
+        //TODO add page control constraints
+        
+        /*
+        let lineImage = UIImageView(image: drawLine())
+        view.addSubview(lineImage)
         
         
-        //TODO NEW CODE HERE
+        lineImage.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            lineImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            lineImage.topAnchor.constraint(equalTo: header.bottomAnchor, constant: margin + 2 + dotSize / 2)
+        ])
         
-    
-        print(pageButtons.subviews)
-        
+        pageButtons.pageIndicatorTintColor = dark_grey
         pageButtons.numberOfPages = 3
+        pageButtons.setIndicatorImage(drawCircle(num: 0, selected: false), forPage: 0)
+        pageButtons.setIndicatorImage(drawCircle(num: 1, selected: false), forPage: 1)
+        pageButtons.setIndicatorImage(drawCircle(num: 2, selected: false), forPage: 2)
         view.addSubview(pageButtons)
         pageButtons.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -40,22 +48,9 @@ class MainViewController: UIViewController {
             pageButtons.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
             pageButtons.topAnchor.constraint(equalTo: header.bottomAnchor, constant: margin)
         ])
-        pageButtons.addSubview(imageView)
-        pageButtons.addSubview(imageView2)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView2.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            imageView2.leadingAnchor.constraint(equalTo: pageButtons.leadingAnchor),
-            imageView2.topAnchor.constraint(equalTo: pageButtons.topAnchor)
-        ])
-        NSLayoutConstraint.activate([
-            imageView.trailingAnchor.constraint(equalTo: pageButtons.trailingAnchor),
-            imageView.topAnchor.constraint(equalTo: pageButtons.topAnchor)
-        ])
-        view.bringSubviewToFront(pageButtons)
-        
-        //NEW CODE END
-        
+        //pageButtons.addTarget(self, action: #selector(self.buttonPressed), for: .touchUpInside)
+        pageButtons.addTarget(self, action: #selector(self.valueChange), for: .valueChanged)
+        */
         header.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             header.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
@@ -74,5 +69,17 @@ class MainViewController: UIViewController {
             containerView.heightAnchor.constraint(equalTo: view.heightAnchor, constant: -(yOffset + marginLrg))
             ])
         
+    }
+    
+    
+    @objc func valueChange(_ sender: UIPageControl) {
+        print(sender.currentPage)
+        if let pvc = pageViewController {
+            pvc.currentSelection = sender.currentPage
+        }
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        self.pageViewController = segue.destination as? MhsgvPageViewController
+        self.pageViewController.pageControl = pageControl
     }
 }

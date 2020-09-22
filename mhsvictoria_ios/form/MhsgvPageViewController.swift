@@ -10,6 +10,8 @@ import UIKit
 
 class MhsgvPageViewController: UIPageViewController {
     
+    
+    let pageControl: CustomPageControl? = nil
     var currentSelection: Int = FormFlow.age.rawValue {
         didSet {
             NSLog("<><><> PAGE: currentSelection \(currentSelection)")
