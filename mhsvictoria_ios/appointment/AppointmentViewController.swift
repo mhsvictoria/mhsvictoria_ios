@@ -27,16 +27,15 @@ class AppointmentViewController: UIViewController, ActionbarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         appointmentManager = AppointmentManager(appointmentDelegate: self)
         
         if let _ = AppointmentManager.selected {
             appointmentFormView.appointment = AppointmentManager.selected
         }
         
-        appointmentFormView.titleField?.addTarget(self, action: #selector(titleFieldDidChange), for: .editingChanged)
+        appointmentFormView.titleField.addTarget(self, action: #selector(titleFieldDidChange), for: .editingChanged)
         
-        appointmentFormView.descriptionField?.addTarget(self, action: #selector(descriptionFieldDidChange), for: .editingChanged)
+        appointmentFormView.descriptionField.addTarget(self, action: #selector(descriptionFieldDidChange), for: .editingChanged)
         
         initActionbar()
     }
@@ -47,10 +46,10 @@ class AppointmentViewController: UIViewController, ActionbarDelegate {
         actionbarView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            actionbarView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
-            actionbarView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
+            actionbarView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            actionbarView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             actionbarView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -margin),
-            actionbarView.heightAnchor.constraint(equalToConstant: 64)
+            actionbarView.heightAnchor.constraint(equalToConstant: controlBarHeight)
         ])
         
         appointmentFormView.translatesAutoresizingMaskIntoConstraints = false
@@ -78,7 +77,7 @@ class AppointmentViewController: UIViewController, ActionbarDelegate {
     
     @objc func titleFieldDidChange(_ sender: UITextField) {
         
-        if (sender.text?.count)! > 0  || (appointmentFormView.descriptionField?.text?.count)! > 0{
+        if (sender.text?.count)! > 0  || (appointmentFormView.descriptionField.text?.count)! > 0{
             manageButtonState(.creating)
         } else {
             manageButtonState(.clear)
@@ -87,7 +86,7 @@ class AppointmentViewController: UIViewController, ActionbarDelegate {
     
     @objc func descriptionFieldDidChange(_ sender: UITextField) {
         
-        if (sender.text?.count)! > 0 || (appointmentFormView.titleField?.text?.count)! > 0 {
+        if (sender.text?.count)! > 0 || (appointmentFormView.titleField.text?.count)! > 0 {
             manageButtonState(.creating)
         } else {
             manageButtonState(.clear)
@@ -149,14 +148,14 @@ class AppointmentViewController: UIViewController, ActionbarDelegate {
     }
     
     private func create() {
-        let appointment = Appointment((appointmentFormView.titleField?.text)!, startTime: (appointmentFormView.dateFrom.date), endTime: (appointmentFormView.dateTo.date), timeZone: TimeZone.current)
-        appointment.notes = appointmentFormView.descriptionField?.text
+        let appointment = Appointment((appointmentFormView.titleField.text)!, startTime: (appointmentFormView.dateFrom.date), endTime: (appointmentFormView.dateTo.date), timeZone: TimeZone.current)
+        appointment.notes = appointmentFormView.descriptionField.text
         onAppointmentAction(appointment: appointment, action: .make)
         
         // reset
-        appointmentFormView.fromToSelect?.selectedSegmentIndex = 0
-        appointmentFormView.dateTo?.isHidden = true
-        appointmentFormView.dateFrom?.isHidden = false
+        appointmentFormView.fromToSelect.selectedSegmentIndex = 0
+        appointmentFormView.dateTo.isHidden = true
+        appointmentFormView.dateFrom.isHidden = false
         clear()
     }
     
@@ -167,15 +166,15 @@ class AppointmentViewController: UIViewController, ActionbarDelegate {
     }
     
     private func update() {
-        let appointment = Appointment((appointmentFormView.titleField?.text)!, startTime: (appointmentFormView.dateFrom.date), endTime: (appointmentFormView.dateTo.date), timeZone: TimeZone.current)
-        appointment.notes = appointmentFormView.descriptionField?.text
+        let appointment = Appointment((appointmentFormView.titleField.text)!, startTime: (appointmentFormView.dateFrom.date), endTime: (appointmentFormView.dateTo.date), timeZone: TimeZone.current)
+        appointment.notes = appointmentFormView.descriptionField.text
         onAppointmentAction(appointment: appointment, action: .make)
         appointment.identifier = appointmentId
         onAppointmentAction(appointment: appointment, action: .update)
         // reset
-        appointmentFormView.fromToSelect?.selectedSegmentIndex = 0
-        appointmentFormView.dateTo?.isHidden = true
-        appointmentFormView.dateFrom?.isHidden = false
+        appointmentFormView.fromToSelect.selectedSegmentIndex = 0
+        appointmentFormView.dateTo.isHidden = true
+        appointmentFormView.dateFrom.isHidden = false
         clear()
     }
 }

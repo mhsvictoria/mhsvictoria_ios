@@ -11,15 +11,15 @@ import AppointmentKit
 
 class AppointmentFormView: UIView {
     
-    var titleField: UITextField!
-    var descriptionField: UITextField!
-    var dateFromToLabel: UILabel!
-    var dateToLabel: UILabel!
-    var dateFrom: UIDatePicker!
-    var dateTo: UIDatePicker!
+    let titleField = UITextField()
+    let descriptionField = UITextField()
+    let dateFromToLabel = UILabel()
+    let dateToLabel = UILabel()
+    let dateFrom = UIDatePicker()
+    let dateTo = UIDatePicker()
+    let fromToSelect = UISegmentedControl()
     
     var appointmentId: String?
-    var fromToSelect: UISegmentedControl?
     
     var appointment: Appointment? {
         didSet {
@@ -41,66 +41,80 @@ class AppointmentFormView: UIView {
     
     private func initViews() {
         self.backgroundColor = UIColor.clear
-         
-        titleField = UITextField()
+        
         addSubview(titleField)
         titleField.placeholder = "placeholder.enter.title".localized
-        titleField.font = UIFont(name: "Arial", size: fontSizeSmall)
+        titleField.font = UIFont(name: "Arial", size: fontSizeMed)
         titleField.borderStyle = .bezel
         titleField.tag = 0
         
-        descriptionField = UITextField()
         addSubview(descriptionField)
         descriptionField.placeholder = "placeholder.enter.description".localized
-        descriptionField.font = UIFont(name: "Arial", size: fontSizeSmall)
+        descriptionField.font = UIFont(name: "Arial", size: fontSizeMed)
         descriptionField.borderStyle = .bezel
         
-        dateFromToLabel = UILabel()
         dateFromToLabel.font = UIFont(name: "Arial", size: fontSizeSmall)
+        dateFromToLabel.text = "Date From"
+        dateFromToLabel.textColor = UIColor(0x225c77)
         addSubview(dateFromToLabel)
         
-        fromToSelect = UISegmentedControl()
-        fromToSelect?.insertSegment(withTitle: "time.starting.label".localized, at: 0, animated: true)
-        fromToSelect?.insertSegment(withTitle: "time.ending.label".localized, at: 1, animated: true)
-        fromToSelect?.tintColor = primaryVariantLight
-        fromToSelect?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: primaryVariantDark, NSAttributedString.Key.font: UIFont(name: fontName, size: fontSizeMed) as Any], for: .selected)
-        fromToSelect?.selectedSegmentIndex = 0
-        fromToSelect?.addTarget(self, action: #selector(onValueChanged), for: .valueChanged)
-        self.addSubview(fromToSelect!)
+        fromToSelect.insertSegment(withTitle: "time.starting.label".localized, at: 0, animated: true)
+        fromToSelect.insertSegment(withTitle: "time.ending.label".localized, at: 1, animated: true)
+        fromToSelect.tintColor = UIColor.black
+        fromToSelect.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(0x225c77), NSAttributedString.Key.font: UIFont(name: fontName, size: fontSizeMed) as Any],  for: .selected)
+    
+        fromToSelect.selectedSegmentIndex = 0
+    
+        fromToSelect.addTarget(self, action: #selector(onValueChanged), for: .valueChanged)
+        addSubview(fromToSelect)
         
-        dateFrom = UIDatePicker()
         addSubview(dateFrom)
-        dateTo = UIDatePicker()
         addSubview(dateTo)
-        
         initDatePickers()
     }
    
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        var y: CGFloat = 0
-        let x: CGFloat = 0
-        let margin: CGFloat = 6
-        let fieldHeight: CGFloat = 24
+        titleField.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            titleField.leadingAnchor.constraint(equalTo: leadingAnchor),
+            titleField.trailingAnchor.constraint(equalTo: trailingAnchor),
+            titleField.heightAnchor.constraint(equalToConstant: textFieldHeight)
+        ])
         
-        y += margin
-        titleField.frame = CGRect(x: 0, y: y, width: frame.width - 2 * x, height: fieldHeight)
-        NSLog("titleField.frame: \(titleField.frame)")
-        y += fieldHeight + margin
-        titleField.contentMode = .scaleToFill
-        descriptionField.frame = CGRect(x: 0, y: y, width: frame.width - 2 * x, height: fieldHeight)
-        y += fieldHeight + margin/2
+        descriptionField.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            descriptionField.topAnchor.constraint(equalTo: titleField.bottomAnchor, constant: marginSmall),
+            descriptionField.leadingAnchor.constraint(equalTo: leadingAnchor),
+            descriptionField.trailingAnchor.constraint(equalTo: trailingAnchor),
+            descriptionField.heightAnchor.constraint(equalToConstant: textFieldHeight)
+        ])
         
-        dateFromToLabel.frame = CGRect(x: 0, y: y, width: frame.width - x, height: fieldHeight)
+        dateFromToLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            dateFromToLabel.topAnchor.constraint(equalTo: descriptionField.bottomAnchor, constant: marginSmall),
+            dateFromToLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            dateFromToLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            dateFromToLabel.heightAnchor.constraint(equalToConstant: textFieldHeight)
+        ])
         
-        y += fieldHeight
-        fromToSelect?.frame = CGRect(x: 0, y: y, width: frame.width - 2 * x, height: fieldHeight)
-        y += fieldHeight
-        let height: CGFloat = self.frame.height - y - 2 * margin
-        dateFrom.frame = CGRect(x: 0, y: y, width: frame.width - 2 * x, height: height)
-        dateTo.frame = CGRect(x: 0, y: y, width: frame.width - 2 * x, height: height)
-       
+        fromToSelect.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            fromToSelect.topAnchor.constraint(equalTo: dateFromToLabel.bottomAnchor, constant: marginTiny),
+            fromToSelect.leadingAnchor.constraint(equalTo: leadingAnchor),
+            fromToSelect.trailingAnchor.constraint(equalTo: trailingAnchor),
+            fromToSelect.heightAnchor.constraint(equalToConstant: textFieldHeight)
+        ])
+        
+        dateFrom.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            dateFrom.topAnchor.constraint(equalTo: fromToSelect.bottomAnchor, constant: marginSmall),
+            dateFrom.leadingAnchor.constraint(equalTo: leadingAnchor),
+            dateFrom.trailingAnchor.constraint(equalTo: trailingAnchor),
+            dateFrom.heightAnchor.constraint(equalToConstant: frame.height/2)
+        ])
+        dateTo.frame = dateFrom.frame
     }
     
     func setAppointment(_ appointment: Appointment) {
@@ -115,11 +129,13 @@ class AppointmentFormView: UIView {
     
     @objc func onValueChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 1 {
-            dateTo?.isHidden = false
-            dateFrom?.isHidden = true
+            dateTo.isHidden = false
+            dateFrom.isHidden = true
+            dateFromToLabel.text = "Date To"
         } else {
-            dateTo?.isHidden = true
-            dateFrom?.isHidden = false
+            dateTo.isHidden = true
+            dateFrom.isHidden = false
+            dateFromToLabel.text = "Date From"
         }
     }
     
@@ -133,9 +149,9 @@ class AppointmentFormView: UIView {
         dateTo.maximumDate = dateFrom.maximumDate
         dateTo.minuteInterval = 30
         dateTo.addTarget(self, action: #selector(onToChanged), for: .valueChanged)
-        fromToSelect?.selectedSegmentIndex = 0
-        dateTo?.isHidden = true
-        dateFrom?.isHidden = false
+        fromToSelect.selectedSegmentIndex = 0
+        dateTo.isHidden = true
+        dateFrom.isHidden = false
         
     }
     
