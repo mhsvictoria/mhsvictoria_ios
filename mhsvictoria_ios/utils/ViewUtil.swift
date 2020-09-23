@@ -35,6 +35,12 @@ class ViewUtil {
     
 }
 
+extension String {
+    var localized: String {
+        return NSLocalizedString(self, tableName: "Localizable", bundle: Bundle.main, value: "", comment: "")
+    }
+}
+
 extension UIView {
     func createShadow() {
         layer.shadowColor = UIColor.black.cgColor

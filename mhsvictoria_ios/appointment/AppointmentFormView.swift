@@ -44,14 +44,14 @@ class AppointmentFormView: UIView {
          
         titleField = UITextField()
         addSubview(titleField)
-        titleField.placeholder = "Enter a title"
+        titleField.placeholder = "placeholder.enter.title".localized
         titleField.font = UIFont(name: "Arial", size: fontSizeSmall)
         titleField.borderStyle = .bezel
         titleField.tag = 0
         
         descriptionField = UITextField()
         addSubview(descriptionField)
-        descriptionField.placeholder = "Enter a description"
+        descriptionField.placeholder = "placeholder.enter.description".localized
         descriptionField.font = UIFont(name: "Arial", size: fontSizeSmall)
         descriptionField.borderStyle = .bezel
         
@@ -60,8 +60,8 @@ class AppointmentFormView: UIView {
         addSubview(dateFromToLabel)
         
         fromToSelect = UISegmentedControl()
-        fromToSelect?.insertSegment(withTitle: "Starting", at: 0, animated: true)
-        fromToSelect?.insertSegment(withTitle: "Ending", at: 1, animated: true)
+        fromToSelect?.insertSegment(withTitle: "time.starting.label".localized, at: 0, animated: true)
+        fromToSelect?.insertSegment(withTitle: "time.ending.label".localized, at: 1, animated: true)
         fromToSelect?.tintColor = primaryVariantLight
         fromToSelect?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: primaryVariantDark, NSAttributedString.Key.font: UIFont(name: fontName, size: fontSizeMed) as Any], for: .selected)
         fromToSelect?.selectedSegmentIndex = 0

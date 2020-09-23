@@ -12,3 +12,8 @@
 "section.appointments" = "Manage Appointments";
 "cell.appointment.management" = "Create an appointment ...";
 
+"placeholder.enter.title" = "Enter a title";
+"placeholder.enter.description" = "Enter a description";
+"time.starting.label" = "Starting";
+"time.ending.label" = "Ending";
+
