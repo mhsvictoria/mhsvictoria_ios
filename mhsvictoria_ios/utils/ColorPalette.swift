@@ -21,7 +21,7 @@ extension  UIColor{
 
 let backgroundColor = UIColor(0x225c77)
 let toolbarColor = UIColor(0xcfdee5)
-let dark_grey = UIColor(0x9f8d8d)
+let darkGrey = UIColor(0x9f8d8d)
 let light_grey = UIColor(0xd4d4d4)
 let unselectedGrey = UIColor(0xe4e4e4)
 let accent = UIColor(0xe44a4d)

@@ -18,8 +18,7 @@ let cornerRadius: CGFloat = 10
 let toolbarHeight: CGFloat = 100
 let toolbarOffset: CGFloat = 60
 let headerHeight: CGFloat = 60
-
-let dotSize: CGFloat = 25
+let buttonSize: CGFloat = 40
 // Once the number of forms is nailed down
 // we can update these values to match
 enum FormFlow: Int {

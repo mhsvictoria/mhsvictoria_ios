@@ -11,11 +11,15 @@ import UIKit
 class MhsgvPageViewController: UIPageViewController {
     
     
-    let pageControl: CustomPageControl? = nil
+    var pageControl: CustomPageControl? = nil
+    var nextPage: Int = 0
     var currentSelection: Int = FormFlow.age.rawValue {
         didSet {
             NSLog("<><><> PAGE: currentSelection \(currentSelection)")
             goToPage(currentSelection)
+            if let pControl = pageControl {
+                pControl.selected = currentSelection
+            }
         }
     }
     
@@ -78,7 +82,6 @@ class MhsgvPageViewController: UIPageViewController {
 extension MhsgvPageViewController: UIPageViewControllerDataSource
 {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        
         guard let viewControllerIndex = pages.firstIndex(of: viewController as! BaseViewController) else {
             return nil
         }
@@ -102,7 +105,6 @@ extension MhsgvPageViewController: UIPageViewControllerDataSource
             return nil
         }
         
-        
         let nextIndex = viewControllerIndex + 1
         
         guard nextIndex < pages.count else {
@@ -118,4 +120,28 @@ extension MhsgvPageViewController: UIPageViewControllerDataSource
 }
 
 extension MhsgvPageViewController: UIPageViewControllerDelegate {
+    
+    
+    
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        if completed {
+            if let pControl = pageControl {
+                pControl.selected = nextPage
+            }
+        }
+    }
+    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
+        for i in 0..<pages.count {
+            if pendingViewControllers[0] == pages[i] {
+                nextPage = i
+            }
+        }
+    }
+}
+
+extension MhsgvPageViewController: CustomPageControlDelegate {
+    
+    func buttonWasPressed(_ number: Int) {
+        self.currentSelection = number
+    }
 }
