@@ -38,24 +38,27 @@ class MasterTableViewController: UITableViewController, AppointmentDelegate {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        /*
-        // PREFERENCES
-        if section == 0 {
+        
+        switch(section) {
+        case 0:
             if resources != nil && !resources!.isEmpty {
                 return resources!.count + 1
+            } else {
+                return 2
             }
-        } else if section == 1 {
-            // APPOINTMENTS
+        case 1:
             if appointments != nil && !appointments!.isEmpty {
                 return appointments!.count + 1
+            } else {
+                return 2
             }
-        } else {
-            // LOCATIONS
+        default:
             if mappedResources != nil && !mappedResources!.isEmpty {
                 return mappedResources!.count + 1
+            } else {
+                return 1
             }
-        }*/
-        return 2
+        }
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -66,7 +69,7 @@ class MasterTableViewController: UITableViewController, AppointmentDelegate {
                 cell.textLabel?.text = NSLocalizedString("cell.personal.preferences", comment: "")
                 cell.textLabel?.font = createFont
                 cell.accessoryView = UIImageView(image: UIImage(systemName: "arrow.turn.up.right"))
-                cell.accessoryView?.tintColor = UIColor(0x225c77)
+                cell.accessoryView?.tintColor = primaryDark
                 cell.section = indexPath.section
                 return cell
             } else {
@@ -95,15 +98,15 @@ class MasterTableViewController: UITableViewController, AppointmentDelegate {
                 cell.textLabel?.font = createFont
                 cell.section = indexPath.section
                 cell.accessoryView = UIImageView(image: UIImage(systemName: "arrow.turn.up.right"))
-                cell.accessoryView?.tintColor = UIColor(0x225c77)
+                cell.accessoryView?.tintColor = primaryDark
                 return cell
             } else {
                 if appointments != nil && !appointments!.isEmpty {
                     let cell = tableView.dequeueReusableCell(withIdentifier: "appointmentCell", for: indexPath) as! AppointmentCell
                     let appointment = appointments?[indexPath.row - 1]
                     cell.title = appointment?.title
-                    cell.accessoryView = UIImageView(image: UIImage(systemName: "calendar"))
-                    cell.accessoryView?.tintColor = backgroundColor
+                    cell.accessoryView = UIImageView(image: UIImage(systemName: "chevron.right"))
+                    cell.accessoryView?.tintColor = primaryDark
                     cell.dateStr = ViewUtil.formatStartEndDate(appointment)
                     return cell
                 } else {
@@ -124,16 +127,15 @@ class MasterTableViewController: UITableViewController, AppointmentDelegate {
                 cell.textLabel?.font = createFont
                 cell.section = indexPath.section
                 cell.accessoryView = UIImageView(image: UIImage(systemName: "arrow.turn.up.right"))
-                cell.accessoryView?.tintColor = UIColor(0x225c77)
+                cell.accessoryView?.tintColor = primaryDark
                 return cell
-            } else {
+            } /*else {
                 if mappedResources != nil && !mappedResources!.isEmpty {
                     let cell = tableView.dequeueReusableCell(withIdentifier: "appointmentCell", for: indexPath) as! AppointmentCell
-                    let appointment = appointments?[indexPath.row - 1]
-                    cell.title = appointment?.title
-                    cell.accessoryView = UIImageView(image: UIImage(systemName: "map"))
+                    let mappedResource = mappedResources?[indexPath.row - 1]
+                    cell.title = mappedResource?.name
+                    cell.accessoryView = UIImageView(image: UIImage(systemName: "chevron.right"))
                     cell.accessoryView?.tintColor = backgroundColor
-                    cell.dateStr = ViewUtil.formatStartEndDate(appointment)
                     return cell
                 } else {
                     let cell = tableView.dequeueReusableCell(withIdentifier: "mhsgvCell", for: indexPath) as! MhsgvTableViewCell
@@ -142,7 +144,7 @@ class MasterTableViewController: UITableViewController, AppointmentDelegate {
                     cell.textLabel?.textColor = textLight
                     return cell
                 }
-            }
+            }*/
         }
         
         return tableView.dequeueReusableCell(withIdentifier: "mhsgvCell", for: indexPath) as! MhsgvTableViewCell
@@ -169,7 +171,7 @@ class MasterTableViewController: UITableViewController, AppointmentDelegate {
         }
         
         if section == 2 {
-            headerView.buttonName = "mappin"
+            headerView.buttonName = "map"
             headerView.title = NSLocalizedString("section.map", comment: "")
         }
         return headerView
@@ -194,6 +196,11 @@ class MasterTableViewController: UITableViewController, AppointmentDelegate {
             self.navigationController?.performSegue(withIdentifier: "appointmentSegue", sender: self)
             break
         default:
+            if indexPath.row > 0 {
+                let appointment = appointments?[indexPath.row - 1]
+                AppointmentManager.selected = appointment
+            }
+            self.navigationController?.performSegue(withIdentifier: "mapSegue", sender: self)
             break
         }
     }
@@ -208,6 +215,9 @@ class MasterTableViewController: UITableViewController, AppointmentDelegate {
         }
         if segue.identifier == "appointmentSegue" {
             present(AppointmentViewController(), animated: true, completion: nil)
+        }
+        if segue.identifier == "mapSegue" {
+            present(MapViewController(), animated: true, completion: nil)
         }
     }
     

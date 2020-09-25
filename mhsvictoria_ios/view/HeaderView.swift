@@ -16,7 +16,7 @@ public class HeaderView: UIView {
             label.textAlignment = .left
             label.font = sectionHeaderFont
             label.text = title
-            label.textColor = UIColor(0x225c77)
+            label.textColor = primaryDark
             addSubview(label)
             
             // chevron.right
@@ -27,7 +27,7 @@ public class HeaderView: UIView {
         didSet {
             let button = UIButton(frame: CGRect(x: margin, y: (frame.height - imageSize)/2, width: imageSize, height: imageSize))
             button.setImage(UIImage(systemName: buttonName!), for: .normal)
-            button.tintColor = UIColor(0x225c77)
+            button.tintColor = primaryDark
             addSubview(button)
         }
     }
@@ -55,7 +55,7 @@ public class HeaderView: UIView {
     }
 
     private func initialization() {
-        backgroundColor = toolbarColor
+        backgroundColor = backgroundColor
         headerLabel?.frame.size.width = frame.width - margin
     }
 

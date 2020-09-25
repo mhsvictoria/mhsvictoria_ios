@@ -19,7 +19,7 @@ extension  UIColor{
     }
 }
 
-let backgroundColor = UIColor(0x225c77)
+let primaryDark = UIColor(0x225c77)
 let toolbarColor = UIColor(0xcfdee5)
 let primaryVariantDark = UIColor(0xbeded5)
 let primaryVariantLight = UIColor(0xdefef5)

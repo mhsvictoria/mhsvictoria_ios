@@ -55,13 +55,13 @@ class AppointmentFormView: UIView {
         
         dateFromToLabel.font = UIFont(name: "Arial", size: fontSizeSmall)
         dateFromToLabel.text = "Date From"
-        dateFromToLabel.textColor = UIColor(0x225c77)
+        dateFromToLabel.textColor = primaryDark
         addSubview(dateFromToLabel)
         
         fromToSelect.insertSegment(withTitle: "time.starting.label".localized, at: 0, animated: true)
         fromToSelect.insertSegment(withTitle: "time.ending.label".localized, at: 1, animated: true)
         fromToSelect.tintColor = UIColor.black
-        fromToSelect.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(0x225c77), NSAttributedString.Key.font: UIFont(name: fontName, size: fontSizeMed) as Any],  for: .selected)
+        fromToSelect.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: primaryDark, NSAttributedString.Key.font: UIFont(name: fontName, size: fontSizeMed) as Any],  for: .selected)
     
         fromToSelect.selectedSegmentIndex = 0
     

@@ -7,6 +7,32 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Map View Controller-->
+        <scene sceneID="gqT-hn-A3K">
+            <objects>
+                <viewController storyboardIdentifier="mapViewController" id="RGC-Fb-wIE" customClass="MapViewController" customModule="mhsvictoria_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="evI-WA-WDN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DIv-Wx-Mbv">
+                                <rect key="frame" x="20" y="0.0" width="374" height="808"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="DIv-Wx-Mbv" firstAttribute="top" secondItem="1cI-d2-GoC" secondAttribute="top" id="APl-NB-kBq"/>
+                            <constraint firstItem="1cI-d2-GoC" firstAttribute="trailing" secondItem="DIv-Wx-Mbv" secondAttribute="trailing" constant="20" id="UnR-JO-H6B"/>
+                            <constraint firstItem="DIv-Wx-Mbv" firstAttribute="bottom" secondItem="1cI-d2-GoC" secondAttribute="bottom" id="ZpN-Ow-nco"/>
+                            <constraint firstItem="DIv-Wx-Mbv" firstAttribute="leading" secondItem="1cI-d2-GoC" secondAttribute="leading" constant="20" id="ecF-Kc-rtl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1cI-d2-GoC"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1AK-XS-Bdg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1330.4347826086957" y="-1352.0089285714284"/>
+        </scene>
         <!--Main View Controller-->
         <scene sceneID="BGs-WZ-C4i">
             <objects>
@@ -168,12 +194,6 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SsA-W5-FPu" customClass="AppointmentFormView" customModule="mhsvictoria_ios" customModuleProvider="target">
                                 <rect key="frame" x="20" y="20" width="374" height="669"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="map" translatesAutoresizingMaskIntoConstraints="NO" id="NZl-eN-mhm">
-                                        <rect key="frame" x="67" y="248" width="240" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                         </subviews>
@@ -232,6 +252,7 @@
                         <segue destination="TIv-89-wcz" kind="relationship" relationship="rootViewController" id="0de-QB-9Nx"/>
                         <segue destination="0VE-Ma-L76" kind="showDetail" identifier="formSegue" id="4AF-Uk-Vkw"/>
                         <segue destination="k5c-RY-hlW" kind="showDetail" identifier="appointmentSegue" id="2nL-Vm-p7E"/>
+                        <segue destination="RGC-Fb-wIE" kind="showDetail" identifier="mapSegue" id="wXp-YI-GTS"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TVe-gC-zzs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -239,7 +260,4 @@
             <point key="canvasLocation" x="-1668.1159420289857" y="-550.44642857142856"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="map" width="128" height="128"/>
-    </resources>
 </document>
