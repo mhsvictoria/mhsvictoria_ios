@@ -59,3 +59,35 @@ let textDark = UIColor(displayP3Red: 68.0/255.0, green: 68.0/255.0, blue: 68.0/2
 let textLight = UIColor(displayP3Red: 112.0/255.0, green: 112.0/255.0, blue: 112.0/255.0, alpha: 1)
 
 let inactive = UIColor(displayP3Red: 0.7, green: 0.7, blue: 0.7, alpha: 1)
+
+// Green Theme
+let primaryThemeGreen = UIColor(0x9ccc65)
+let primaryLightThemeGreen = UIColor(0xcfff95)
+let primaryDarkThemeGreen = UIColor(0x6b9b37)
+let primaryThemeGreenText = UIColor(0x212121)
+
+let secondaryThemeBlue = UIColor(0x64b5f6)
+let secondaryThemeBlueLight = UIColor(0x9be7ff)
+let secondaryThemeBlueDark = UIColor(0x2286c3)
+let secondaryThemeBlueText = UIColor(0xe1f5fe)
+
+let pastelAmber = UIColor(0xFFBF00)
+let pastelGold = UIColor(0xE8BF8B)
+let pastelMauve = UIColor(0x9393bb)
+
+let rainbowViolet = UIColor(0x9400D3)
+let rainbowIndigo = UIColor(0x4B0082)
+let rainbowBlue = UIColor(0x0000FF)
+let rainbowGreen = UIColor(0x00FF00)
+let rainbowYellow = UIColor(0xFFFF00)
+let rainbowOrange = UIColor(0xFF7F00)
+let rainbowRed = UIColor(0xFF0000)
+
+// original lesson colors
+let pastelRed = UIColor(0xff739b)
+let pastelOrange = UIColor(0xF57C00)
+let pastelYellow = UIColor(0xFFBF00)
+let pastelGreen = UIColor(0x73e89b)
+let pastelBlue = UIColor(0x93bbf8)
+let pastelBrown = UIColor(0xf3d2b2)
+let pastelIndigo = UIColor(0xEE82EE)

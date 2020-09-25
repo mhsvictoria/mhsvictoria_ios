@@ -10,10 +10,11 @@
 "section.resource.search" = "Personal Preferences";
 "cell.personal.preferences" = "Create filters ...";
 "section.appointments" = "Manage Appointments";
-"cell.appointment.management" = "Create an appointment ...";
+"cell.appointment.management" = "Create an appointment";
 
 "placeholder.enter.title" = "Enter a title";
 "placeholder.enter.description" = "Enter a description";
 "time.starting.label" = "Starting";
 "time.ending.label" = "Ending";
+"appointment.allday" = "All Day";
 

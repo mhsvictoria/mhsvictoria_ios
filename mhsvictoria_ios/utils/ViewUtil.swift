@@ -26,7 +26,7 @@ class ViewUtil {
             return ""
         }
         if (appointment?.isAllDay)! {
-            return NSLocalizedString("pika.appointment.allday", tableName: "pika", comment: "")
+            return "appointment.allday".localized
         }
         
         return formatStartEndTime((appointment?.startTime)!, (appointment?.endTime)!)

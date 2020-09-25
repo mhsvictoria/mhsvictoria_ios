@@ -11,6 +11,7 @@ import UIKit
 let ageKey = "age"
 let defaultAge = 25
 let sliderDivisor: Float = 100
+let imageSize: CGFloat = 24
 let marginTiny: CGFloat = 4
 let marginSmall: CGFloat = 10
 let margin: CGFloat = 20
@@ -23,6 +24,7 @@ let controlBarHeight: CGFloat = 64
 let headerHeight: CGFloat = 36
 let pageControlHeight: CGFloat = 44
 let textFieldHeight: CGFloat = 38
+
 
 // Once the number of forms is nailed down
 // we can update these values to match
