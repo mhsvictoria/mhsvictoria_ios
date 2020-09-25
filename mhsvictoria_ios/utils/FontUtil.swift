@@ -8,7 +8,7 @@
 
 import UIKit
 
-let sectionHeaderFont = UIFont(name: "HelveticaNeue-Italic", size: 14.0)
+
 
 let fontName = "Arial"
 // 13, 14, 15, 16, 18, 20, 24, 36
@@ -20,6 +20,9 @@ let fontSizeExtraLarge: CGFloat = 24
 let fontSizeHuge: CGFloat = 36
 
 let buttonFont = UIFont(name: "Helvetica", size: fontSizeMedLarge)
+let sectionHeaderFont = UIFont(name: "HelveticaNeue", size: fontSizeMedLarge)
+let createFont = UIFont(name: "HelveticaNeue", size: fontSizeMed)
+let cellFont = UIFont(name: "Helvetica", size: fontSizeSmall)
 
 extension UIFont {
     

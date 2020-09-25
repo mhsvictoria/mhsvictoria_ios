@@ -12,11 +12,23 @@ public class HeaderView: UIView {
     
     var title: String? {
         didSet {
-            let label = UILabel(frame: CGRect(x: margin, y: 0, width: frame.width - marginLrg, height: frame.height))
+            let label = UILabel(frame: CGRect(x: marginLrg + imageSize, y: 0, width: frame.width - marginLrg, height: frame.height))
             label.textAlignment = .left
             label.font = sectionHeaderFont
             label.text = title
+            label.textColor = UIColor(0x225c77)
             addSubview(label)
+            
+            // chevron.right
+        }
+    }
+    
+    var buttonName: String? {
+        didSet {
+            let button = UIButton(frame: CGRect(x: margin, y: (frame.height - imageSize)/2, width: imageSize, height: imageSize))
+            button.setImage(UIImage(systemName: buttonName!), for: .normal)
+            button.tintColor = UIColor(0x225c77)
+            addSubview(button)
         }
     }
     override init(frame: CGRect) {
@@ -34,7 +46,7 @@ public class HeaderView: UIView {
     convenience init(frame: CGRect, header: String?, font: UIFont?, color: UIColor?) {
         self.init(frame: frame)
         
-        headerLabel = UILabel(frame: CGRect(x: 0, y: (frame.height - font!.pointSize)/2, width: frame.width, height: font!.pointSize))
+        headerLabel = UILabel(frame: CGRect(x: 0, y: (frame.height - font!.pointSize)/2, width: frame.width - margin, height: font!.pointSize))
         headerLabel?.text = header
         headerLabel?.textColor = color
         headerLabel?.font = font
@@ -44,7 +56,7 @@ public class HeaderView: UIView {
 
     private func initialization() {
         backgroundColor = toolbarColor
-        headerLabel?.frame.size.width = frame.width
+        headerLabel?.frame.size.width = frame.width - margin
     }
 
     /*

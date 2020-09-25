@@ -7,14 +7,21 @@
 */
 "app.name" = "Mental Health Society of Greater Victoria";
 "age.label" = "I am %d years old....";
-"section.resource.search" = "Personal Preferences";
-"cell.personal.preferences" = "Create filters ...";
-"section.appointments" = "Manage Appointments";
-"cell.appointment.management" = "Create an appointment";
+
+"section.resource.search" = "Preferences";
+"cell.personal.preferences" = "Search for resources ...";
+"resource.placeholder" = "Resource preferences will appear here.";
+
+"section.appointments" = "Appointments";
+"cell.appointment.management" = "Create appointments ...";
+"appointment.placeholder" = "Appointments will appear here.";
+
+"section.map" = "Mapped Locations";
+"cell.map.management" = "Add routes ...";
+"location.placeholder" = "Locations will appear here.";
 
 "placeholder.enter.title" = "Enter a title";
 "placeholder.enter.description" = "Enter a description";
 "time.starting.label" = "Starting";
 "time.ending.label" = "Ending";
 "appointment.allday" = "All Day";
-

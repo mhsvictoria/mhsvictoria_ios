@@ -13,6 +13,15 @@ class ViewUtil {
     
     static var dateFormat = "MMM dd,yyyy"
     
+    static func formatStartEndDate(_ starting: Date, _ ending: Date) -> String {
+        let format = "MMM d, h:mm a"
+        let startTime = CalendarUtil.formattedDate(starting, timeZone: TimeZone.current.description, format: format)
+        
+        let endTime = CalendarUtil.formattedDate(ending, timeZone: TimeZone.current.description, format: format)
+        
+        return startTime + " - " + endTime
+    }
+    
     static func formatStartEndTime(_ starting: Date, _ ending: Date) -> String {
         
         let startTime = CalendarUtil.formattedDate(starting, timeZone: TimeZone.current.description, format: "hh:mm a")
@@ -20,6 +29,21 @@ class ViewUtil {
         
         return startTime + " - " + endTime
     }
+    
+    static func formatStartEndDate(_ appointment: Appointment?) -> String {
+        
+        guard let _ = appointment else {
+            return ""
+        }
+        if (appointment?.isAllDay)! {
+            return "appointment.allday".localized
+        }
+        
+        let startEndTime = formatStartEndDate((appointment?.startTime)!, (appointment?.endTime)!)
+        
+        return startEndTime
+    }
+    
     static func formatStartEndTime(_ appointment: Appointment?) -> String {
         
         guard let _ = appointment else {
@@ -29,8 +53,9 @@ class ViewUtil {
             return "appointment.allday".localized
         }
         
-        return formatStartEndTime((appointment?.startTime)!, (appointment?.endTime)!)
+        let startEndTime = formatStartEndTime((appointment?.startTime)!, (appointment?.endTime)!)
         
+        return startEndTime
     }
     
 }

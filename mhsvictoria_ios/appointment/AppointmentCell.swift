@@ -14,35 +14,23 @@ class AppointmentCell: UITableViewCell {
     var title: String?  {
         didSet {
             if titleLabel == nil {
-                titleLabel = UILabel(frame: CGRect(x: margin, y: 0, width: self.frame.width - margin, height: fontSizeMed))
-                titleLabel?.font = UIFont(name: fontName, size: fontSizeMed)
+                titleLabel = UILabel(frame: CGRect(x: margin, y: marginSmall, width: self.frame.width - margin, height: fontSizeMed))
+                titleLabel?.font = cellFont
                 titleLabel?.textColor = UIColor.darkText
                 addSubview(titleLabel!)
             }
             titleLabel?.text = title
         }
     }
-    
-    var descriptionLabel: UILabel?
-    var desc: String? {
-        didSet {
-            if descriptionLabel == nil {
-                descriptionLabel = UILabel(frame: CGRect(x: margin, y: fontSizeLarge + marginSmall, width: self.frame.width - marginLrg, height: fontSizeMedLarge))
-                descriptionLabel?.font = UIFont(name: fontName, size: fontSizeSmall)
-                descriptionLabel?.textColor = textLight
-                addSubview(descriptionLabel!)
-            }
-            descriptionLabel?.text = desc
-        }
-    }
-    
+        
     var dateLabel: UILabel!
     var dateStr: String? {
         didSet {
             if dateLabel == nil {
-                dateLabel = UILabel(frame: CGRect(x: frame.width/2, y: marginSmall, width: self.frame.width/2 - marginLrg, height: frame.height -  margin))
+                dateLabel = UILabel(frame: CGRect(x: margin, y: fontSizeLarge + marginSmall, width: self.frame.width - marginLrg, height: fontSizeMedLarge))
                 dateLabel?.font = UIFont(name: fontName, size: fontSizeSmall)
                 dateLabel?.textAlignment = .right
+                dateLabel?.textColor = textLight
                 addSubview(dateLabel!)
             }
             dateLabel?.text = dateStr
