@@ -19,6 +19,8 @@ let fontSizeLarge: CGFloat = 20
 let fontSizeExtraLarge: CGFloat = 24
 let fontSizeHuge: CGFloat = 36
 
+let buttonFont = UIFont(name: "Helvetica", size: fontSizeMedLarge)
+
 extension UIFont {
     
     var bold: UIFont {

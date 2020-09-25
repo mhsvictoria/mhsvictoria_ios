@@ -23,15 +23,14 @@ class MasterTableViewController: UITableViewController, AppointmentDelegate {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         self.navigationController?.navigationBar.barTintColor = toolbarColor
-        
-        // read all of the appointments for the next 2 weeks
-        let appointmentManager = AppointmentManager(appointmentDelegate: self)
-        appointments = appointmentManager.retrieveAllAppointmentsFor(daysAhead: 31, filteredOn: nil)
-        
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        let appointmentManager = AppointmentManager(appointmentDelegate: self)
+        appointments = appointmentManager.retrieveAllAppointmentsFor(daysAhead: 31, filteredOn: "filtered")
+        tableView.reloadData()
+    }
     // MARK: - Table view data source
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 2
@@ -111,6 +110,12 @@ class MasterTableViewController: UITableViewController, AppointmentDelegate {
             self.navigationController?.performSegue(withIdentifier: "formSegue", sender: self)
             break
         case 1:
+            if indexPath.row == 0 {
+                AppointmentManager.selected = nil
+            } else {
+                let appointment = appointments?[indexPath.row - 1]
+                AppointmentManager.selected = appointment
+            }
             self.navigationController?.performSegue(withIdentifier: "appointmentSegue", sender: self)
             break
         default:

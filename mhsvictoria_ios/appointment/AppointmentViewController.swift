@@ -64,7 +64,12 @@ class AppointmentViewController: UIViewController, ActionbarDelegate {
     
     
     private func initActionbar() {
+        actionbarView.createButton.titleLabel?.font = buttonFont
+        actionbarView.clearButton.titleLabel?.font = buttonFont
+        actionbarView.deleteButton.titleLabel?.font = buttonFont
+        
         actionbarView.actionbarDelegate = self
+        
         if appointmentFormView.appointment != nil {
             manageButtonState(.updating)
         } else {
@@ -72,7 +77,6 @@ class AppointmentViewController: UIViewController, ActionbarDelegate {
         }
         
         actionbarView.backgroundColor = toolbarColor
-        
     }
     
     @objc func titleFieldDidChange(_ sender: UITextField) {
@@ -149,7 +153,9 @@ class AppointmentViewController: UIViewController, ActionbarDelegate {
     
     private func create() {
         let appointment = Appointment((appointmentFormView.titleField.text)!, startTime: (appointmentFormView.dateFrom.date), endTime: (appointmentFormView.dateTo.date), timeZone: TimeZone.current)
-        appointment.notes = appointmentFormView.descriptionField.text
+        if let desc = appointmentFormView.descriptionField.text {
+            appointment.notes = desc
+        }
         onAppointmentAction(appointment: appointment, action: .make)
         
         // reset
