@@ -38,6 +38,7 @@ class AppointmentViewController: UIViewController, ActionbarDelegate {
         appointmentFormView.descriptionField.addTarget(self, action: #selector(descriptionFieldDidChange), for: .editingChanged)
         
         initActionbar()
+        view.backgroundColor = primaryDark
     }
     
     override func viewDidLayoutSubviews() {

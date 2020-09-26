@@ -46,21 +46,23 @@ class AppointmentFormView: UIView {
         titleField.placeholder = "placeholder.enter.title".localized
         titleField.font = UIFont(name: "Arial", size: fontSizeMed)
         titleField.borderStyle = .bezel
+        titleField.textColor = UIColor.white
         titleField.tag = 0
         
         addSubview(descriptionField)
         descriptionField.placeholder = "placeholder.enter.description".localized
         descriptionField.font = UIFont(name: "Arial", size: fontSizeMed)
+        descriptionField.textColor = UIColor.white
         descriptionField.borderStyle = .bezel
         
         dateFromToLabel.font = UIFont(name: "Arial", size: fontSizeSmall)
         dateFromToLabel.text = "Date From"
-        dateFromToLabel.textColor = primaryDark
+        dateFromToLabel.textColor = UIColor.white
         addSubview(dateFromToLabel)
         
         fromToSelect.insertSegment(withTitle: "time.starting.label".localized, at: 0, animated: true)
         fromToSelect.insertSegment(withTitle: "time.ending.label".localized, at: 1, animated: true)
-        fromToSelect.tintColor = UIColor.black
+        fromToSelect.tintColor = toolbarColor
         fromToSelect.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: primaryDark, NSAttributedString.Key.font: UIFont(name: fontName, size: fontSizeMed) as Any],  for: .selected)
     
         fromToSelect.selectedSegmentIndex = 0
@@ -140,11 +142,12 @@ class AppointmentFormView: UIView {
     }
     
     private func initDatePickers() {
+        dateFrom.backgroundColor = UIColor.white
         dateFrom.minimumDate = Date().addingTimeInterval(-(60*60*24*3))
         dateFrom.maximumDate = Date().addingTimeInterval(60*60*24*365)
         dateFrom.minuteInterval = 30
         dateFrom.addTarget(self, action: #selector(onFromChanged), for: .valueChanged)
-        
+        dateTo.backgroundColor = UIColor.white
         dateTo.minimumDate = dateFrom.minimumDate
         dateTo.maximumDate = dateFrom.maximumDate
         dateTo.minuteInterval = 30
@@ -152,6 +155,7 @@ class AppointmentFormView: UIView {
         fromToSelect.selectedSegmentIndex = 0
         dateTo.isHidden = true
         dateFrom.isHidden = false
+        
         
     }
     

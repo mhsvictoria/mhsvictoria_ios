@@ -26,9 +26,7 @@ class MasterTableViewController: UITableViewController, AppointmentDelegate {
         
         let resourceManager = ResourceManager()
         resources = resourceManager.retrieveAllResources()
-        
         mappedResources = resourceManager.retrieveAllMappedResources()
-        
         tableView.reloadData()
     }
     
@@ -56,7 +54,7 @@ class MasterTableViewController: UITableViewController, AppointmentDelegate {
             if mappedResources != nil && !mappedResources!.isEmpty {
                 return mappedResources!.count + 1
             } else {
-                return 1
+                return 2
             }
         }
     }
@@ -65,13 +63,7 @@ class MasterTableViewController: UITableViewController, AppointmentDelegate {
         // SECTION 0
         if indexPath.section == 0 {
             if indexPath.row == 0 {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "mhsgvCell", for: indexPath) as! MhsgvTableViewCell
-                cell.textLabel?.text = NSLocalizedString("cell.personal.preferences", comment: "")
-                cell.textLabel?.font = createFont
-                cell.accessoryView = UIImageView(image: UIImage(systemName: "arrow.turn.up.right"))
-                cell.accessoryView?.tintColor = primaryDark
-                cell.section = indexPath.section
-                return cell
+                return firstCellInSection(text: "cell.personal.preferences".localized, indexPath: indexPath)
             } else {
                 if resources != nil, !resources!.isEmpty {
                     let cell = tableView.dequeueReusableCell(withIdentifier: "mhsgvCell", for: indexPath) as! MhsgvTableViewCell
@@ -81,11 +73,7 @@ class MasterTableViewController: UITableViewController, AppointmentDelegate {
                     cell.section = indexPath.section
                     return cell
                 } else {
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "mhsgvCell", for: indexPath) as! MhsgvTableViewCell
-                    cell.textLabel?.text = "resource.placeholder".localized
-                    cell.textLabel?.font = cellFont?.italic
-                    cell.textLabel?.textColor = textLight
-                    return cell
+                    return placeHolderForIndexPath(text: "resource.placeholder".localized, indexPath: indexPath)
                 }
             }
         }
@@ -93,13 +81,7 @@ class MasterTableViewController: UITableViewController, AppointmentDelegate {
         // SECTION 1
         if indexPath.section == 1 {
             if indexPath.row == 0 {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "mhsgvCell", for: indexPath) as! MhsgvTableViewCell
-                cell.textLabel?.text = NSLocalizedString("cell.appointment.management", comment: "")
-                cell.textLabel?.font = createFont
-                cell.section = indexPath.section
-                cell.accessoryView = UIImageView(image: UIImage(systemName: "arrow.turn.up.right"))
-                cell.accessoryView?.tintColor = primaryDark
-                return cell
+                return firstCellInSection(text: "cell.appointment.management".localized, indexPath: indexPath)
             } else {
                 if appointments != nil && !appointments!.isEmpty {
                     let cell = tableView.dequeueReusableCell(withIdentifier: "appointmentCell", for: indexPath) as! AppointmentCell
@@ -110,41 +92,30 @@ class MasterTableViewController: UITableViewController, AppointmentDelegate {
                     cell.dateStr = ViewUtil.formatStartEndDate(appointment)
                     return cell
                 } else {
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "mhsgvCell", for: indexPath) as! MhsgvTableViewCell
-                    cell.textLabel?.text = "appointment.placeholder".localized
-                    cell.textLabel?.font = cellFont?.italic
-                    cell.textLabel?.textColor = textLight
-                    return cell
+                    return placeHolderForIndexPath(text: "appointment.placeholder".localized, indexPath: indexPath)
                 }
             }
         }
         
-        // SECTION 1
+        // SECTION 2
         if indexPath.section == 2 {
             if indexPath.row == 0 {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "mhsgvCell", for: indexPath) as! MhsgvTableViewCell
-                cell.textLabel?.text = NSLocalizedString("cell.map.management", comment: "")
-                cell.textLabel?.font = createFont
-                cell.section = indexPath.section
-                cell.accessoryView = UIImageView(image: UIImage(systemName: "arrow.turn.up.right"))
-                cell.accessoryView?.tintColor = primaryDark
-                return cell
-            } /*else {
+                return firstCellInSection(text: "cell.map.management".localized, indexPath: indexPath)
+            } else {
                 if mappedResources != nil && !mappedResources!.isEmpty {
                     let cell = tableView.dequeueReusableCell(withIdentifier: "appointmentCell", for: indexPath) as! AppointmentCell
                     let mappedResource = mappedResources?[indexPath.row - 1]
                     cell.title = mappedResource?.name
                     cell.accessoryView = UIImageView(image: UIImage(systemName: "chevron.right"))
-                    cell.accessoryView?.tintColor = backgroundColor
+                    cell.accessoryView?.tintColor = primaryDark
                     return cell
                 } else {
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "mhsgvCell", for: indexPath) as! MhsgvTableViewCell
-                    cell.textLabel?.text = "location.placeholder".localized
-                    cell.textLabel?.font = cellFont?.italic
-                    cell.textLabel?.textColor = textLight
+                    let cell =  placeHolderForIndexPath(text: "location.placeholder".localized, indexPath: indexPath)
+                    cell.accessoryView = nil
+                    
                     return cell
                 }
-            }*/
+            }
         }
         
         return tableView.dequeueReusableCell(withIdentifier: "mhsgvCell", for: indexPath) as! MhsgvTableViewCell
@@ -160,21 +131,24 @@ class MasterTableViewController: UITableViewController, AppointmentDelegate {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: headerHeight))
+        
         if section == 0 {
+            let headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: headerHeight), header: "section.resource.search".localized, font: sectionHeaderFont, color: toolbarColor)
             headerView.buttonName = "magnifyingglass"
-            headerView.title = NSLocalizedString("section.resource.search", comment: "")
+           return headerView
         }
         if section == 1 {
+            let headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: headerHeight), header: "section.appointments".localized, font: sectionHeaderFont, color: toolbarColor)
             headerView.buttonName = "calendar"
-            headerView.title = NSLocalizedString("section.appointments", comment: "")
+            return headerView
         }
         
         if section == 2 {
+            let headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: headerHeight), header: "section.map".localized, font: sectionHeaderFont, color: toolbarColor)
             headerView.buttonName = "map"
-            headerView.title = NSLocalizedString("section.map", comment: "")
+            return headerView
         }
-        return headerView
+        return nil
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -227,6 +201,25 @@ class MasterTableViewController: UITableViewController, AppointmentDelegate {
     
     func onAppointmentError(error: String, action: AppointmentAction, id: String?) {
         
+    }
+    
+    private func firstCellInSection(text: String, indexPath: IndexPath) -> MhsgvTableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "mhsgvCell", for: indexPath) as! MhsgvTableViewCell
+        cell.accessoryView = UIImageView(image: UIImage(systemName: "arrow.turn.up.right"))
+        cell.accessoryView?.tintColor = primaryDark
+        cell.section = indexPath.section
+        cell.textLabel?.text = text
+        cell.textLabel?.font = createFont
+        cell.textLabel?.textColor = UIColor.black
+        return cell
+    }
+    
+    private func placeHolderForIndexPath(text: String, indexPath: IndexPath) -> MhsgvTableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "mhsgvCell", for: indexPath) as! MhsgvTableViewCell
+        cell.textLabel?.text = text
+        cell.textLabel?.font = cellFont?.italic
+        cell.textLabel?.textColor = textLight
+        return cell
     }
     
 }

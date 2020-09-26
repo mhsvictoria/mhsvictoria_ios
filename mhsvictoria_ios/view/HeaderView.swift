@@ -27,7 +27,7 @@ public class HeaderView: UIView {
         didSet {
             let button = UIButton(frame: CGRect(x: margin, y: (frame.height - imageSize)/2, width: imageSize, height: imageSize))
             button.setImage(UIImage(systemName: buttonName!), for: .normal)
-            button.tintColor = primaryDark
+            button.tintColor = toolbarColor
             addSubview(button)
         }
     }
@@ -46,16 +46,16 @@ public class HeaderView: UIView {
     convenience init(frame: CGRect, header: String?, font: UIFont?, color: UIColor?) {
         self.init(frame: frame)
         
-        headerLabel = UILabel(frame: CGRect(x: 0, y: (frame.height - font!.pointSize)/2, width: frame.width - margin, height: font!.pointSize))
+        headerLabel = UILabel(frame: CGRect(x: marginLrg + imageSize, y: (frame.height - font!.pointSize)/2, width: frame.width/2, height: font!.pointSize))
         headerLabel?.text = header
         headerLabel?.textColor = color
         headerLabel?.font = font
-        headerLabel?.textAlignment = .right
         addSubview(headerLabel!)
+
     }
 
     private func initialization() {
-        backgroundColor = backgroundColor
+        backgroundColor = primaryDark
         headerLabel?.frame.size.width = frame.width - margin
     }
 

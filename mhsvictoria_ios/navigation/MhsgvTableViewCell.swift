@@ -14,7 +14,7 @@ class MhsgvTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
         textLabel?.textAlignment = .left
     }
 

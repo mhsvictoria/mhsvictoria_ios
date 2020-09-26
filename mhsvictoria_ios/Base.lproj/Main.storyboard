@@ -16,15 +16,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DIv-Wx-Mbv">
-                                <rect key="frame" x="20" y="0.0" width="374" height="808"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="DIv-Wx-Mbv" firstAttribute="top" secondItem="1cI-d2-GoC" secondAttribute="top" id="APl-NB-kBq"/>
-                            <constraint firstItem="1cI-d2-GoC" firstAttribute="trailing" secondItem="DIv-Wx-Mbv" secondAttribute="trailing" constant="20" id="UnR-JO-H6B"/>
-                            <constraint firstItem="DIv-Wx-Mbv" firstAttribute="bottom" secondItem="1cI-d2-GoC" secondAttribute="bottom" id="ZpN-Ow-nco"/>
-                            <constraint firstItem="DIv-Wx-Mbv" firstAttribute="leading" secondItem="1cI-d2-GoC" secondAttribute="leading" constant="20" id="ecF-Kc-rtl"/>
+                            <constraint firstItem="DIv-Wx-Mbv" firstAttribute="top" secondItem="evI-WA-WDN" secondAttribute="top" id="c02-JB-yd7"/>
+                            <constraint firstItem="DIv-Wx-Mbv" firstAttribute="leading" secondItem="1cI-d2-GoC" secondAttribute="leading" id="gYw-RT-pVo"/>
+                            <constraint firstItem="DIv-Wx-Mbv" firstAttribute="trailing" secondItem="1cI-d2-GoC" secondAttribute="trailing" id="rh4-r5-f6S"/>
+                            <constraint firstAttribute="bottom" secondItem="DIv-Wx-Mbv" secondAttribute="bottom" id="xVa-Sb-O1g"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1cI-d2-GoC"/>
                     </view>
@@ -52,7 +52,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="qIf-YH-mXl"/>
                     </view>
-                    <navigationItem key="navigationItem" id="97B-VD-7lQ"/>
                     <connections>
                         <outlet property="containerView" destination="vKQ-Oc-yVK" id="TPz-Pu-z9q"/>
                     </connections>
@@ -209,28 +208,12 @@
             </objects>
             <point key="canvasLocation" x="35" y="-305"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="1zx-Ri-Vhk">
-            <objects>
-                <navigationController id="PBe-st-zfG" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9El-Zd-Np2">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="GEH-K5-zUH" kind="relationship" relationship="rootViewController" id="cwk-BI-1T9"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3q9-QX-AJ8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2504" y="-208"/>
-        </scene>
         <!--Split View Controller-->
         <scene sceneID="JQu-rG-6pV">
             <objects>
                 <splitViewController id="5hD-pe-cYb" sceneMemberID="viewController">
                     <connections>
-                        <segue destination="PBe-st-zfG" kind="relationship" relationship="masterViewController" id="GH6-rF-ZLr"/>
+                        <segue destination="GEH-K5-zUH" kind="relationship" relationship="masterViewController" id="2wH-3E-gIu"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eDM-lB-Rnp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
