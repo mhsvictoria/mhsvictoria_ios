@@ -109,7 +109,6 @@ class CustomPageControl: UIView {
             ctx.cgContext.addLine(to: CGPoint(x: CGFloat(lineLength), y: CGFloat(lineHeight / 2)))
             ctx.cgContext.strokePath()
         }
-
         return img
     }
     

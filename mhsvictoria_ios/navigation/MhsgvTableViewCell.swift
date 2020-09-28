@@ -10,10 +10,12 @@ import UIKit
 
 class MhsgvTableViewCell: UITableViewCell {
 
+    var section: Int = 0
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        textLabel?.textAlignment = .right
+        textLabel?.textAlignment = .left
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

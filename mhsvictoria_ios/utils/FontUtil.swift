@@ -8,5 +8,5 @@
 
 import UIKit
 
-let sectionHeaderFont = UIFont(name: "HelveticaNeue-Italic", size: 22.0)
+let sectionHeaderFont = UIFont(name: "HelveticaNeue-Italic", size: 14.0)
 

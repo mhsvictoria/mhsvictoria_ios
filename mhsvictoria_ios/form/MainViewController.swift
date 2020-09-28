@@ -10,8 +10,6 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    @IBOutlet weak var header: UIView!
-    
     @IBOutlet weak var containerView: UIView!
     var pageViewController: MhsgvPageViewController? = nil
     let pageControl = CustomPageControl(frame: .zero)
@@ -20,7 +18,17 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = backgroundColor
-        header.backgroundColor = toolbarColor
+    }
+    
+    override func viewWillLayoutSubviews() {
+           
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
+            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
+            containerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100 +  pageControlHeight),
+            containerView.heightAnchor.constraint(equalToConstant: view.frame.height/2)
+        ])
         view.addSubview(pageControl)
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         pageControl.isUserInteractionEnabled = true
@@ -28,26 +36,9 @@ class MainViewController: UIViewController {
         NSLayoutConstraint.activate([
             pageControl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
             pageControl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
-            pageControl.topAnchor.constraint(equalTo: header.bottomAnchor, constant: margin),
-            pageControl.heightAnchor.constraint(equalToConstant: buttonSize)
+            pageControl.bottomAnchor.constraint(equalTo: containerView.topAnchor, constant: -margin),
+            pageControl.heightAnchor.constraint(equalToConstant: pageControlHeight)
         ])
-        header.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            header.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            header.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            header.topAnchor.constraint(equalTo: view.topAnchor, constant: toolbarOffset),
-            header.heightAnchor.constraint(equalToConstant: toolbarHeight)
-        ])
-        
-        let yOffset = header.frame.minY + header.frame.height + margin
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
-            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
-            containerView.topAnchor.constraint(equalTo: view.topAnchor, constant: yOffset + margin),
-            containerView.heightAnchor.constraint(equalTo: view.heightAnchor, constant: -(yOffset + marginLrg))
-            ])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -55,4 +46,5 @@ class MainViewController: UIViewController {
         self.pageViewController!.pageControl = pageControl
         pageControl.delegate = self.pageViewController
     }
+
 }
