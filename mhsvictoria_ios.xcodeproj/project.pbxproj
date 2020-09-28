@@ -16,8 +16,6 @@
 		2A00756124BD4A7100BB1AEA /* mhsvictoria_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A00756024BD4A7100BB1AEA /* mhsvictoria_iosUITests.swift */; };
 		2A09FD68250D966600CDF9CF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A09FD67250D966600CDF9CF /* Localizable.strings */; };
 		2A09FD6A250D9A3E00CDF9CF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A09FD69250D9A3E00CDF9CF /* Constants.swift */; };
-		2A09FD9D2512959200CDF9CF /* AppointmentKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A09FD95251294E500CDF9CF /* AppointmentKit.framework */; };
-		2A09FD9E2512959200CDF9CF /* AppointmentKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A09FD95251294E500CDF9CF /* AppointmentKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2A09FDA22512971900CDF9CF /* MhsgvTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A09FDA12512971900CDF9CF /* MhsgvTableViewCell.swift */; };
 		2A09FDA42512973B00CDF9CF /* MasterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A09FDA32512973B00CDF9CF /* MasterTableViewController.swift */; };
 		2A09FDA82512988300CDF9CF /* AppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A09FDA72512988300CDF9CF /* AppointmentViewController.swift */; };
@@ -37,6 +35,7 @@
 		2ABF437F24DE254000F7A747 /* Form1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABF437E24DE254000F7A747 /* Form1ViewController.swift */; };
 		2ABF438124DE255B00F7A747 /* Form2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABF438024DE255B00F7A747 /* Form2ViewController.swift */; };
 		2ABF438324DE256900F7A747 /* Form3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABF438224DE256900F7A747 /* Form3ViewController.swift */; };
+		BFE80CCA2518149B00616941 /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE80CC92518149B00616941 /* CustomPageControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,20 +53,6 @@
 			remoteGlobalIDString = 2A00753A24BD4A7000BB1AEA;
 			remoteInfo = mhsvictoria_ios;
 		};
-		2A09FD94251294E500CDF9CF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2A09FD8F251294E500CDF9CF /* AppointmentKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2A51D611221294E200F9DDE6;
-			remoteInfo = AppointmentKit;
-		};
-		2A09FD96251294E500CDF9CF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2A09FD8F251294E500CDF9CF /* AppointmentKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2A51D61A221294E200F9DDE6;
-			remoteInfo = AppointmentKitTests;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -77,7 +62,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2A09FD9E2512959200CDF9CF /* AppointmentKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,7 +84,6 @@
 		2A00756224BD4A7100BB1AEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A09FD67250D966600CDF9CF /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		2A09FD69250D9A3E00CDF9CF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		2A09FD8F251294E500CDF9CF /* AppointmentKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AppointmentKit.xcodeproj; path = ../AppointmentKit/AppointmentKit.xcodeproj; sourceTree = "<group>"; };
 		2A09FDA12512971900CDF9CF /* MhsgvTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MhsgvTableViewCell.swift; sourceTree = "<group>"; };
 		2A09FDA32512973B00CDF9CF /* MasterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterTableViewController.swift; sourceTree = "<group>"; };
 		2A09FDA72512988300CDF9CF /* AppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +103,7 @@
 		2ABF437E24DE254000F7A747 /* Form1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form1ViewController.swift; sourceTree = "<group>"; };
 		2ABF438024DE255B00F7A747 /* Form2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form2ViewController.swift; sourceTree = "<group>"; };
 		2ABF438224DE256900F7A747 /* Form3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form3ViewController.swift; sourceTree = "<group>"; };
+		BFE80CC92518149B00616941 /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +111,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A09FD9D2512959200CDF9CF /* AppointmentKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,7 +134,6 @@
 		2A00753224BD4A7000BB1AEA = {
 			isa = PBXGroup;
 			children = (
-				2A09FD8F251294E500CDF9CF /* AppointmentKit.xcodeproj */,
 				2A00753D24BD4A7000BB1AEA /* mhsvictoria_ios */,
 				2A00755424BD4A7000BB1AEA /* mhsvictoria_iosTests */,
 				2A00755F24BD4A7100BB1AEA /* mhsvictoria_iosUITests */,
@@ -215,15 +197,6 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2A09FD90251294E500CDF9CF /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2A09FD95251294E500CDF9CF /* AppointmentKit.framework */,
-				2A09FD97251294E500CDF9CF /* AppointmentKitTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		2A09FD9C2512959200CDF9CF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +223,7 @@
 				2ABF438224DE256900F7A747 /* Form3ViewController.swift */,
 				2ABF437924DE247000F7A747 /* MainViewController.swift */,
 				2ABF437A24DE247000F7A747 /* MhsgvPageViewController.swift */,
+				BFE80CC92518149B00616941 /* CustomPageControl.swift */,
 			);
 			path = form;
 			sourceTree = "<group>";
@@ -377,12 +351,6 @@
 			mainGroup = 2A00753224BD4A7000BB1AEA;
 			productRefGroup = 2A00753C24BD4A7000BB1AEA /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 2A09FD90251294E500CDF9CF /* Products */;
-					ProjectRef = 2A09FD8F251294E500CDF9CF /* AppointmentKit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				2A00753A24BD4A7000BB1AEA /* mhsvictoria_ios */,
@@ -391,23 +359,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		2A09FD95251294E500CDF9CF /* AppointmentKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = AppointmentKit.framework;
-			remoteRef = 2A09FD94251294E500CDF9CF /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2A09FD97251294E500CDF9CF /* AppointmentKitTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = AppointmentKitTests.xctest;
-			remoteRef = 2A09FD96251294E500CDF9CF /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2A00753924BD4A7000BB1AEA /* Resources */ = {
@@ -460,6 +411,7 @@
 				2ABF437B24DE247000F7A747 /* BaseViewController.swift in Sources */,
 				2ABF437124DE07E200F7A747 /* ColorPalette.swift in Sources */,
 				2ABF437F24DE254000F7A747 /* Form1ViewController.swift in Sources */,
+				BFE80CCA2518149B00616941 /* CustomPageControl.swift in Sources */,
 				2A09FDA42512973B00CDF9CF /* MasterTableViewController.swift in Sources */,
 				2ABF438324DE256900F7A747 /* Form3ViewController.swift in Sources */,
 				2ABF437C24DE247000F7A747 /* MainViewController.swift in Sources */,
@@ -568,7 +520,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -622,7 +574,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

@@ -34,7 +34,7 @@ class CustomPageControl: UIView {
         lineImgView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             lineImgView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            lineImgView.topAnchor.constraint(equalTo: self.topAnchor, constant: buttonSize / 2 - 2.5)
+            lineImgView.topAnchor.constraint(equalTo: self.topAnchor, constant: buttonSize / 2 - CGFloat(lineHeight / 2))
         ])
         
         for i in 0..<numButtons {
@@ -85,29 +85,31 @@ class CustomPageControl: UIView {
             }
             ctx.cgContext.beginPath()
             let rectangle = CGRect(x: 0, y: 0, width: buttonSize, height: buttonSize)
+            let borderRect = rectangle.insetBy(dx: buttonBorderWidth, dy: buttonBorderWidth)
             ctx.cgContext.setFillColor(fillColor)
             ctx.cgContext.setStrokeColor(strokeColor)
-            ctx.cgContext.setLineWidth(1)
+            ctx.cgContext.setLineWidth(buttonBorderWidth)
             let font = UIFont.systemFont(ofSize: 20)
             let string = NSAttributedString(string: "\(num)", attributes: [NSAttributedString.Key.font: font])
-            ctx.cgContext.addEllipse(in: rectangle)
+            ctx.cgContext.addEllipse(in: borderRect)
             ctx.cgContext.drawPath(using: .fillStroke)
-            let textHeight = font.lineHeight
-            string.draw(at: CGPoint(x: buttonSize / 2 - 7, y: buttonSize / 2 - textHeight / 2))
+            let stringSize = string.size()
+            string.draw(at: CGPoint(x: buttonSize / 2 - stringSize.width / 2, y: buttonSize / 2 - stringSize.height / 2))
         }
         return img
     }
     
     func drawLine() -> UIImage {
         let lineLength = Int(buttonSize) * (numButtons - 2) + numButtons * Int(margin)
-        let renderer = UIGraphicsImageRenderer(size: CGSize(width: lineLength, height: 10))
+        let renderer = UIGraphicsImageRenderer(size: CGSize(width: lineLength, height: lineHeight / 2))
         let img = renderer.image { ctx in
             ctx.cgContext.setStrokeColor(unselectedGrey.cgColor)
-            ctx.cgContext.setLineWidth(2)
-            ctx.cgContext.move(to: CGPoint(x: 0, y: 5))
-            ctx.cgContext.addLine(to: CGPoint(x: CGFloat(lineLength), y: 5))
+            ctx.cgContext.setLineWidth(lineWidth)
+            ctx.cgContext.move(to: CGPoint(x: 0, y: lineHeight / 2))
+            ctx.cgContext.addLine(to: CGPoint(x: CGFloat(lineLength), y: CGFloat(lineHeight / 2)))
             ctx.cgContext.strokePath()
         }
+
         return img
     }
     
