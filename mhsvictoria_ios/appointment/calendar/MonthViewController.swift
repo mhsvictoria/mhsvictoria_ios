@@ -16,6 +16,8 @@ class MonthViewController: UIViewController, UICollectionViewDelegate, UICollect
     let reuseIdentifier = "dayCollectionViewCell"
     
     @IBOutlet weak var daysCollectionView: DaysCollectionView!
+    @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var appointmentDetailsView: AppointmentDetailsView!
     
     private let sectionInsets = UIEdgeInsets(top: 0.0,
                                              left: 0.0,
@@ -36,31 +38,57 @@ class MonthViewController: UIViewController, UICollectionViewDelegate, UICollect
         }
     }
     
-    var monthLabel: UILabel?
-    var currentMonth: String? {
-        didSet {
-            if monthLabel == nil {
-                monthLabel = UILabel(frame: CGRect(x: 20, y: 100, width: self.view.frame.width - 40, height: 40))
-                monthLabel?.textColor = UIColor.darkGray
-                monthLabel?.font = UIFont(name: fontName, size: fontSizeHuge)
-                monthLabel?.textAlignment = .center
-                self.view.addSubview(monthLabel!)
-            }
-            monthLabel?.text = currentMonth
-        }
-    }
+    var currentMonth: String?
     var calendar = Calendar.current
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        monthLabel.textColor = UIColor.darkGray
+        monthLabel.font = UIFont(name: fontName, size: fontSizeHuge)
+        monthLabel.textAlignment = .center
         daysCollectionView.dataSource = self
         daysCollectionView.delegate = self
+        calendarEntry = CalendarUtil.calendarEntryForToday()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         daysCollectionView.reloadData()
         currentSelected = nil
+    }
+    
+    override func viewWillLayoutSubviews() {
+        monthLabel.text = currentMonth
+        monthLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            monthLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
+            monthLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
+            monthLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: marginLrg),
+            monthLabel.heightAnchor.constraint(equalToConstant: controlBarHeight)
+        ])
+        daysCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            daysCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
+            daysCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
+            daysCollectionView.topAnchor.constraint(equalTo: monthLabel.bottomAnchor, constant: -marginSmall),
+            daysCollectionView.heightAnchor.constraint(equalToConstant: view.frame.height/2)
+        ])
+        
+        appointmentDetailsView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            appointmentDetailsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
+            appointmentDetailsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
+            appointmentDetailsView.topAnchor.constraint(equalTo: daysCollectionView.bottomAnchor, constant: -marginSmall),
+            appointmentDetailsView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -margin)
+        ])
+        
+        appointmentDetailsView?.layer.cornerRadius = 8
+        appointmentDetailsView?.layer.shadowColor = UIColor.black.cgColor
+        appointmentDetailsView?.layer.shadowOffset = CGSize(width: 3, height: 2)
+        appointmentDetailsView?.layer.shadowRadius = 4
+        appointmentDetailsView?.layer.shadowPath = UIBezierPath(rect: CGRect(x: 2, y: 2, width: (appointmentDetailsView?.frame.width)!, height: (appointmentDetailsView?.frame.height)!)).cgPath
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -74,6 +102,10 @@ class MonthViewController: UIViewController, UICollectionViewDelegate, UICollect
         appointmentsLastMonth = appointmentManager.retrieveAllAppointmentsFor(month: (calendarEntry?.lastMonth)!, day: 1, year: (calendarEntry?.lastMonthYear)!, daysAhead: (calendarEntry?.numberOfDaysLastMonth)!, filteredOn: nil)
         
         appointmentsThisMonth = appointmentManager.retrieveAllAppointmentsFor(month: (calendarEntry?.month)!, day: 1, year: (calendarEntry?.year)!, daysAhead: (calendarEntry?.numberOfDaysThisMonth)!, filteredOn: nil)
+        
+        if let appts = appointmentsThisMonth {
+            appointmentDetailsView.appointment = appts[0]
+        }
         
         appointmentsNextMonth = appointmentManager.retrieveAllAppointmentsFor(month: (calendarEntry?.nextMonth)!, day: 1, year: (calendarEntry?.nextYear)!, daysAhead: (calendarEntry?.numberOfDaysThisMonth)!, filteredOn: nil)
         return (monthArr?.count)!
@@ -157,7 +189,7 @@ extension MonthViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let dimen = collectionView.frame.width/itemsPerRow
+        let dimen = collectionView.frame.width/(itemsPerRow + 1)
         
         return CGSize(width: dimen, height: dimen)
     }

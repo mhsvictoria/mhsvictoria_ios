@@ -9,7 +9,9 @@
 import UIKit
 import AppointmentKit
 
-class MasterTableViewController: UITableViewController, AppointmentDelegate {
+class MasterTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AppointmentDelegate {
+    
+    @IBOutlet weak var tableView: UITableView!
     
     var appointments: Array<Appointment?>?
     var resources: Array<Resource?>?
@@ -17,6 +19,10 @@ class MasterTableViewController: UITableViewController, AppointmentDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         self.navigationController?.navigationBar.barTintColor = toolbarColor
     }
     
@@ -31,11 +37,11 @@ class MasterTableViewController: UITableViewController, AppointmentDelegate {
     }
     
     // MARK: - Table view data source
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         switch(section) {
         case 0:
@@ -58,7 +64,7 @@ class MasterTableViewController: UITableViewController, AppointmentDelegate {
             }
         }
     }
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // SECTION 0
         if indexPath.section == 0 {
@@ -122,14 +128,14 @@ class MasterTableViewController: UITableViewController, AppointmentDelegate {
         
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 1 && indexPath.row > 0 {
             return 52
         }
         return 44
     }
     
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         
         if section == 0 {
@@ -140,6 +146,7 @@ class MasterTableViewController: UITableViewController, AppointmentDelegate {
         if section == 1 {
             let headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: headerHeight), header: "section.appointments".localized, font: sectionHeaderFont, color: toolbarColor)
             headerView.buttonName = "calendar"
+            headerView.button?.addTarget(self, action: #selector(onCalendarClick), for: .touchUpInside)
             return headerView
         }
         
@@ -151,11 +158,16 @@ class MasterTableViewController: UITableViewController, AppointmentDelegate {
         return nil
     }
     
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    @objc func onCalendarClick(_ sender: UIButton) {
+        
+        self.navigationController?.performSegue(withIdentifier: "calendarSegue", sender: self)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return headerHeight
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch(indexPath.section) {
         case 0:
             self.navigationController?.performSegue(withIdentifier: "formSegue", sender: self)
@@ -192,6 +204,9 @@ class MasterTableViewController: UITableViewController, AppointmentDelegate {
         }
         if segue.identifier == "mapSegue" {
             present(MapViewController(), animated: true, completion: nil)
+        }
+        if segue.identifier == "calendarSegue" {
+            present(MonthViewController(), animated: true, completion: nil)
         }
     }
     

@@ -36,16 +36,13 @@ import AppointmentKit
  */
 class AppointmentDetailsView: CardView {
     
-    let margin: CGFloat = 10
-    var y: CGFloat = 10
     var title: UILabel?
-    var dateLabel: HeaderView?
+    var dateLabel: UILabel?
     var startEndTimes: UILabel?
     var endDate: UILabel?
     var notesLabel: UILabel?
     var appointment: Appointment? {
         didSet {
-            // Title
             if title == nil {
                 createTitle()
             }
@@ -56,7 +53,7 @@ class AppointmentDetailsView: CardView {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = ViewUtil.dateFormat
             let dateStr = dateFormatter.string(from: (appointment?.startTime)!)
-            dateLabel?.headerLabel?.text = dateStr
+            dateLabel?.text = dateStr
             if startEndTimes == nil {
                 createStartEndTimes()
             }
@@ -71,58 +68,72 @@ class AppointmentDetailsView: CardView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = toolbarColor
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
+        backgroundColor = toolbarColor
     }
     
     private func createTitle() {
         title = UILabel()
         title?.font = UIFont(name: fontName, size: fontSizeLarge)
-        
-        title?.sizeToFit()
-        title?.frame.origin = CGPoint(x: margin, y: y/2)
-        title?.frame.size = CGSize(width: self.frame.width, height: fontSizeLarge + 2)
         addSubview(title!)
+        title?.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            title!.topAnchor.constraint(equalTo: topAnchor, constant: margin),
+            title!.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margin),
+                   title!.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -margin),
+                   title!.heightAnchor.constraint(equalToConstant: fontSizeMed + marginSmall)
+               ])
     }
     
     private func createDateHeader() {
         
-        y += fontSizeMed + margin
-        
-        let font = UIFont(name: fontName, size: fontSizeSmall)
-        let color = textLight
-        
-        dateLabel = HeaderView(frame: CGRect(x: margin, y: y, width: self.frame.width/2, height: fontSizeSmall + 2), header: "", font: font!, color: color)
-        dateLabel?.headerLabel?.textAlignment = .left
+        dateLabel = UILabel()
+        dateLabel?.font = createFont
+        dateLabel?.textAlignment = .left
         addSubview(dateLabel!)
+        dateLabel!.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+        dateLabel!.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margin),
+               dateLabel!.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -margin),
+               dateLabel!.topAnchor.constraint(equalTo: title!.bottomAnchor),
+               dateLabel!.heightAnchor.constraint(equalToConstant: fontSizeMed + marginSmall)
+           ])
     }
     
     private func createStartEndTimes() {
-        
-        y += fontSizeSmall + margin/2
-        
+          
         startEndTimes = UILabel()
-        startEndTimes?.font = UIFont(name: fontName, size: fontSizeSmall)?.boldItalic
-        startEndTimes?.frame.origin = CGPoint(x: margin, y: y)
-        startEndTimes?.frame.size = CGSize(width: self.frame.width, height: fontSizeSmall + 2)
+        startEndTimes?.font = UIFont(name: fontName, size: fontSizeMed)?.boldItalic
         startEndTimes?.textColor = textDark
         addSubview(startEndTimes!)
+        
+        startEndTimes!.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+        startEndTimes!.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margin),
+               startEndTimes!.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -margin),
+               startEndTimes!.topAnchor.constraint(equalTo: dateLabel!.bottomAnchor),
+               startEndTimes!.heightAnchor.constraint(equalToConstant: fontSizeMed + marginSmall)
+           ])
         
     }
     
     func createNotes() {
-        y += fontSizeSmall + margin/2
-        
         notesLabel = UILabel()
-        notesLabel?.font = UIFont(name: "Helvetica", size: fontSizeSmall)?.italic
+        notesLabel?.font = cellFont?.italic
         notesLabel?.textColor = UIColor.darkGray
         notesLabel?.sizeToFit()
-        notesLabel?.frame.origin = CGPoint(x: margin, y: y)
-        notesLabel?.frame.size = CGSize(width: self.frame.width, height: fontSizeSmall + 2)
         addSubview(notesLabel!)
+        notesLabel!.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+        notesLabel!.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margin),
+               notesLabel!.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -margin),
+               notesLabel!.topAnchor.constraint(equalTo: startEndTimes!.bottomAnchor, constant: marginSmall),
+               notesLabel!.heightAnchor.constraint(equalToConstant: fontSizeMed + marginLrg)
+           ])
     }
 
 }

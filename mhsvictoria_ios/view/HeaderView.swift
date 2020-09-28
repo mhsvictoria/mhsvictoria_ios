@@ -10,6 +10,7 @@ import UIKit
 
 public class HeaderView: UIView {
     
+    var button: UIButton?
     var title: String? {
         didSet {
             let label = UILabel(frame: CGRect(x: marginLrg + imageSize, y: 0, width: frame.width - marginLrg, height: frame.height))
@@ -25,10 +26,10 @@ public class HeaderView: UIView {
     
     var buttonName: String? {
         didSet {
-            let button = UIButton(frame: CGRect(x: margin, y: (frame.height - imageSize)/2, width: imageSize, height: imageSize))
-            button.setImage(UIImage(systemName: buttonName!), for: .normal)
-            button.tintColor = toolbarColor
-            addSubview(button)
+            button = UIButton(frame: CGRect(x: margin, y: (frame.height - imageSize)/2, width: imageSize, height: imageSize))
+            button?.setImage(UIImage(systemName: buttonName!), for: .normal)
+            button?.tintColor = toolbarColor
+            addSubview(button!)
         }
     }
     override init(frame: CGRect) {

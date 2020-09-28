@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -141,41 +142,48 @@
             <point key="canvasLocation" x="1689.8550724637682" y="-473.4375"/>
         </scene>
         <!--Master Table View Controller-->
-        <scene sceneID="wsC-0R-jGc">
+        <scene sceneID="YxE-01-89u">
             <objects>
-                <tableViewController storyboardIdentifier="masterTableViewController" clearsSelectionOnViewWillAppear="NO" id="TIv-89-wcz" customClass="MasterTableViewController" customModule="mhsvictoria_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="idn-Xo-U3D">
+                <viewController id="le8-h2-afW" customClass="MasterTableViewController" customModule="mhsvictoria_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="u1N-Rr-bIb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="idn-Xo-U3D">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mhsgvCell" id="MCd-zA-RDK" customClass="MhsgvTableViewCell" customModule="mhsvictoria_ios" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MCd-zA-RDK" id="aY9-lp-Jkv">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="appointmentCell" id="vAp-Q8-ddV" customClass="AppointmentCell" customModule="mhsvictoria_ios" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="71.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vAp-Q8-ddV" id="eGc-nu-1cF">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mhsgvCell" id="MCd-zA-RDK" customClass="MhsgvTableViewCell" customModule="mhsvictoria_ios" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MCd-zA-RDK" id="aY9-lp-Jkv">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="appointmentCell" id="vAp-Q8-ddV" customClass="AppointmentCell" customModule="mhsvictoria_ios" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="71.5" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vAp-Q8-ddV" id="eGc-nu-1cF">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="TIv-89-wcz" id="ack-dg-0qx"/>
-                            <outlet property="delegate" destination="TIv-89-wcz" id="Tyr-2x-xPv"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="O7t-TQ-Q88"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="loL-SO-zQM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <viewLayoutGuide key="safeArea" id="nN9-Qu-XZj"/>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="biS-tz-1tX"/>
+                    <connections>
+                        <outlet property="tableView" destination="idn-Xo-U3D" id="u6q-wd-BFb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cHZ-fb-V8V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-829" y="40"/>
+            <point key="canvasLocation" x="-1212" y="516"/>
         </scene>
         <!--Appointment View Controller-->
         <scene sceneID="1g2-kq-2el">
@@ -206,7 +214,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7zk-fY-bYX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="35" y="-305"/>
+            <point key="canvasLocation" x="-33" y="-307"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="JQu-rG-6pV">
@@ -232,15 +240,78 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="TIv-89-wcz" kind="relationship" relationship="rootViewController" id="0de-QB-9Nx"/>
                         <segue destination="0VE-Ma-L76" kind="showDetail" identifier="formSegue" id="4AF-Uk-Vkw"/>
                         <segue destination="k5c-RY-hlW" kind="showDetail" identifier="appointmentSegue" id="2nL-Vm-p7E"/>
                         <segue destination="RGC-Fb-wIE" kind="showDetail" identifier="mapSegue" id="wXp-YI-GTS"/>
+                        <segue destination="le8-h2-afW" kind="relationship" relationship="rootViewController" id="jUq-vH-x7o"/>
+                        <segue destination="0Ow-lk-eY8" kind="showDetail" identifier="calendarSegue" id="cAJ-V7-5d4"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TVe-gC-zzs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1668.1159420289857" y="-550.44642857142856"/>
+        </scene>
+        <!--Month View Controller-->
+        <scene sceneID="zkE-Jk-LVl">
+            <objects>
+                <viewController storyboardIdentifier="monthViewController" id="7dd-TU-xs1" customClass="MonthViewController" customModule="mhsvictoria_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sCJ-9Q-xPE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBp-XS-25f">
+                                <rect key="frame" x="20" y="44" width="374" height="20.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CRL-ud-9In" customClass="DaysCollectionView" customModule="mhsvictoria_ios" customModuleProvider="target">
+                                <rect key="frame" x="20" y="73" width="374" height="519"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ac1-Mh-wwP">
+                                    <size key="itemSize" width="52" height="52"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dayCollectionViewCell" id="wuc-UE-TJY" customClass="DayCollectionViewCell" customModule="mhsvictoria_ios" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="52" height="52"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sPL-6k-Mea">
+                                            <rect key="frame" x="0.0" y="0.0" width="52" height="52"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kZf-xs-D9l" customClass="AppointmentDetailsView" customModule="mhsvictoria_ios" customModuleProvider="target">
+                                <rect key="frame" x="20" y="600" width="374" height="236"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="AW7-1s-LAK"/>
+                    <connections>
+                        <outlet property="appointmentDetailsView" destination="kZf-xs-D9l" id="rnW-dg-rTs"/>
+                        <outlet property="daysCollectionView" destination="CRL-ud-9In" id="X5w-5r-zHF"/>
+                        <outlet property="monthLabel" destination="hBp-XS-25f" id="Kma-sd-IOz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rgr-Ok-mjW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-336.23188405797106" y="419.86607142857139"/>
+        </scene>
+        <!--Month Page Controller-->
+        <scene sceneID="Xl1-qD-UZF">
+            <objects>
+                <pageViewController storyboardIdentifier="monthPageController" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="0Ow-lk-eY8" customClass="MonthPageController" customModule="mhsvictoria_ios" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ftv-q7-3u5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="429" y="420"/>
         </scene>
     </scenes>
 </document>

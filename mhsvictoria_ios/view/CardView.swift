@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CardView: UIView {
+class CardView: UIScrollView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -17,7 +17,8 @@ class CardView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        backgroundColor = backgroundWhite
+        
+        
     }
     
     func sizeTo(parentView: UIView?, widthMargin: CGFloat, height: CGFloat) {
