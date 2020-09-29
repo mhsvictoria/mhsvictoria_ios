@@ -193,15 +193,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X1t-Da-QXF" customClass="ActionbarView" customModule="mhsvictoria_ios" customModuleProvider="target">
-                                <rect key="frame" x="20" y="731" width="374" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SsA-W5-FPu" customClass="AppointmentFormView" customModule="mhsvictoria_ios" customModuleProvider="target">
                                 <rect key="frame" x="20" y="20" width="374" height="669"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X1t-Da-QXF" customClass="ActionbarView" customModule="mhsvictoria_ios" customModuleProvider="target">
+                                <rect key="frame" x="20" y="731" width="374" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -286,8 +286,18 @@
                                 </cells>
                             </collectionView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kZf-xs-D9l" customClass="AppointmentDetailsView" customModule="mhsvictoria_ios" customModuleProvider="target">
-                                <rect key="frame" x="20" y="600" width="374" height="236"/>
+                                <rect key="frame" x="20" y="572" width="374" height="236"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9jG-Vd-YCg">
+                                        <rect key="frame" x="310" y="20" width="64" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <segue destination="k5c-RY-hlW" kind="showDetail" id="qQJ-CS-d17"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -297,12 +307,16 @@
                     <connections>
                         <outlet property="appointmentDetailsView" destination="kZf-xs-D9l" id="rnW-dg-rTs"/>
                         <outlet property="daysCollectionView" destination="CRL-ud-9In" id="X5w-5r-zHF"/>
+                        <outlet property="editButton" destination="9jG-Vd-YCg" id="tWP-H9-RHx"/>
                         <outlet property="monthHeaderView" destination="ijR-TI-OU2" id="kIZ-Rp-mdm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rgr-Ok-mjW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-668" y="420"/>
+            <point key="canvasLocation" x="-668.11594202898561" y="419.86607142857139"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="qQJ-CS-d17"/>
+    </inferredMetricsTieBreakers>
 </document>

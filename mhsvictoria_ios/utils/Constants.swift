@@ -24,6 +24,8 @@ let controlBarHeight: CGFloat = 64
 let headerHeight: CGFloat = 36
 let pageControlHeight: CGFloat = 44
 let textFieldHeight: CGFloat = 38
+let buttonWidth: CGFloat = 64
+let buttonHeight: CGFloat = 32
 
 
 // constants for circular tabs

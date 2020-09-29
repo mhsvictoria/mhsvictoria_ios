@@ -24,6 +24,7 @@ class MonthViewController: UIViewController, UICollectionViewDelegate, UICollect
     @IBOutlet weak var monthHeaderView: MonthHeaderView!
     
     @IBOutlet weak var appointmentDetailsView: AppointmentDetailsView!
+    @IBOutlet weak var editButton: UIButton!
     
     private let sectionInsets = UIEdgeInsets(top: 0.0,
                                              left: 0.0,
@@ -32,6 +33,7 @@ class MonthViewController: UIViewController, UICollectionViewDelegate, UICollect
     private let itemsPerRow: CGFloat = 7
     private var monthArr: Array<MonthDayYear>?
     private var currentSelected: IndexPath?
+    
     
     var appointmentsThisMonth: Array<Appointment?>?
     var appointmentsLastMonth: Array<Appointment?>?
@@ -63,7 +65,7 @@ class MonthViewController: UIViewController, UICollectionViewDelegate, UICollect
         currentSelected = nil
     }
     
-    override func viewWillLayoutSubviews() {
+    override func viewDidLayoutSubviews() {
         monthHeaderView.month = monthString(calendarEntry: calendarEntry(month: month, year: year))
         monthHeaderView.navigationDelegate = self
         monthHeaderView.translatesAutoresizingMaskIntoConstraints = false
@@ -78,24 +80,40 @@ class MonthViewController: UIViewController, UICollectionViewDelegate, UICollect
             daysCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
             daysCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
             daysCollectionView.topAnchor.constraint(equalTo: monthHeaderView.bottomAnchor, constant: -marginSmall),
-            daysCollectionView.heightAnchor.constraint(equalToConstant: view.frame.height/2)
+            daysCollectionView.heightAnchor.constraint(equalToConstant: view.frame.height/2 - margin)
         ])
         
         appointmentDetailsView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             appointmentDetailsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
             appointmentDetailsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
-            appointmentDetailsView.topAnchor.constraint(equalTo: daysCollectionView.bottomAnchor, constant: -marginSmall),
-            appointmentDetailsView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -margin)
+            appointmentDetailsView.topAnchor.constraint(equalTo: daysCollectionView.bottomAnchor, constant: -margin),
+            appointmentDetailsView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -marginMedLrg)
         ])
-        
         appointmentDetailsView?.layer.cornerRadius = 8
-        appointmentDetailsView?.layer.shadowColor = UIColor.black.cgColor
-        appointmentDetailsView?.layer.shadowOffset = CGSize(width: 3, height: 2)
-        appointmentDetailsView?.layer.shadowRadius = 4
-        appointmentDetailsView?.layer.shadowPath = UIBezierPath(rect: CGRect(x: 2, y: 2, width: (appointmentDetailsView?.frame.width)!, height: (appointmentDetailsView?.frame.height)!)).cgPath
         
+        editButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            editButton.trailingAnchor.constraint(equalTo: appointmentDetailsView.trailingAnchor, constant: -marginSmall),
+            editButton.widthAnchor.constraint(equalToConstant: buttonWidth),
+            editButton.heightAnchor.constraint(equalToConstant: buttonHeight),
+            editButton.topAnchor.constraint(equalTo: appointmentDetailsView.topAnchor, constant: marginSmall),
+            
+        ])
+        editButton.setTitle("appointment.edit".localized, for: .normal)
+        editButton.setTitleColor(primaryDark, for: .normal)
+        editButton.setTitleColor(lightGrey, for: .selected)
+        editButton.titleLabel?.font = buttonFont
+        editButton.layer.cornerRadius = 8
+        editButton.layer.borderColor = primaryDark.cgColor
+        editButton.layer.borderWidth = 2
+
+        //editButton?.isHidden = true
     }
+    
+    @IBAction func onEditAppointment(_ sender: UIButton) {
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -173,6 +191,12 @@ class MonthViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     func onAppointmentSelected(appointment: Appointment?) {
         appointmentDetailsView.appointment = appointment
+        /*
+        if appointment?.url?.absoluteString == AppointmentUtil.APPOINTMENT_URL {
+            editButton?.isHidden = false
+        } else {
+            editButton?.isHidden = true
+        }*/
     }
     
     func onRightNav() {
@@ -186,7 +210,7 @@ class MonthViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     func onLeftNav() {
-                month -= 1
+        month -= 1
         if month == 0 {
             month = 12
             year -= 1

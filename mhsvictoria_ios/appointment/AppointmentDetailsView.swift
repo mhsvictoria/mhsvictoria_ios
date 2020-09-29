@@ -84,9 +84,9 @@ class AppointmentDetailsView: CardView {
         NSLayoutConstraint.activate([
             title!.topAnchor.constraint(equalTo: topAnchor, constant: margin),
             title!.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margin),
-                   title!.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -margin),
-                   title!.heightAnchor.constraint(equalToConstant: fontSizeMed + marginSmall)
-               ])
+            title!.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -margin),
+            title!.heightAnchor.constraint(equalToConstant: fontSizeMed + marginSmall)
+        ])
     }
     
     private func createDateHeader() {
@@ -97,15 +97,15 @@ class AppointmentDetailsView: CardView {
         addSubview(dateLabel!)
         dateLabel!.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-        dateLabel!.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margin),
-               dateLabel!.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -margin),
-               dateLabel!.topAnchor.constraint(equalTo: title!.bottomAnchor),
-               dateLabel!.heightAnchor.constraint(equalToConstant: fontSizeMed + marginSmall)
-           ])
+            dateLabel!.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margin),
+            dateLabel!.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -margin),
+            dateLabel!.topAnchor.constraint(equalTo: title!.bottomAnchor),
+            dateLabel!.heightAnchor.constraint(equalToConstant: fontSizeMed + marginSmall)
+        ])
     }
     
     private func createStartEndTimes() {
-          
+        
         startEndTimes = UILabel()
         startEndTimes?.font = UIFont(name: fontName, size: fontSizeMed)?.boldItalic
         startEndTimes?.textColor = textDark
@@ -113,27 +113,28 @@ class AppointmentDetailsView: CardView {
         
         startEndTimes!.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-        startEndTimes!.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margin),
-               startEndTimes!.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -margin),
-               startEndTimes!.topAnchor.constraint(equalTo: dateLabel!.bottomAnchor),
-               startEndTimes!.heightAnchor.constraint(equalToConstant: fontSizeMed + marginSmall)
-           ])
+            startEndTimes!.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margin),
+            startEndTimes!.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -margin),
+            startEndTimes!.topAnchor.constraint(equalTo: dateLabel!.bottomAnchor),
+            startEndTimes!.heightAnchor.constraint(equalToConstant: fontSizeMed + marginSmall)
+        ])
         
     }
     
     func createNotes() {
         notesLabel = UILabel()
-        notesLabel?.font = cellFont?.italic
-        notesLabel?.textColor = UIColor.darkGray
-        notesLabel?.sizeToFit()
         addSubview(notesLabel!)
         notesLabel!.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-        notesLabel!.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margin),
-               notesLabel!.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -margin),
-               notesLabel!.topAnchor.constraint(equalTo: startEndTimes!.bottomAnchor, constant: marginSmall),
-               notesLabel!.heightAnchor.constraint(equalToConstant: fontSizeMed + marginLrg)
-           ])
+            notesLabel!.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margin),
+            notesLabel!.widthAnchor.constraint(equalToConstant: frame.width - marginMedLrg),
+            notesLabel!.topAnchor.constraint(equalTo: startEndTimes!.bottomAnchor, constant: marginSmall)
+            
+        ])
+        notesLabel?.font = cellFont?.italic
+        notesLabel?.textColor = UIColor.darkGray
+        notesLabel?.numberOfLines = 0
+        notesLabel?.lineBreakMode = .byWordWrapping
+        notesLabel?.contentMode = .top
     }
-
 }
