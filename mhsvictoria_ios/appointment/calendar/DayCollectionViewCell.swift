@@ -9,7 +9,13 @@
 import UIKit
 import AppointmentKit
 
+protocol AppointmentSelectionDelegate {
+    func onAppointmentSelected(appointment: Appointment?)
+}
+
 class DayCollectionViewCell: UICollectionViewCell {
+    
+    var appointmentSelectionDelegate: AppointmentSelectionDelegate?
     
     var apptLabel: UILabel?
     var dayLabel: UILabel!
@@ -73,5 +79,6 @@ class DayCollectionViewCell: UICollectionViewCell {
     
     func selectCell() {
         dayLabel.textColor = UIColor.red
+        appointmentSelectionDelegate?.onAppointmentSelected(appointment: appointment)
     }
 }

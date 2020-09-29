@@ -17,16 +17,8 @@
 		2A069C6C25198E7500DCDFFE /* AppointmentDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A069C6725198E7500DCDFFE /* AppointmentDetailsView.swift */; };
 		2A069C6D25198E7500DCDFFE /* AppointmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A069C6A25198E7500DCDFFE /* AppointmentCell.swift */; };
 		2A069C6E25198E7500DCDFFE /* AppointmentFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A069C6B25198E7500DCDFFE /* AppointmentFormView.swift */; };
-		2A069C7B25198EA300DCDFFE /* DateCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A069C7025198EA300DCDFFE /* DateCollectionViewController.swift */; };
-		2A069C7C25198EA300DCDFFE /* MonthViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A069C7125198EA300DCDFFE /* MonthViewCell.swift */; };
-		2A069C7D25198EA300DCDFFE /* YearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A069C7225198EA300DCDFFE /* YearView.swift */; };
 		2A069C7E25198EA300DCDFFE /* DayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A069C7325198EA300DCDFFE /* DayCollectionViewCell.swift */; };
-		2A069C7F25198EA300DCDFFE /* CalendarsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A069C7425198EA300DCDFFE /* CalendarsTableView.swift */; };
 		2A069C8025198EA300DCDFFE /* DaysCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A069C7525198EA300DCDFFE /* DaysCollectionView.swift */; };
-		2A069C8125198EA300DCDFFE /* MonthPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A069C7625198EA300DCDFFE /* MonthPageController.swift */; };
-		2A069C8225198EA300DCDFFE /* MonthsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A069C7725198EA300DCDFFE /* MonthsCollectionView.swift */; };
-		2A069C8325198EA300DCDFFE /* CalendarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A069C7825198EA300DCDFFE /* CalendarViewCell.swift */; };
-		2A069C8425198EA300DCDFFE /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A069C7925198EA300DCDFFE /* CalendarViewController.swift */; };
 		2A069C8525198EA300DCDFFE /* MonthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A069C7A25198EA300DCDFFE /* MonthViewController.swift */; };
 		2A069CAD2519B29F00DCDFFE /* ViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A069CAC2519B29F00DCDFFE /* ViewUtil.swift */; };
 		2A069CB02519B33400DCDFFE /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A069CAF2519B33400DCDFFE /* CardView.swift */; };
@@ -47,6 +39,7 @@
 		2A2F10BD251E3693007F097F /* ResourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F10BC251E3693007F097F /* ResourceManager.swift */; };
 		2A2F10C4251EA3C0007F097F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F10C3251EA3C0007F097F /* MapViewController.swift */; };
 		2A2F123125237763007F097F /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F123025237763007F097F /* CustomPageControl.swift */; };
+		2A2F12392523807A007F097F /* MonthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F12382523807A007F097F /* MonthHeaderView.swift */; };
 		2A57ADAD24DB30A400F9A9ED /* brain_sm.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A57ADAC24DB30A400F9A9ED /* brain_sm.png */; };
 		2A57ADAF24DB313A00F9A9ED /* brain_sm_rot.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A57ADAE24DB313A00F9A9ED /* brain_sm_rot.png */; };
 		2A5DEDE224D595830076AEE4 /* brain_lrg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A5DEDE124D595830076AEE4 /* brain_lrg.png */; };
@@ -125,16 +118,8 @@
 		2A069C6725198E7500DCDFFE /* AppointmentDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppointmentDetailsView.swift; sourceTree = "<group>"; };
 		2A069C6A25198E7500DCDFFE /* AppointmentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppointmentCell.swift; sourceTree = "<group>"; };
 		2A069C6B25198E7500DCDFFE /* AppointmentFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppointmentFormView.swift; sourceTree = "<group>"; };
-		2A069C7025198EA300DCDFFE /* DateCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCollectionViewController.swift; sourceTree = "<group>"; };
-		2A069C7125198EA300DCDFFE /* MonthViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthViewCell.swift; sourceTree = "<group>"; };
-		2A069C7225198EA300DCDFFE /* YearView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearView.swift; sourceTree = "<group>"; };
 		2A069C7325198EA300DCDFFE /* DayCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCollectionViewCell.swift; sourceTree = "<group>"; };
-		2A069C7425198EA300DCDFFE /* CalendarsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarsTableView.swift; sourceTree = "<group>"; };
 		2A069C7525198EA300DCDFFE /* DaysCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaysCollectionView.swift; sourceTree = "<group>"; };
-		2A069C7625198EA300DCDFFE /* MonthPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthPageController.swift; sourceTree = "<group>"; };
-		2A069C7725198EA300DCDFFE /* MonthsCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthsCollectionView.swift; sourceTree = "<group>"; };
-		2A069C7825198EA300DCDFFE /* CalendarViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewCell.swift; sourceTree = "<group>"; };
-		2A069C7925198EA300DCDFFE /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		2A069C7A25198EA300DCDFFE /* MonthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthViewController.swift; sourceTree = "<group>"; };
 		2A069CAC2519B29F00DCDFFE /* ViewUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtil.swift; sourceTree = "<group>"; };
 		2A069CAF2519B33400DCDFFE /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -154,6 +139,7 @@
 		2A2F10BC251E3693007F097F /* ResourceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceManager.swift; sourceTree = "<group>"; };
 		2A2F10C3251EA3C0007F097F /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		2A2F123025237763007F097F /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
+		2A2F12382523807A007F097F /* MonthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthHeaderView.swift; sourceTree = "<group>"; };
 		2A57ADAC24DB30A400F9A9ED /* brain_sm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brain_sm.png; sourceTree = "<group>"; };
 		2A57ADAE24DB313A00F9A9ED /* brain_sm_rot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brain_sm_rot.png; sourceTree = "<group>"; };
 		2A5DEDE124D595830076AEE4 /* brain_lrg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brain_lrg.png; sourceTree = "<group>"; };
@@ -261,17 +247,10 @@
 		2A069C6F25198E7A00DCDFFE /* calendar */ = {
 			isa = PBXGroup;
 			children = (
-				2A069C7425198EA300DCDFFE /* CalendarsTableView.swift */,
-				2A069C7825198EA300DCDFFE /* CalendarViewCell.swift */,
-				2A069C7925198EA300DCDFFE /* CalendarViewController.swift */,
-				2A069C7025198EA300DCDFFE /* DateCollectionViewController.swift */,
 				2A069C7325198EA300DCDFFE /* DayCollectionViewCell.swift */,
 				2A069C7525198EA300DCDFFE /* DaysCollectionView.swift */,
-				2A069C7625198EA300DCDFFE /* MonthPageController.swift */,
-				2A069C7725198EA300DCDFFE /* MonthsCollectionView.swift */,
-				2A069C7125198EA300DCDFFE /* MonthViewCell.swift */,
 				2A069C7A25198EA300DCDFFE /* MonthViewController.swift */,
-				2A069C7225198EA300DCDFFE /* YearView.swift */,
+				2A2F12382523807A007F097F /* MonthHeaderView.swift */,
 			);
 			path = calendar;
 			sourceTree = "<group>";
@@ -554,6 +533,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A069CB9251A255200DCDFFE /* AppointmentDividerView.swift in Sources */,
+				2A2F12392523807A007F097F /* MonthHeaderView.swift in Sources */,
 				2A069CBC251A25AA00DCDFFE /* LogoBarView.swift in Sources */,
 				2A09FD6A250D9A3E00CDF9CF /* Constants.swift in Sources */,
 				2A00753F24BD4A7000BB1AEA /* AppDelegate.swift in Sources */,
@@ -562,7 +542,6 @@
 				2A069C6D25198E7500DCDFFE /* AppointmentCell.swift in Sources */,
 				2A2F10C4251EA3C0007F097F /* MapViewController.swift in Sources */,
 				2A069C8525198EA300DCDFFE /* MonthViewController.swift in Sources */,
-				2A069C7D25198EA300DCDFFE /* YearView.swift in Sources */,
 				2A2F10BB251E356B007F097F /* Resource.swift in Sources */,
 				2ABF438124DE255B00F7A747 /* Form2ViewController.swift in Sources */,
 				2ABF437D24DE247000F7A747 /* MhsgvPageViewController.swift in Sources */,
@@ -573,10 +552,7 @@
 				2A069C6C25198E7500DCDFFE /* AppointmentDetailsView.swift in Sources */,
 				2A09FDA82512988300CDF9CF /* AppointmentViewController.swift in Sources */,
 				2A2F10BD251E3693007F097F /* ResourceManager.swift in Sources */,
-				2A069C8425198EA300DCDFFE /* CalendarViewController.swift in Sources */,
 				2A069CAD2519B29F00DCDFFE /* ViewUtil.swift in Sources */,
-				2A069C8125198EA300DCDFFE /* MonthPageController.swift in Sources */,
-				2A069C7B25198EA300DCDFFE /* DateCollectionViewController.swift in Sources */,
 				2ABF437B24DE247000F7A747 /* BaseViewController.swift in Sources */,
 				2A069C7E25198EA300DCDFFE /* DayCollectionViewCell.swift in Sources */,
 				2ABF437124DE07E200F7A747 /* ColorPalette.swift in Sources */,
@@ -585,12 +561,8 @@
 				2ABF438324DE256900F7A747 /* Form3ViewController.swift in Sources */,
 				2ABF437C24DE247000F7A747 /* MainViewController.swift in Sources */,
 				2A069CBE251A25DE00DCDFFE /* ShadowedLabel.swift in Sources */,
-				2A069C8225198EA300DCDFFE /* MonthsCollectionView.swift in Sources */,
 				2A069C6E25198E7500DCDFFE /* AppointmentFormView.swift in Sources */,
 				2A09FDAE25129DB200CDF9CF /* HeaderView.swift in Sources */,
-				2A069C8325198EA300DCDFFE /* CalendarViewCell.swift in Sources */,
-				2A069C7C25198EA300DCDFFE /* MonthViewCell.swift in Sources */,
-				2A069C7F25198EA300DCDFFE /* CalendarsTableView.swift in Sources */,
 				2A2F123125237763007F097F /* CustomPageControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

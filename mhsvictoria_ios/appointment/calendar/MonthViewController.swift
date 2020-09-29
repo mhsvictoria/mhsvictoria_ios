@@ -9,14 +9,20 @@
 import UIKit
 import AppointmentKit
 
-class MonthViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, AppointmentDelegate {
+
+
+class MonthViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, AppointmentDelegate, AppointmentSelectionDelegate, NavigationDelegate {
     
     let NUM_DAYS = 7
     let NUM_WEEKS = 6
     let reuseIdentifier = "dayCollectionViewCell"
     
+    var month: Int = CalendarUtil.calendarEntryForToday().month
+    var year: Int = CalendarUtil.calendarEntryForToday().year
+    
     @IBOutlet weak var daysCollectionView: DaysCollectionView!
-    @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var monthHeaderView: MonthHeaderView!
+    
     @IBOutlet weak var appointmentDetailsView: AppointmentDetailsView!
     
     private let sectionInsets = UIEdgeInsets(top: 0.0,
@@ -35,6 +41,8 @@ class MonthViewController: UIViewController, UICollectionViewDelegate, UICollect
     var calendarEntry: CalendarEntry? {
         didSet {
             monthArr = CalendarUtil.calendarArrayFor(calendarEntry: calendarEntry!)
+            daysCollectionView.reloadData()
+            currentSelected = nil
         }
     }
     
@@ -44,9 +52,6 @@ class MonthViewController: UIViewController, UICollectionViewDelegate, UICollect
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        monthLabel.textColor = UIColor.darkGray
-        monthLabel.font = UIFont(name: fontName, size: fontSizeHuge)
-        monthLabel.textAlignment = .center
         daysCollectionView.dataSource = self
         daysCollectionView.delegate = self
         calendarEntry = CalendarUtil.calendarEntryForToday()
@@ -59,19 +64,20 @@ class MonthViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     override func viewWillLayoutSubviews() {
-        monthLabel.text = currentMonth
-        monthLabel.translatesAutoresizingMaskIntoConstraints = false
+        monthHeaderView.month = monthString(calendarEntry: calendarEntry(month: month, year: year))
+        monthHeaderView.navigationDelegate = self
+        monthHeaderView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            monthLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
-            monthLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
-            monthLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: marginLrg),
-            monthLabel.heightAnchor.constraint(equalToConstant: controlBarHeight)
+            monthHeaderView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
+            monthHeaderView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
+            monthHeaderView.topAnchor.constraint(equalTo: view.topAnchor, constant: marginLrg),
+            monthHeaderView.heightAnchor.constraint(equalToConstant: controlBarHeight)
         ])
         daysCollectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             daysCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
             daysCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
-            daysCollectionView.topAnchor.constraint(equalTo: monthLabel.bottomAnchor, constant: -marginSmall),
+            daysCollectionView.topAnchor.constraint(equalTo: monthHeaderView.bottomAnchor, constant: -marginSmall),
             daysCollectionView.heightAnchor.constraint(equalToConstant: view.frame.height/2)
         ])
         
@@ -119,6 +125,7 @@ class MonthViewController: UIViewController, UICollectionViewDelegate, UICollect
         NSLog("Index Path row: \(indexPath.row) - for day: \(String(describing: monthArr?[indexPath.row].date))")
         if let appt = findApptOnSameDayFor(date: (monthArr?[indexPath.row].date)!) {
             cell.appointment = appt
+            cell.appointmentSelectionDelegate = self
         }
         
         return cell
@@ -164,15 +171,40 @@ class MonthViewController: UIViewController, UICollectionViewDelegate, UICollect
         return nil
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func onAppointmentSelected(appointment: Appointment?) {
+        appointmentDetailsView.appointment = appointment
     }
-    */
+    
+    func onRightNav() {
+        month += 1
+        if month == 13 {
+            month = 1
+            year += 1
+        }
+        self.calendarEntry = calendarEntry(month: month, year: year)
+        self.currentMonth = monthString(calendarEntry: self.calendarEntry!)
+    }
+    
+    func onLeftNav() {
+                month -= 1
+        if month == 0 {
+            month = 12
+            year -= 1
+        }
+        self.calendarEntry = calendarEntry(month: month, year: year)
+        self.currentMonth = monthString(calendarEntry: self.calendarEntry!)
+    }
+    
+    private func calendarEntry(month: Int, year: Int) -> CalendarEntry {
+        let calendarEntry =  CalendarUtil.calendarEntryFor(month: month, year: year)
+        return calendarEntry
+    }
+    
+    private func monthString(calendarEntry: CalendarEntry) -> String {
+        let monthYear = "calendar.month.\(calendarEntry.month - 1)".localized
+        return monthYear + " \(calendarEntry.year)"
+    }
+    
 }
 
 extension MonthViewController: UICollectionViewDelegateFlowLayout {
