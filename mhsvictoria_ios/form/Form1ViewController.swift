@@ -28,7 +28,7 @@ class Form1ViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setSliderValue()
+        ageSlider.value = Float(age) / sliderDivisor
         let format = NSLocalizedString("age.label", comment: "")
         ageFormLabel.text = String.localizedStringWithFormat(format, age)
         view.addSubview(ageFormLabel)
@@ -47,10 +47,6 @@ class Form1ViewController: BaseViewController {
         ])
         
         ageSlider.addTarget(self, action: #selector(self.sliderValueChanged), for: .valueChanged)
-    }
-    
-    func setSliderValue() {
-        ageSlider.value = Float(age) / sliderDivisor
     }
     
     @objc func sliderValueChanged(sender: UISlider) {

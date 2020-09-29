@@ -10,10 +10,16 @@ import UIKit
 
 class MhsgvPageViewController: UIPageViewController {
     
+    
+    var pageControl: CustomPageControl? = nil
+    var nextPage: Int = 0
     var currentSelection: Int = FormFlow.age.rawValue {
         didSet {
             NSLog("<><><> PAGE: currentSelection \(currentSelection)")
             goToPage(currentSelection)
+            if let pControl = pageControl {
+                pControl.selected = currentSelection
+            }
         }
     }
     
@@ -118,4 +124,26 @@ extension MhsgvPageViewController: UIPageViewControllerDataSource
 }
 
 extension MhsgvPageViewController: UIPageViewControllerDelegate {
+    
+        func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+            if completed {
+                if let pControl = pageControl {
+                    pControl.selected = nextPage
+                }
+            }
+        }
+        func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
+            for i in 0..<pages.count {
+                if pendingViewControllers[0] == pages[i] {
+                    nextPage = i
+                }
+            }
+        }
+    }
+
+    extension MhsgvPageViewController: CustomPageControlDelegate {
+        
+        func buttonWasPressed(_ number: Int) {
+            self.currentSelection = number
+        }
 }

@@ -25,6 +25,11 @@ let primaryVariantDark = UIColor(0xbeded5)
 let primaryVariantLight = UIColor(0xdefef5)
 let primaryVariant = toolbarColor
 
+let unselectedGrey = UIColor(0xe4e4e4)
+let accent = UIColor(0xe44a4d)
+let darkGrey = UIColor(0x9f8d8d)
+let lightGrey = UIColor(0xd4d4d4)
+
 // Background
 let backgroundWhite = UIColor(0xFFFFFF)
 let background = UIColor(0xFAFAFA)
@@ -49,7 +54,6 @@ let secondary = UIColor(0xA7EBFF)
 // 0x1DE9B6
 let secondaryDark = UIColor(0x1DB6E9)
 
-let accent = UIColor(0xAFFFEF)
 
 // Red 200
 let error = UIColor(0xE57373)

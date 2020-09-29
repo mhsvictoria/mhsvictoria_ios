@@ -11,6 +11,8 @@ import UIKit
 class MainViewController: UIViewController {
     
     @IBOutlet weak var containerView: UIView!
+    var pageViewController: MhsgvPageViewController? = nil
+    let pageControl = CustomPageControl(frame: .zero)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +20,7 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillLayoutSubviews() {
-       
+        
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -27,17 +29,24 @@ class MainViewController: UIViewController {
             containerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100 +  pageControlHeight),
             containerView.heightAnchor.constraint(equalToConstant: view.frame.height/2)
         ])
+        view.addSubview(pageControl)
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        pageControl.isUserInteractionEnabled = true
+        view.bringSubviewToFront(pageControl)
+        NSLayoutConstraint.activate([
+            pageControl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
+            pageControl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
+            pageControl.bottomAnchor.constraint(equalTo: containerView.topAnchor, constant: -margin),
+            pageControl.heightAnchor.constraint(equalToConstant: pageControlHeight)
+        ])
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        self.pageViewController = segue.destination as? MhsgvPageViewController
+        self.pageViewController!.pageControl = pageControl
+        pageControl.delegate = self.pageViewController
+    }
+    
     
 }
 

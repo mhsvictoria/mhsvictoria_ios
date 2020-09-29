@@ -46,6 +46,7 @@
 		2A2F10BB251E356B007F097F /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F10BA251E356B007F097F /* Resource.swift */; };
 		2A2F10BD251E3693007F097F /* ResourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F10BC251E3693007F097F /* ResourceManager.swift */; };
 		2A2F10C4251EA3C0007F097F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F10C3251EA3C0007F097F /* MapViewController.swift */; };
+		2A2F123125237763007F097F /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F123025237763007F097F /* CustomPageControl.swift */; };
 		2A57ADAD24DB30A400F9A9ED /* brain_sm.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A57ADAC24DB30A400F9A9ED /* brain_sm.png */; };
 		2A57ADAF24DB313A00F9A9ED /* brain_sm_rot.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A57ADAE24DB313A00F9A9ED /* brain_sm_rot.png */; };
 		2A5DEDE224D595830076AEE4 /* brain_lrg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A5DEDE124D595830076AEE4 /* brain_lrg.png */; };
@@ -152,6 +153,7 @@
 		2A2F10BA251E356B007F097F /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		2A2F10BC251E3693007F097F /* ResourceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceManager.swift; sourceTree = "<group>"; };
 		2A2F10C3251EA3C0007F097F /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		2A2F123025237763007F097F /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
 		2A57ADAC24DB30A400F9A9ED /* brain_sm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brain_sm.png; sourceTree = "<group>"; };
 		2A57ADAE24DB313A00F9A9ED /* brain_sm_rot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brain_sm_rot.png; sourceTree = "<group>"; };
 		2A5DEDE124D595830076AEE4 /* brain_lrg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brain_lrg.png; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 				2ABF438224DE256900F7A747 /* Form3ViewController.swift */,
 				2ABF437924DE247000F7A747 /* MainViewController.swift */,
 				2ABF437A24DE247000F7A747 /* MhsgvPageViewController.swift */,
+				2A2F123025237763007F097F /* CustomPageControl.swift */,
 			);
 			path = form;
 			sourceTree = "<group>";
@@ -588,6 +591,7 @@
 				2A069C8325198EA300DCDFFE /* CalendarViewCell.swift in Sources */,
 				2A069C7C25198EA300DCDFFE /* MonthViewCell.swift in Sources */,
 				2A069C7F25198EA300DCDFFE /* CalendarsTableView.swift in Sources */,
+				2A2F123125237763007F097F /* CustomPageControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

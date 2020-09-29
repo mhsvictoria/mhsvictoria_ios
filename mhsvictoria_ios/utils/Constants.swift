@@ -26,6 +26,12 @@ let pageControlHeight: CGFloat = 44
 let textFieldHeight: CGFloat = 38
 
 
+// constants for circular tabs
+let buttonSize: CGFloat = 40
+let buttonBorderWidth: CGFloat = 1
+let lineHeight: Int = 10
+let lineWidth: CGFloat = 2
+
 // Once the number of forms is nailed down
 // we can update these values to match
 enum FormFlow: Int {
