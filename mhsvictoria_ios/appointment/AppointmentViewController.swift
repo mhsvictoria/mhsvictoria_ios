@@ -157,6 +157,8 @@ class AppointmentViewController: UIViewController, ActionbarDelegate {
         if let desc = appointmentFormView.descriptionField.text {
             appointment.notes = desc
         }
+        
+        appointment.url = URL(string: AppointmentUtil.APPOINTMENT_URL)
         onAppointmentAction(appointment: appointment, action: .make)
         
         // reset
@@ -175,6 +177,7 @@ class AppointmentViewController: UIViewController, ActionbarDelegate {
     private func update() {
         let appointment = Appointment((appointmentFormView.titleField.text)!, startTime: (appointmentFormView.dateFrom.date), endTime: (appointmentFormView.dateTo.date), timeZone: TimeZone.current)
         appointment.notes = appointmentFormView.descriptionField.text
+        appointment.url = URL(string: AppointmentUtil.APPOINTMENT_URL)
         onAppointmentAction(appointment: appointment, action: .make)
         appointment.identifier = appointmentId
         onAppointmentAction(appointment: appointment, action: .update)
@@ -193,12 +196,22 @@ extension AppointmentViewController: AppointmentDelegate {
         
         switch(action) {
         case .make:
+            if let notes = appointment.notes {
+                appointment.notes = "MHSGV: " + notes
+            } else {
+                appointment.notes = "MHSGV: "
+            }
             appointmentManager?.make(appointment: appointment)
             break
         case .read:
             appointmentManager?.read(appointmentId: appointment.identifier)
             break
         case .update:
+            if let notes = appointment.notes {
+                appointment.notes = "MHSGV: " + notes
+            } else {
+                appointment.notes = "MHSGV: "
+            }
             appointmentManager?.update(appointment: appointment)
             break
         case .cancel:

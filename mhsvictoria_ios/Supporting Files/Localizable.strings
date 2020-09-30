@@ -14,7 +14,7 @@
 
 "section.appointments" = "Appointments";
 "cell.appointment.management" = "Create appointments ...";
-"appointment.edit" = "Edit";
+"appointment.edit" = "Manage";
 "appointment.placeholder" = "Appointments will appear here.";
 
 "section.map" = "Mapped Locations";

@@ -53,19 +53,11 @@ class MonthViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        editButton.isHidden = true
         daysCollectionView.dataSource = self
         daysCollectionView.delegate = self
         calendarEntry = CalendarUtil.calendarEntryForToday()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        daysCollectionView.reloadData()
-        currentSelected = nil
-    }
-    
-    override func viewDidLayoutSubviews() {
+        
         monthHeaderView.month = monthString(calendarEntry: calendarEntry(month: month, year: year))
         monthHeaderView.navigationDelegate = self
         monthHeaderView.translatesAutoresizingMaskIntoConstraints = false
@@ -87,14 +79,14 @@ class MonthViewController: UIViewController, UICollectionViewDelegate, UICollect
         NSLayoutConstraint.activate([
             appointmentDetailsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
             appointmentDetailsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
-            appointmentDetailsView.topAnchor.constraint(equalTo: daysCollectionView.bottomAnchor, constant: -margin),
+            appointmentDetailsView.topAnchor.constraint(equalTo: daysCollectionView.bottomAnchor),
             appointmentDetailsView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -marginMedLrg)
         ])
         appointmentDetailsView?.layer.cornerRadius = 8
         
         editButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            editButton.trailingAnchor.constraint(equalTo: appointmentDetailsView.trailingAnchor, constant: -marginSmall),
+            editButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -marginMedLrg),
             editButton.widthAnchor.constraint(equalToConstant: buttonWidth),
             editButton.heightAnchor.constraint(equalToConstant: buttonHeight),
             editButton.topAnchor.constraint(equalTo: appointmentDetailsView.topAnchor, constant: marginSmall),
@@ -103,15 +95,16 @@ class MonthViewController: UIViewController, UICollectionViewDelegate, UICollect
         editButton.setTitle("appointment.edit".localized, for: .normal)
         editButton.setTitleColor(primaryDark, for: .normal)
         editButton.setTitleColor(lightGrey, for: .selected)
-        editButton.titleLabel?.font = buttonFont
+        editButton.titleLabel?.font = cellFont
         editButton.layer.cornerRadius = 8
         editButton.layer.borderColor = primaryDark.cgColor
         editButton.layer.borderWidth = 2
-
-        //editButton?.isHidden = true
     }
     
-    @IBAction func onEditAppointment(_ sender: UIButton) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        daysCollectionView.reloadData()
+        currentSelected = nil
     }
     
     
@@ -191,12 +184,15 @@ class MonthViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     func onAppointmentSelected(appointment: Appointment?) {
         appointmentDetailsView.appointment = appointment
-        /*
-        if appointment?.url?.absoluteString == AppointmentUtil.APPOINTMENT_URL {
+        //editButton?.isHidden = false
+        if appointment?.notes != nil, (appointment?.notes?.contains("MHSGV: "))! {
+            NSLog(">>>>>>> Appointment URL: \(String(describing: appointment?.url?.absoluteString))")
+            AppointmentManager.selected = appointment
             editButton?.isHidden = false
         } else {
+            AppointmentManager.selected = nil
             editButton?.isHidden = true
-        }*/
+        }
     }
     
     func onRightNav() {
