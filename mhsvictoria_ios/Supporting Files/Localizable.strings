@@ -29,6 +29,8 @@
 
 "appointment.title" = "Appointments";
 
+"browse.resources" = "Browse Resources";
+
 "menu.items.count" = "4";
 "menu.item.0" = "Appointments";
 "menu.item.1" = "Year";

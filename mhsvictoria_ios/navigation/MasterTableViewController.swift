@@ -24,16 +24,15 @@ class MasterTableViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.dataSource = self
         
         self.navigationController?.navigationBar.barTintColor = toolbarColor
-        downloadCsv(dataDownloadUrl)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         let appointmentManager = AppointmentManager(appointmentDelegate: self)
         appointments = appointmentManager.retrieveAllAppointmentsFor(daysAhead: 31, filteredOn: "filtered")
         
-        let resourceManager = ResourceManager()
-        resources = resourceManager.retrieveAllResources()
-        mappedResources = resourceManager.retrieveAllMappedResources()
+        resources = ResourceManager.shared.retrieveAllResources()
+        mappedResources = ResourceManager.shared.retrieveAllMappedResources()
         tableView.reloadData()
     }
     
@@ -46,11 +45,11 @@ class MasterTableViewController: UIViewController, UITableViewDelegate, UITableV
         
         switch(section) {
         case 0:
+            var total = 2
             if resources != nil && !resources!.isEmpty {
-                return resources!.count + 1
-            } else {
-                return 2
+                total = total + resources!.count
             }
+            return total
         case 1:
             if appointments != nil && !appointments!.isEmpty {
                 return appointments!.count + 1
@@ -65,24 +64,33 @@ class MasterTableViewController: UIViewController, UITableViewDelegate, UITableV
             }
         }
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // SECTION 0
         if indexPath.section == 0 {
             if indexPath.row == 0 {
                 return firstCellInSection(text: "cell.personal.preferences".localized, indexPath: indexPath)
-            } else {
-                if resources != nil, !resources!.isEmpty {
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "mhsgvCell", for: indexPath) as! MhsgvTableViewCell
-                    cell.textLabel?.text = resources?[indexPath.row - 1]?.name
-                    cell.textLabel?.font = cellFont
-                    cell.accessoryView = UIImageView(image: UIImage(systemName: "chevron.right"))
-                    cell.section = indexPath.section
-                    return cell
-                } else {
-                    return placeHolderForIndexPath(text: "resource.placeholder".localized, indexPath: indexPath)
-                }
             }
+            
+            if indexPath.row == 1 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "mhsgvCell", for: indexPath) as! MhsgvTableViewCell
+                cell.textLabel?.text = "browse.resources".localized
+                cell.textLabel?.font = cellFont
+                cell.accessoryView = UIImageView(image: UIImage(systemName: "chevron.right"))
+                cell.section = indexPath.section
+                return cell
+            }
+            
+            if resources != nil, !resources!.isEmpty {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "mhsgvCell", for: indexPath) as! MhsgvTableViewCell
+                cell.textLabel?.text = resources?[indexPath.row - 2]?.name
+                cell.textLabel?.font = cellFont
+                cell.accessoryView = UIImageView(image: UIImage(systemName: "chevron.right"))
+                cell.section = indexPath.section
+                return cell
+            }
+            
         }
         
         // SECTION 1
@@ -142,7 +150,7 @@ class MasterTableViewController: UIViewController, UITableViewDelegate, UITableV
         if section == 0 {
             let headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: headerHeight), header: "section.resource.search".localized, font: sectionHeaderFont, color: toolbarColor)
             headerView.buttonName = "magnifyingglass"
-           return headerView
+            return headerView
         }
         if section == 1 {
             let headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: headerHeight), header: "section.appointments".localized, font: sectionHeaderFont, color: toolbarColor)
@@ -171,7 +179,11 @@ class MasterTableViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch(indexPath.section) {
         case 0:
+            if indexPath.row == 1 {
+            self.navigationController?.performSegue(withIdentifier: "resourcesSegue", sender: self)
+            } else {
             self.navigationController?.performSegue(withIdentifier: "formSegue", sender: self)
+            }
             break
         case 1:
             if indexPath.row == 0 {
@@ -199,6 +211,9 @@ class MasterTableViewController: UIViewController, UITableViewDelegate, UITableV
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if  segue.identifier == "formSegue" {
             present(MainViewController(), animated: true, completion: nil)
+        }
+        if  segue.identifier == "resourcesSegue" {
+            present(ResourcesViewController(), animated: true, completion: nil)
         }
         if segue.identifier == "appointmentSegue" {
             present(AppointmentViewController(), animated: true, completion: nil)
@@ -237,27 +252,4 @@ class MasterTableViewController: UIViewController, UITableViewDelegate, UITableV
         cell.textLabel?.textColor = textLight
         return cell
     }
-    
-    private func downloadCsv(_ urlPath: String) {
-        
-        let url = urlPath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        
-        let webClient = WebClient()
-        do {
-            try webClient.fileDownload(urlPath: url!, successBlock: {(_ resp: Array<String>?) in
-                
-                guard let _ = resp else {
-                    return
-                }
-                for str in resp! {
-                    NSLog(">>>>>>>> ROW: \n\(str)")
-                }
-            }, failureBlock: {(_ resp: String) in
-                NSLog("Failure: " + resp)
-            })
-        } catch {
-            NSLog("Failure - in catch")
-        }
-    }
-    
 }

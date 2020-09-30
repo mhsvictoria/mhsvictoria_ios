@@ -245,6 +245,7 @@
                         <segue destination="RGC-Fb-wIE" kind="showDetail" identifier="mapSegue" id="wXp-YI-GTS"/>
                         <segue destination="le8-h2-afW" kind="relationship" relationship="rootViewController" id="jUq-vH-x7o"/>
                         <segue destination="7dd-TU-xs1" kind="showDetail" identifier="calendarSegue" id="8Jk-hb-6Cc"/>
+                        <segue destination="VUA-3Q-X4C" kind="showDetail" identifier="resourcesSegue" id="gHl-kT-QQc"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TVe-gC-zzs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -313,10 +314,45 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rgr-Ok-mjW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-668.11594202898561" y="419.86607142857139"/>
+            <point key="canvasLocation" x="-904" y="420"/>
+        </scene>
+        <!--Resources View Controller-->
+        <scene sceneID="IVC-sG-jW6">
+            <objects>
+                <viewController id="VUA-3Q-X4C" customClass="ResourcesViewController" customModule="mhsvictoria_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ljs-l9-04a">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X18-xm-h3i">
+                                <rect key="frame" x="20" y="44" width="374" height="818"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="resourcesCell" id="fPI-bn-gFc" customClass="ResourcesCell" customModule="mhsvictoria_ios" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fPI-bn-gFc" id="g2W-Jl-tVU">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6wQ-MI-21C"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="X18-xm-h3i" id="wT8-BF-vtD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rnU-ei-lTZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-33.333333333333336" y="409.82142857142856"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="qQJ-CS-d17"/>
+        <segue reference="2nL-Vm-p7E"/>
     </inferredMetricsTieBreakers>
 </document>
