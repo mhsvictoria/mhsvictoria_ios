@@ -26,7 +26,7 @@ let pageControlHeight: CGFloat = 44
 let textFieldHeight: CGFloat = 38
 let buttonWidth: CGFloat = 64
 let buttonHeight: CGFloat = 32
-
+let dataDownloadUrl = "https://docs.google.com/feeds/download/spreadsheets/Export?key=1qR8LiHh_fnE1Vc7730MBvqD4WapLx_-ZaxRYxsitoXU&exportFormat=csv"
 
 // constants for circular tabs
 let buttonSize: CGFloat = 40

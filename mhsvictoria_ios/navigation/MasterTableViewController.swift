@@ -24,6 +24,7 @@ class MasterTableViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.dataSource = self
         
         self.navigationController?.navigationBar.barTintColor = toolbarColor
+        downloadCsv(dataDownloadUrl)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -235,6 +236,28 @@ class MasterTableViewController: UIViewController, UITableViewDelegate, UITableV
         cell.textLabel?.font = cellFont?.italic
         cell.textLabel?.textColor = textLight
         return cell
+    }
+    
+    private func downloadCsv(_ urlPath: String) {
+        
+        let url = urlPath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        
+        let webClient = WebClient()
+        do {
+            try webClient.fileDownload(urlPath: url!, successBlock: {(_ resp: Array<String>?) in
+                
+                guard let _ = resp else {
+                    return
+                }
+                for str in resp! {
+                    NSLog(">>>>>>>> ROW: \n\(str)")
+                }
+            }, failureBlock: {(_ resp: String) in
+                NSLog("Failure: " + resp)
+            })
+        } catch {
+            NSLog("Failure - in catch")
+        }
     }
     
 }

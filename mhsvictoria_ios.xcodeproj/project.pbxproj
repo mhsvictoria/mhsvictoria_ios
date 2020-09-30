@@ -40,6 +40,8 @@
 		2A2F12392523807A007F097F /* MonthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F12382523807A007F097F /* MonthHeaderView.swift */; };
 		2A2F124025241144007F097F /* AppointmentKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A09FD95251294E500CDF9CF /* AppointmentKit.framework */; };
 		2A2F124125241144007F097F /* AppointmentKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A09FD95251294E500CDF9CF /* AppointmentKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2A2F124F252503C0007F097F /* WebClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F124D252503C0007F097F /* WebClient.swift */; };
+		2A2F1250252503C0007F097F /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F124E252503C0007F097F /* BrowserViewController.swift */; };
 		2A57ADAD24DB30A400F9A9ED /* brain_sm.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A57ADAC24DB30A400F9A9ED /* brain_sm.png */; };
 		2A57ADAF24DB313A00F9A9ED /* brain_sm_rot.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A57ADAE24DB313A00F9A9ED /* brain_sm_rot.png */; };
 		2A5DEDE224D595830076AEE4 /* brain_lrg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A5DEDE124D595830076AEE4 /* brain_lrg.png */; };
@@ -140,6 +142,8 @@
 		2A2F10C3251EA3C0007F097F /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		2A2F123025237763007F097F /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
 		2A2F12382523807A007F097F /* MonthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthHeaderView.swift; sourceTree = "<group>"; };
+		2A2F124D252503C0007F097F /* WebClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebClient.swift; sourceTree = "<group>"; };
+		2A2F124E252503C0007F097F /* BrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
 		2A57ADAC24DB30A400F9A9ED /* brain_sm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brain_sm.png; sourceTree = "<group>"; };
 		2A57ADAE24DB313A00F9A9ED /* brain_sm_rot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brain_sm_rot.png; sourceTree = "<group>"; };
 		2A5DEDE124D595830076AEE4 /* brain_lrg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brain_lrg.png; sourceTree = "<group>"; };
@@ -207,6 +211,7 @@
 		2A00753D24BD4A7000BB1AEA /* mhsvictoria_ios */ = {
 			isa = PBXGroup;
 			children = (
+				2A2F124525250340007F097F /* network */,
 				2A2F10C0251EA3AB007F097F /* map */,
 				2A2F10B9251E3558007F097F /* resource */,
 				2A069CAE2519B31A00DCDFFE /* view */,
@@ -342,6 +347,15 @@
 				2A2F10C3251EA3C0007F097F /* MapViewController.swift */,
 			);
 			path = map;
+			sourceTree = "<group>";
+		};
+		2A2F124525250340007F097F /* network */ = {
+			isa = PBXGroup;
+			children = (
+				2A2F124E252503C0007F097F /* BrowserViewController.swift */,
+				2A2F124D252503C0007F097F /* WebClient.swift */,
+			);
+			path = network;
 			sourceTree = "<group>";
 		};
 		2A6291AB24CBB36C00B8E43D /* images */ = {
@@ -551,6 +565,7 @@
 				2A069CBA251A255200DCDFFE /* ActionbarView.swift in Sources */,
 				2A069C6C25198E7500DCDFFE /* AppointmentDetailsView.swift in Sources */,
 				2A09FDA82512988300CDF9CF /* AppointmentViewController.swift in Sources */,
+				2A2F1250252503C0007F097F /* BrowserViewController.swift in Sources */,
 				2A2F10BD251E3693007F097F /* ResourceManager.swift in Sources */,
 				2A069CAD2519B29F00DCDFFE /* ViewUtil.swift in Sources */,
 				2ABF437B24DE247000F7A747 /* BaseViewController.swift in Sources */,
@@ -561,6 +576,7 @@
 				2ABF438324DE256900F7A747 /* Form3ViewController.swift in Sources */,
 				2ABF437C24DE247000F7A747 /* MainViewController.swift in Sources */,
 				2A069CBE251A25DE00DCDFFE /* ShadowedLabel.swift in Sources */,
+				2A2F124F252503C0007F097F /* WebClient.swift in Sources */,
 				2A069C6E25198E7500DCDFFE /* AppointmentFormView.swift in Sources */,
 				2A09FDAE25129DB200CDF9CF /* HeaderView.swift in Sources */,
 				2A2F123125237763007F097F /* CustomPageControl.swift in Sources */,
