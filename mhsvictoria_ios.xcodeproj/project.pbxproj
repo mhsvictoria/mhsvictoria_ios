@@ -28,8 +28,6 @@
 		2A069CBE251A25DE00DCDFFE /* ShadowedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A069CBD251A25DE00DCDFFE /* ShadowedLabel.swift */; };
 		2A09FD68250D966600CDF9CF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A09FD67250D966600CDF9CF /* Localizable.strings */; };
 		2A09FD6A250D9A3E00CDF9CF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A09FD69250D9A3E00CDF9CF /* Constants.swift */; };
-		2A09FD9D2512959200CDF9CF /* AppointmentKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A09FD95251294E500CDF9CF /* AppointmentKit.framework */; };
-		2A09FD9E2512959200CDF9CF /* AppointmentKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A09FD95251294E500CDF9CF /* AppointmentKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2A09FDA22512971900CDF9CF /* MhsgvTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A09FDA12512971900CDF9CF /* MhsgvTableViewCell.swift */; };
 		2A09FDA42512973B00CDF9CF /* MasterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A09FDA32512973B00CDF9CF /* MasterTableViewController.swift */; };
 		2A09FDA82512988300CDF9CF /* AppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A09FDA72512988300CDF9CF /* AppointmentViewController.swift */; };
@@ -40,6 +38,8 @@
 		2A2F10C4251EA3C0007F097F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F10C3251EA3C0007F097F /* MapViewController.swift */; };
 		2A2F123125237763007F097F /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F123025237763007F097F /* CustomPageControl.swift */; };
 		2A2F12392523807A007F097F /* MonthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F12382523807A007F097F /* MonthHeaderView.swift */; };
+		2A2F124025241144007F097F /* AppointmentKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A09FD95251294E500CDF9CF /* AppointmentKit.framework */; };
+		2A2F124125241144007F097F /* AppointmentKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A09FD95251294E500CDF9CF /* AppointmentKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2A57ADAD24DB30A400F9A9ED /* brain_sm.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A57ADAC24DB30A400F9A9ED /* brain_sm.png */; };
 		2A57ADAF24DB313A00F9A9ED /* brain_sm_rot.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A57ADAE24DB313A00F9A9ED /* brain_sm_rot.png */; };
 		2A5DEDE224D595830076AEE4 /* brain_lrg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A5DEDE124D595830076AEE4 /* brain_lrg.png */; };
@@ -88,13 +88,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		2A09FD9F2512959200CDF9CF /* Embed Frameworks */ = {
+		2A2F124225241144007F097F /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2A09FD9E2512959200CDF9CF /* AppointmentKit.framework in Embed Frameworks */,
+				2A2F124125241144007F097F /* AppointmentKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -161,7 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A09FD9D2512959200CDF9CF /* AppointmentKit.framework in Frameworks */,
+				2A2F124025241144007F097F /* AppointmentKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,7 +379,7 @@
 				2A00753724BD4A7000BB1AEA /* Sources */,
 				2A00753824BD4A7000BB1AEA /* Frameworks */,
 				2A00753924BD4A7000BB1AEA /* Resources */,
-				2A09FD9F2512959200CDF9CF /* Embed Frameworks */,
+				2A2F124225241144007F097F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
