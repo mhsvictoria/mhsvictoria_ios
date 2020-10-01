@@ -9,10 +9,10 @@
 import UIKit
 
 class ResourcesViewController: UIViewController {
-
-    @IBOutlet weak var tableView: UITableView!
-    var remoteResources: Array<Resource?>?
     
+    @IBOutlet weak var tableView: UITableView!
+    var remoteResources: Dictionary<String, Array<Resource>?>?
+    var resourceKeys: Array<String>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,44 +22,77 @@ class ResourcesViewController: UIViewController {
         ResourceManager.shared.retrieveRemoteResources(completion: {(_ success: Bool) in
             if success {
                 self.remoteResources = ResourceManager.shared.remoteResources
+                var iter = self.remoteResources?.makeIterator()
+                self.resourceKeys = Array()
+                while let dict = iter?.next() {
+                    self.resourceKeys?.append(dict.key)
+                }
                 self.tableView.reloadData()
             } else {
                 // ERROR!
             }
         })
-   
+        
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 extension ResourcesViewController: UITableViewDataSource, UITableViewDelegate {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if let _ = resourceKeys {
+            return resourceKeys!.count
+        }
+        return 0
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let _ = remoteResources {
-            return remoteResources!.count
+        
+        guard let _ =  resourceKeys else {
+            return 0
+        }
+        if let key = resourceKeys?[section] {
+            if let arr = remoteResources?[key] {
+                return arr!.count
+            }
         }
         return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-         let cell = tableView.dequeueReusableCell(withIdentifier: "resourcesCell", for: indexPath) as! ResourcesCell
-        cell.textLabel?.text = remoteResources?[indexPath.row]?.name
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "resourcesCell", for: indexPath) as! ResourcesCell
         
+        if let key = resourceKeys?[indexPath.section] {
+            if let arr = remoteResources?[key] {
+                cell.textLabel?.text = arr?[indexPath.row].name
+            }
+        }
+        return cell
     }
     
-    
-    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    if let key = resourceKeys?[section] {
+        let headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: headerHeight), header: key, font: sectionHeaderFont, color: toolbarColor)
+        headerView.buttonName = "magnifyingglass"
+        return headerView
+        }
+        return nil
+    }
+        
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return headerHeight
+    }
 }
+

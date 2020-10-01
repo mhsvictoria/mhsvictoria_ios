@@ -12,7 +12,7 @@ import AppointmentKit
 struct Resource : Entity {
     var id: String
     var name: String
-    var category: String?
+    var category: String
     var addressLocation: Location?
     var billingLocation: Location?
     var contact: Contact?

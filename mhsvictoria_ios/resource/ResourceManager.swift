@@ -11,7 +11,7 @@ import Foundation
 class ResourceManager {
     
     public var selected: Resource?
-    public var remoteResources: Array<Resource>?
+    public var remoteResources: Dictionary<String, Array<Resource>>?
     static let shared = ResourceManager()
 
     private init() {
@@ -31,7 +31,7 @@ class ResourceManager {
                     return
                 }
                 if resp!.count > 1 {
-                    self.remoteResources = Array<Resource>()
+                    self.remoteResources = Dictionary<String, Array<Resource>>()
                     for i in 1..<resp!.count {
                         self.createResource(resp![i])
                     }
@@ -69,15 +69,32 @@ class ResourceManager {
     
     private func createResource(_ str: String) {
         let tokens = str.split(separator: Character(","))
+        NSLog(">>>>>> TOKENS: \(tokens)")
         if tokens.count > 1 {
-            var resource = Resource(id: String(tokens[1]), name: String(tokens[1]))
-            var category = String(tokens[0])
-            if category.count == 0 {
-                resource.category == "Other"
+            var category = "Other"
+            let cat = tokens[0].replacingOccurrences(
+            of: "\\s",
+            with: "",
+            options: .regularExpression,
+            range:nil)
+            if cat.count > 0 {
+                category = cat
             } else {
-            resource.category = String(category)
+                category = "Other"
             }
-            remoteResources?.append(resource)
+            NSLog(">>>>>> CATEGORY: \(category)")
+            let name = tokens[1].replacingOccurrences(
+            of: "\\n",
+            with: "",
+            options: .regularExpression,
+            range:nil)
+            let resource = Resource(id: name, name: name, category: category)
+            
+            if remoteResources?[resource.category] == nil {
+                remoteResources?[resource.category] = Array<Resource>()
+            }
+            remoteResources![resource.category]?.append(resource)
+            
         }
     }
 }

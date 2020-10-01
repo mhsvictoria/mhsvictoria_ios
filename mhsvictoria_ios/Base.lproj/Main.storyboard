@@ -324,16 +324,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X18-xm-h3i">
-                                <rect key="frame" x="20" y="44" width="374" height="818"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X18-xm-h3i">
+                                <rect key="frame" x="0.0" y="20" width="414" height="802"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="resourcesCell" id="fPI-bn-gFc" customClass="ResourcesCell" customModule="mhsvictoria_ios" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fPI-bn-gFc" id="g2W-Jl-tVU">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -341,6 +340,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="X18-xm-h3i" firstAttribute="trailing" secondItem="6wQ-MI-21C" secondAttribute="trailing" id="7N8-Pv-09g"/>
+                            <constraint firstAttribute="bottom" secondItem="X18-xm-h3i" secondAttribute="bottom" constant="20" symbolic="YES" id="EuH-z0-BrA"/>
+                            <constraint firstItem="X18-xm-h3i" firstAttribute="leading" secondItem="6wQ-MI-21C" secondAttribute="leading" id="Ujx-Hh-CiO"/>
+                            <constraint firstItem="X18-xm-h3i" firstAttribute="top" secondItem="6wQ-MI-21C" secondAttribute="top" constant="20" id="bjK-Ky-4Aq"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6wQ-MI-21C"/>
                     </view>
                     <connections>
