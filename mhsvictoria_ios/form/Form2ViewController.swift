@@ -10,16 +10,16 @@ import UIKit
 
 class Form2ViewController: BaseViewController {
     
+    
     var defaultSelectedFields: [String: Bool] = ["Field1": false, "Field2": false, "Field3": false, "Field4": false, "Field5": false, "Field6": false]
-    let fieldKey = "fieldKey"
     var selectedFields: [String: Bool] {
         get {
-            if UserDefaults.standard.object(forKey: fieldKey) != nil {
-                return UserDefaults.standard.dictionary(forKey: fieldKey) as! [String: Bool]
+            if UserDefaults.standard.object(forKey: formTwoFields) != nil {
+                return UserDefaults.standard.dictionary(forKey: formTwoFields) as! [String: Bool]
             }
             return defaultSelectedFields
         } set {
-            UserDefaults.standard.set(newValue, forKey: fieldKey)
+            UserDefaults.standard.set(newValue, forKey: formTwoFields)
         }
     }
  
@@ -77,7 +77,7 @@ class Form2ViewController: BaseViewController {
     
     func addSwitches() {
         var switchesStackView = leftStackView
-        let keys = selectedFields.keys
+        let keys = selectedFields.keys.sorted()
         for (index, field) in keys.enumerated() {
             let fieldLabel = UILabel()
             fieldLabel.text = field

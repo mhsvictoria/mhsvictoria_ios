@@ -10,6 +10,7 @@ import UIKit
 
 let ageKey = "age"
 let defaultAge = 25
+let formTwoFields = "form2Key"
 let sliderDivisor: Float = 100
 let imageSize: CGFloat = 24
 let marginTiny: CGFloat = 4
