@@ -79,6 +79,7 @@ extension ResourcesViewController: UITableViewDataSource, UITableViewDelegate {
                 cell.textLabel?.text = arr?[indexPath.row].name
             }
         }
+        cell.textLabel?.font = cellFont
         return cell
     }
     
