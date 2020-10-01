@@ -7,13 +7,34 @@
 //
 
 import UIKit
+import MapKit
 
 class MapViewController: UIViewController {
-
+    
+    @IBOutlet weak var mapActionBar: MapActionBar!
+    
+    @IBOutlet weak var mapView: MKMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        mapActionBar.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            mapActionBar.heightAnchor.constraint(equalToConstant: toolbarHeight),
+            mapActionBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mapActionBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            mapActionBar.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+        ])
+        mapActionBar.backgroundColor = toolbarColor
+        
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            mapView.topAnchor.constraint(equalTo: view.topAnchor, constant: margin),
+            mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            mapView.bottomAnchor.constraint(equalTo: mapActionBar.topAnchor)
+        ])
     }
     
 

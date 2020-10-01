@@ -26,7 +26,7 @@ public class HeaderView: UIView {
     
     var buttonName: String? {
         didSet {
-            button = UIButton(frame: CGRect(x: margin, y: (frame.height - imageSize)/2, width: imageSize, height: imageSize))
+            button = UIButton(frame: CGRect(x: frame.width - margin - imageSize, y: (frame.height - imageSize)/2, width: imageSize, height: imageSize))
             button?.setImage(UIImage(systemName: buttonName!), for: .normal)
             button?.tintColor = toolbarColor
             addSubview(button!)

@@ -44,6 +44,7 @@
 		2A2F1250252503C0007F097F /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F124E252503C0007F097F /* BrowserViewController.swift */; };
 		2A2F125425251F7A007F097F /* ResourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F125325251F7A007F097F /* ResourcesViewController.swift */; };
 		2A2F125625251FE8007F097F /* ResourcesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F125525251FE8007F097F /* ResourcesCell.swift */; };
+		2A2F125A25260C23007F097F /* MapActionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F125925260C23007F097F /* MapActionBar.swift */; };
 		2A57ADAD24DB30A400F9A9ED /* brain_sm.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A57ADAC24DB30A400F9A9ED /* brain_sm.png */; };
 		2A57ADAF24DB313A00F9A9ED /* brain_sm_rot.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A57ADAE24DB313A00F9A9ED /* brain_sm_rot.png */; };
 		2A5DEDE224D595830076AEE4 /* brain_lrg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A5DEDE124D595830076AEE4 /* brain_lrg.png */; };
@@ -148,6 +149,7 @@
 		2A2F124E252503C0007F097F /* BrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
 		2A2F125325251F7A007F097F /* ResourcesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesViewController.swift; sourceTree = "<group>"; };
 		2A2F125525251FE8007F097F /* ResourcesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesCell.swift; sourceTree = "<group>"; };
+		2A2F125925260C23007F097F /* MapActionBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapActionBar.swift; sourceTree = "<group>"; };
 		2A57ADAC24DB30A400F9A9ED /* brain_sm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brain_sm.png; sourceTree = "<group>"; };
 		2A57ADAE24DB313A00F9A9ED /* brain_sm_rot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brain_sm_rot.png; sourceTree = "<group>"; };
 		2A5DEDE124D595830076AEE4 /* brain_lrg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brain_lrg.png; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 			isa = PBXGroup;
 			children = (
 				2A2F10C3251EA3C0007F097F /* MapViewController.swift */,
+				2A2F125925260C23007F097F /* MapActionBar.swift */,
 			);
 			path = map;
 			sourceTree = "<group>";
@@ -579,6 +582,7 @@
 				2A069C7E25198EA300DCDFFE /* DayCollectionViewCell.swift in Sources */,
 				2ABF437124DE07E200F7A747 /* ColorPalette.swift in Sources */,
 				2ABF437F24DE254000F7A747 /* Form1ViewController.swift in Sources */,
+				2A2F125A25260C23007F097F /* MapActionBar.swift in Sources */,
 				2A09FDA42512973B00CDF9CF /* MasterTableViewController.swift in Sources */,
 				2ABF438324DE256900F7A747 /* Form3ViewController.swift in Sources */,
 				2ABF437C24DE247000F7A747 /* MainViewController.swift in Sources */,

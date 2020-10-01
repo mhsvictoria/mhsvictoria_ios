@@ -71,24 +71,15 @@ class MasterTableViewController: UIViewController, UITableViewDelegate, UITableV
         if indexPath.section == 0 {
             if indexPath.row == 0 {
                 return firstCellInSection(text: "cell.personal.preferences".localized, indexPath: indexPath)
-            }
-            
-            if indexPath.row == 1 {
+            } else if resources != nil, !resources!.isEmpty {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "mhsgvCell", for: indexPath) as! MhsgvTableViewCell
-                cell.textLabel?.text = "browse.resources".localized
+                cell.textLabel?.text = resources?[indexPath.row - 1]?.name
                 cell.textLabel?.font = cellFont
                 cell.accessoryView = UIImageView(image: UIImage(systemName: "chevron.right"))
                 cell.section = indexPath.section
                 return cell
-            }
-            
-            if resources != nil, !resources!.isEmpty {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "mhsgvCell", for: indexPath) as! MhsgvTableViewCell
-                cell.textLabel?.text = resources?[indexPath.row - 2]?.name
-                cell.textLabel?.font = cellFont
-                cell.accessoryView = UIImageView(image: UIImage(systemName: "chevron.right"))
-                cell.section = indexPath.section
-                return cell
+            } else {
+                return placeHolderForIndexPath(text: "resource.placeholder".localized, indexPath: indexPath)
             }
             
         }
@@ -146,10 +137,10 @@ class MasterTableViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        
         if section == 0 {
             let headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: headerHeight), header: "section.resource.search".localized, font: sectionHeaderFont, color: toolbarColor)
             headerView.buttonName = "magnifyingglass"
+            headerView.button?.addTarget(self, action: #selector(onResourcesClick), for: .touchUpInside)
             return headerView
         }
         if section == 1 {
@@ -162,14 +153,22 @@ class MasterTableViewController: UIViewController, UITableViewDelegate, UITableV
         if section == 2 {
             let headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: headerHeight), header: "section.map".localized, font: sectionHeaderFont, color: toolbarColor)
             headerView.buttonName = "map"
+            headerView.button?.addTarget(self, action: #selector(onMapClick), for: .touchUpInside)
             return headerView
         }
         return nil
     }
     
     @objc func onCalendarClick(_ sender: UIButton) {
-        
         self.navigationController?.performSegue(withIdentifier: "calendarSegue", sender: self)
+    }
+    
+    @objc func onResourcesClick(_ sender: UIButton) {
+        self.navigationController?.performSegue(withIdentifier: "resourcesSegue", sender: self)
+    }
+    
+    @objc func onMapClick(_ sender: UIButton) {
+        self.navigationController?.performSegue(withIdentifier: "mapSegue", sender: self)
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -179,27 +178,39 @@ class MasterTableViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch(indexPath.section) {
         case 0:
-            if indexPath.row == 1 {
-            self.navigationController?.performSegue(withIdentifier: "resourcesSegue", sender: self)
+            if indexPath.row == 0 {
+                self.navigationController?.performSegue(withIdentifier: "formSegue", sender: self)
             } else {
-            self.navigationController?.performSegue(withIdentifier: "formSegue", sender: self)
+                if resources != nil && !resources!.isEmpty {
+                    // todo: Add resources
+                    //let resource = resources?[indexPath.row - 1]
+                    //ResourceManager.selected = resource
+                    self.navigationController?.performSegue(withIdentifier: "formSegue", sender: self)
+                }
             }
             break
         case 1:
             if indexPath.row == 0 {
                 AppointmentManager.selected = nil
+                self.navigationController?.performSegue(withIdentifier: "appointmentSegue", sender: self)
             } else {
-                let appointment = appointments?[indexPath.row - 1]
-                AppointmentManager.selected = appointment
+                if appointments != nil && !appointments!.isEmpty {
+                    let appointment = appointments?[indexPath.row - 1]
+                    AppointmentManager.selected = appointment
+                    self.navigationController?.performSegue(withIdentifier: "appointmentSegue", sender: self)
+                }
             }
-            self.navigationController?.performSegue(withIdentifier: "appointmentSegue", sender: self)
             break
         default:
-            if indexPath.row > 0 {
-                let appointment = appointments?[indexPath.row - 1]
-                AppointmentManager.selected = appointment
+            if indexPath.row == 0 {
+                self.navigationController?.performSegue(withIdentifier: "mapSegue", sender: self)
+            } else {
+                if appointments != nil && !appointments!.isEmpty {
+                    let appointment = appointments?[indexPath.row - 1]
+                    AppointmentManager.selected = appointment
+                    self.navigationController?.performSegue(withIdentifier: "mapSegue", sender: self)
+                }
             }
-            self.navigationController?.performSegue(withIdentifier: "mapSegue", sender: self)
             break
         }
     }

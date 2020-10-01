@@ -16,19 +16,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DIv-Wx-Mbv">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YXB-9R-5UZ" customClass="MapActionBar" customModule="mhsvictoria_ios" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="414" height="86"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DIv-Wx-Mbv">
+                                <rect key="frame" x="0.0" y="114" width="414" height="728"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="DIv-Wx-Mbv" firstAttribute="top" secondItem="evI-WA-WDN" secondAttribute="top" id="c02-JB-yd7"/>
-                            <constraint firstItem="DIv-Wx-Mbv" firstAttribute="leading" secondItem="1cI-d2-GoC" secondAttribute="leading" id="gYw-RT-pVo"/>
-                            <constraint firstItem="DIv-Wx-Mbv" firstAttribute="trailing" secondItem="1cI-d2-GoC" secondAttribute="trailing" id="rh4-r5-f6S"/>
-                            <constraint firstAttribute="bottom" secondItem="DIv-Wx-Mbv" secondAttribute="bottom" id="xVa-Sb-O1g"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="1cI-d2-GoC"/>
                     </view>
+                    <connections>
+                        <outlet property="mapActionBar" destination="YXB-9R-5UZ" id="WGV-oH-Vio"/>
+                        <outlet property="mapView" destination="DIv-Wx-Mbv" id="PXt-JS-q9J"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1AK-XS-Bdg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

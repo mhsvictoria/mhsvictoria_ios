@@ -12,7 +12,7 @@ class ResourceManager {
     
     public var selected: Resource?
     public var remoteResources: Dictionary<String, Array<Resource>>?
-    static let shared = ResourceManager()
+    public static let shared = ResourceManager()
 
     private init() {
         // initializer code here
