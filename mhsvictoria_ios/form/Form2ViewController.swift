@@ -34,22 +34,24 @@ class Form2ViewController: BaseViewController {
     
     }
     
-    func setUpStackViews() { //TODO refactor
-        leftStackView.axis = .vertical
-        leftStackView.distribution = .equalCentering
-        leftStackView.translatesAutoresizingMaskIntoConstraints = false
+    func setUpStackViews() { 
+        
+        for sv in [leftStackView, rightStackView] {
+            sv.axis = .vertical
+            sv.distribution = .equalCentering
+            sv.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                sv.topAnchor.constraint(equalTo: formHeaderLabel.bottomAnchor, constant: margin),
+                sv.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -margin),
+            ])
+        }
+        
         NSLayoutConstraint.activate([
-            leftStackView.topAnchor.constraint(equalTo: formHeaderLabel.bottomAnchor, constant: margin),
-            leftStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -margin),
             leftStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
             leftStackView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5, constant: -margin * 1.5)
         ])
-        rightStackView.axis = .vertical
-        rightStackView.distribution = .equalCentering
-        rightStackView.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
-            rightStackView.topAnchor.constraint(equalTo: formHeaderLabel.bottomAnchor, constant: margin),
-            rightStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -margin),
             rightStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
             rightStackView.leadingAnchor.constraint(equalTo: leftStackView.trailingAnchor, constant: margin)
         ])
