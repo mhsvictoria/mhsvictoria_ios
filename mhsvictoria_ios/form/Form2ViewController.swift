@@ -10,9 +10,21 @@ import UIKit
 
 class Form2ViewController: BaseViewController {
     
-    let switchToField: [UISwitch: String] = [UISwitch: String]()
-    var selectedFields: [String: Bool] = ["Field1": false, "Field2": true, "Field3": false]
-    let fieldNames = ["Field1", "Field2", "Field3", "Field4", "Field5", "Field6"]
+    var defaultSelectedFields: [String: Bool] = ["Field1": false, "Field2": false, "Field3": false, "Field4": false, "Field5": false, "Field6": false]
+    let fieldKey = "fieldKey"
+    var selectedFields: [String: Bool] {
+        get {
+            if UserDefaults.standard.object(forKey: fieldKey) != nil {
+                return UserDefaults.standard.dictionary(forKey: fieldKey) as! [String: Bool]
+            }
+            return defaultSelectedFields
+        } set {
+            UserDefaults.standard.set(newValue, forKey: fieldKey)
+        }
+    }
+ 
+    
+    var switchToField: [UISwitch: String] = [UISwitch: String]()
     let leftStackView = UIStackView()
     let rightStackView = UIStackView()
     let formHeaderLabel = UILabel()
@@ -31,11 +43,19 @@ class Form2ViewController: BaseViewController {
         view.addSubview(rightStackView)
         setUpStackViews()
         addSwitches()
-    
+        updateUI()
+        
     }
     
-    func setUpStackViews() { 
-        
+    func updateUI() {
+        for (uiSwitch, field) in switchToField {
+            if selectedFields[field] != nil {
+                uiSwitch.setOn(selectedFields[field]!, animated: false)
+            }
+        }
+    }
+    
+    func setUpStackViews() {
         for sv in [leftStackView, rightStackView] {
             sv.axis = .vertical
             sv.distribution = .equalCentering
@@ -45,22 +65,20 @@ class Form2ViewController: BaseViewController {
                 sv.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -margin),
             ])
         }
-        
         NSLayoutConstraint.activate([
             leftStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
             leftStackView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5, constant: -margin * 1.5)
         ])
-        
         NSLayoutConstraint.activate([
             rightStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
             rightStackView.leadingAnchor.constraint(equalTo: leftStackView.trailingAnchor, constant: margin)
         ])
-        
     }
     
     func addSwitches() {
         var switchesStackView = leftStackView
-        for (index, field) in fieldNames.enumerated() {
+        let keys = selectedFields.keys
+        for (index, field) in keys.enumerated() {
             let fieldLabel = UILabel()
             fieldLabel.text = field
             let uiSwitch = UISwitch()
@@ -69,9 +87,11 @@ class Form2ViewController: BaseViewController {
             switchContainer.distribution = .fillProportionally
             switchesStackView.addArrangedSubview(switchContainer)
             switchContainer.translatesAutoresizingMaskIntoConstraints = false
-            if index == (fieldNames.count / 2) - 1 {
+            if index == (keys.count / 2) - 1 {
                 switchesStackView = rightStackView
             }
+            switchToField[uiSwitch] = field
+            uiSwitch.addTarget(self, action: #selector(switchPressed(sender:)), for: .valueChanged)
         }
     }
     
