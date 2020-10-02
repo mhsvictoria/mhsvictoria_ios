@@ -140,20 +140,23 @@ class MasterTableViewController: UIViewController, UITableViewDelegate, UITableV
         if section == 0 {
             let headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: headerHeight), header: "section.resource.search".localized, font: sectionHeaderFont, color: toolbarColor)
             headerView.buttonName = "magnifyingglass"
-            headerView.button?.addTarget(self, action: #selector(onResourcesClick), for: .touchUpInside)
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(onResourcesClick))
+            headerView.addGestureRecognizer(gesture)
             return headerView
         }
         if section == 1 {
             let headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: headerHeight), header: "section.appointments".localized, font: sectionHeaderFont, color: toolbarColor)
             headerView.buttonName = "calendar"
-            headerView.button?.addTarget(self, action: #selector(onCalendarClick), for: .touchUpInside)
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(onCalendarClick))
+            headerView.addGestureRecognizer(gesture)
             return headerView
         }
         
         if section == 2 {
             let headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: headerHeight), header: "section.map".localized, font: sectionHeaderFont, color: toolbarColor)
             headerView.buttonName = "map"
-            headerView.button?.addTarget(self, action: #selector(onMapClick), for: .touchUpInside)
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(onMapClick))
+            headerView.addGestureRecognizer(gesture)
             return headerView
         }
         return nil

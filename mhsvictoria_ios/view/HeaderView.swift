@@ -19,14 +19,12 @@ public class HeaderView: UIView {
             label.text = title
             label.textColor = primaryDark
             addSubview(label)
-            
-            // chevron.right
         }
     }
     
     var buttonName: String? {
         didSet {
-            button = UIButton(frame: CGRect(x: frame.width - margin - imageSize, y: (frame.height - imageSize)/2, width: imageSize, height: imageSize))
+            button = UIButton(frame: CGRect(x:margin, y: (frame.height - imageSize)/2, width: imageSize, height: imageSize))
             button?.setImage(UIImage(systemName: buttonName!), for: .normal)
             button?.tintColor = toolbarColor
             addSubview(button!)
@@ -58,6 +56,12 @@ public class HeaderView: UIView {
     private func initialization() {
         backgroundColor = primaryDark
         headerLabel?.frame.size.width = frame.width - margin
+        // chevron.right
+        let imageView = UIImageView(frame: CGRect(x:frame.width - margin - imageSize/2, y: (frame.height - imageSize/2)/2, width: imageSize/2, height: imageSize/2))
+        
+        imageView.image = UIImage(systemName: "chevron.right")
+        imageView.tintColor = toolbarColor
+        addSubview(imageView)
     }
 
     /*
