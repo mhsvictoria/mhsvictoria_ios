@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ResourcesViewController: UIViewController {
+class ResourcesViewController: UIViewController, MapPinDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     var remoteResources: Dictionary<String, Array<Resource>?>?
@@ -35,17 +35,18 @@ class ResourcesViewController: UIViewController {
         
     }
     
+    func onMapPinSelect(mapTarget: String?) {
+        self.navigationController?.performSegue(withIdentifier: "mapSegue", sender: self)
+    }
     
-    /*
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
+        if  segue.identifier == "mapSegue" {
+            present(MapViewController(), animated: true, completion: nil)
+        }
      }
-     */
-    
 }
 
 extension ResourcesViewController: UITableViewDataSource, UITableViewDelegate {
@@ -77,6 +78,8 @@ extension ResourcesViewController: UITableViewDataSource, UITableViewDelegate {
         if let key = resourceKeys?[indexPath.section] {
             if let arr = remoteResources?[key] {
                 cell.textLabel?.text = arr?[indexPath.row].name
+                cell.mapTarget = arr?[indexPath.row].name
+                cell.mapPinDelegate = self
             }
         }
         cell.textLabel?.font = cellFont

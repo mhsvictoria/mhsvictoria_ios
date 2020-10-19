@@ -12,6 +12,8 @@ class MhsgvTableViewCell: UITableViewCell {
 
     var section: Int = 0
     
+    var mapIcon: UIImageView?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

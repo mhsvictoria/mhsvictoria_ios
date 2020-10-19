@@ -29,6 +29,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="1cI-d2-GoC"/>
                     </view>
+                    <navigationItem key="navigationItem" id="aWl-0T-zGt"/>
                     <connections>
                         <outlet property="mapActionBar" destination="YXB-9R-5UZ" id="WGV-oH-Vio"/>
                         <outlet property="mapView" destination="DIv-Wx-Mbv" id="PXt-JS-q9J"/>

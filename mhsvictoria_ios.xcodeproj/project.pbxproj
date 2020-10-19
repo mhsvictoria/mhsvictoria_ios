@@ -33,6 +33,7 @@
 		2A09FDA82512988300CDF9CF /* AppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A09FDA72512988300CDF9CF /* AppointmentViewController.swift */; };
 		2A09FDAE25129DB200CDF9CF /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A09FDAD25129DB200CDF9CF /* HeaderView.swift */; };
 		2A09FDB22512A04A00CDF9CF /* FontUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A09FDB12512A04A00CDF9CF /* FontUtil.swift */; };
+		2A188B0B253E3C06001FB9E3 /* ResourceDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A188B0A253E3C06001FB9E3 /* ResourceDetailsView.swift */; };
 		2A2F10BB251E356B007F097F /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F10BA251E356B007F097F /* Resource.swift */; };
 		2A2F10BD251E3693007F097F /* ResourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F10BC251E3693007F097F /* ResourceManager.swift */; };
 		2A2F10C4251EA3C0007F097F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F10C3251EA3C0007F097F /* MapViewController.swift */; };
@@ -140,6 +141,7 @@
 		2A09FDA72512988300CDF9CF /* AppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentViewController.swift; sourceTree = "<group>"; };
 		2A09FDAD25129DB200CDF9CF /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		2A09FDB12512A04A00CDF9CF /* FontUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontUtil.swift; sourceTree = "<group>"; };
+		2A188B0A253E3C06001FB9E3 /* ResourceDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceDetailsView.swift; sourceTree = "<group>"; };
 		2A2F10BA251E356B007F097F /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		2A2F10BC251E3693007F097F /* ResourceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceManager.swift; sourceTree = "<group>"; };
 		2A2F10C3251EA3C0007F097F /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 				2A2F10BC251E3693007F097F /* ResourceManager.swift */,
 				2A2F125325251F7A007F097F /* ResourcesViewController.swift */,
 				2A2F125525251FE8007F097F /* ResourcesCell.swift */,
+				2A188B0A253E3C06001FB9E3 /* ResourceDetailsView.swift */,
 			);
 			path = resource;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 				2A2F125625251FE8007F097F /* ResourcesCell.swift in Sources */,
 				2A09FDAE25129DB200CDF9CF /* HeaderView.swift in Sources */,
 				2A2F123125237763007F097F /* CustomPageControl.swift in Sources */,
+				2A188B0B253E3C06001FB9E3 /* ResourceDetailsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

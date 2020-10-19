@@ -8,7 +8,7 @@
 "app.name" = "Mental Health Society of Greater Victoria";
 "age.label" = "I am %d years old....";
 
-"section.resource.search" = "Preferences";
+"section.resource.search" = "Resources";
 "cell.personal.preferences" = "Search for resources ...";
 "resource.placeholder" = "Resource preferences will appear here.";
 
