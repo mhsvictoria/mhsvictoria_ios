@@ -21,8 +21,10 @@ class ResourceDetailViewController: UIViewController {
     func setUpView() {
         view.backgroundColor = darkSlateGrey
         view.addSubview(resourceDetailView)
-        resourceDetailView.layer.borderWidth = 1
-        resourceDetailView.layer.borderColor = UIColor(named: "gray")?.cgColor
+        resourceDetailView.layer.borderWidth = 2
+        resourceDetailView.layer.borderColor = slateGrey.cgColor
+        resourceDetailView.layer.cornerRadius = 5
+
         resourceDetailView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             resourceDetailView.topAnchor.constraint(equalTo: view.topAnchor, constant: 120),
