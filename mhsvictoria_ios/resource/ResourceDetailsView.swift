@@ -20,6 +20,11 @@ class ResourceDetailsView: UIView {
     }
 
     let titleLabel = UILabel()
+    let bulletContainer = UIStackView()
+    let resourceDescription = UILabel()
+    let iconContainer = UIStackView()
+    let mapView = MKMapView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -30,22 +35,78 @@ class ResourceDetailsView: UIView {
     
     func setUpView() {
         backgroundColor = lightSlateGrey
+        addTitle()
+        addDescription()
+        addBullets()
+        addIcons()
+        addMapView()
+    }
+    
+    func addTitle() {
+
         if let safeData = data {
             titleLabel.textColor = .black
             titleLabel.text = safeData.name
-            titleLabel.textAlignment = .center
+            titleLabel.textAlignment = .left
+            titleLabel.lineBreakMode = .byWordWrapping
+            titleLabel.numberOfLines = 0
             addSubview(titleLabel)
             titleLabel.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 200),
-                titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-                titleLabel.heightAnchor.constraint(equalToConstant: 30),
-                titleLabel.widthAnchor.constraint(equalToConstant: 200)
+                titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: margin),
+                titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margin),
+                titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -margin)
             ])
-            
         }
-        addIcons()
-        addMapView()
+    }
+    
+    func addDescription() {
+
+        resourceDescription.text = "Here is a placeholder description of the service, where we would summarize what the service is."
+        addSubview(resourceDescription)
+        resourceDescription.numberOfLines = 0
+        resourceDescription.lineBreakMode = .byWordWrapping
+        resourceDescription.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            resourceDescription.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margin),
+            resourceDescription.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -margin),
+            resourceDescription.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: margin)
+        ])
+    }
+    
+    func addBullets() {
+
+        bulletContainer.translatesAutoresizingMaskIntoConstraints = false
+        bulletContainer.distribution = .equalCentering
+        addSubview(bulletContainer)
+        NSLayoutConstraint.activate([
+            bulletContainer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margin),
+            bulletContainer.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
+            bulletContainer.topAnchor.constraint(equalTo: resourceDescription.bottomAnchor, constant: margin),
+            bulletContainer.heightAnchor.constraint(equalToConstant: 200)
+        ])
+        bulletContainer.axis = .vertical
+
+        let fakeBulletPts = ["Some fake", "Bullet points", "About the", "resource"]
+        for bullet in fakeBulletPts {
+            
+            let bulletLabel = UILabel()
+            bulletLabel.text = bullet
+
+            let checkIcon = UIImageView(image: UIImage(systemName: "checkmark.square"))
+            checkIcon.tintColor = slateGrey
+            checkIcon.setContentHuggingPriority(UILayoutPriority(1000), for: .horizontal)
+            checkIcon.setContentCompressionResistancePriority(UILayoutPriority(1000), for: .horizontal)
+
+            let container = UIStackView()
+            container.spacing = 5
+            container.alignment = .leading
+            container.distribution = .fillProportionally
+            container.axis = .horizontal
+            container.addArrangedSubview(checkIcon)
+            container.addArrangedSubview(bulletLabel)
+            bulletContainer.addArrangedSubview(container)
+        }
     }
     
     func addIcons() {
@@ -65,26 +126,26 @@ class ResourceDetailsView: UIView {
         let helpBtn = UIButton()
         helpBtn.setImage(help, for: .normal)
         helpBtn.tintColor = slateGrey
-        
-        let iconStackView = UIStackView()
-        iconStackView.distribution = .equalCentering
-        iconStackView.axis = .horizontal
-        addSubview(iconStackView)
-        iconStackView.translatesAutoresizingMaskIntoConstraints = false
+
+        iconContainer.distribution = .equalCentering
+        iconContainer.axis = .horizontal
+        addSubview(iconContainer)
+        iconContainer.translatesAutoresizingMaskIntoConstraints = false
+
         NSLayoutConstraint.activate([
-            iconStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -(mapViewHeight + 50)),
-            iconStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margin),
-            iconStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -margin),
-            iconStackView.heightAnchor.constraint(equalToConstant: iconViewHeight)
+            iconContainer.topAnchor.constraint(equalTo: bulletContainer.bottomAnchor, constant: margin),
+            iconContainer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margin),
+            iconContainer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -margin),
+            iconContainer.heightAnchor.constraint(equalToConstant: iconViewHeight)
         ])
-        
-        iconStackView.addArrangedSubview(phoneBtn)
+
+        iconContainer.addArrangedSubview(phoneBtn)
         phoneBtn.addTarget(self, action: #selector(phoneButtonPressed), for: .touchUpInside)
-        iconStackView.addArrangedSubview(mailBtn)
+        iconContainer.addArrangedSubview(mailBtn)
         mailBtn.addTarget(self, action: #selector(sendEmail), for: .touchUpInside)
-        iconStackView.addArrangedSubview(helpBtn)
+        iconContainer.addArrangedSubview(helpBtn)
     }
-    
+
     @objc func phoneButtonPressed() {
         if let primaryPhone = data?.contact?.primaryPhone {
             tryToCall(primaryPhone)
@@ -94,27 +155,26 @@ class ResourceDetailsView: UIView {
             }
         }
     }
-    
+
     func tryToCall(_ number: String) {
         guard let number = URL(string: "tel://" + number) else { return }
         UIApplication.shared.open(number)
     }
-    
+
     @objc func sendEmail() {
         if let email = data?.contact?.email {
             tryToMail(email)
         }
     }
-    
+
     func tryToMail(_ email: String) {
         guard let emailUrl = URL(string: "mailto:\(email)") else { return }
         UIApplication.shared.open(emailUrl)
         
     }
-    
+
     func addMapView() {
 
-        let mapView = MKMapView()
         addSubview(mapView)
         mapView.layer.cornerRadius = 5
         mapView.layer.borderColor = slateGrey.cgColor
@@ -132,6 +192,7 @@ class ResourceDetailsView: UIView {
             mapView.centerXAnchor.constraint(equalTo: centerXAnchor),
             mapView.widthAnchor.constraint(equalToConstant: mapViewWidth),
             mapView.heightAnchor.constraint(equalToConstant: mapViewHeight),
+            mapView.topAnchor.constraint(equalTo: iconContainer.bottomAnchor, constant: margin),
             mapView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -margin)
         ])
     }
