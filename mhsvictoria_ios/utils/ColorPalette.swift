@@ -19,6 +19,10 @@ extension  UIColor{
     }
 }
 
+let darkSlateGrey = UIColor(0x205b76)
+let lightSlateGrey = UIColor(0x799dad)
+let slateGrey = UIColor(0x657d87)
+
 let primaryDark = UIColor(0x225c77)
 let toolbarColor = UIColor(0xcfdee5)
 let primaryVariantDark = UIColor(0xbeded5)

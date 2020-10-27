@@ -98,5 +98,18 @@ extension ResourcesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return headerHeight
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let key = resourceKeys?[indexPath.section] {
+            if let resourceDataArray = remoteResources?[key] {
+                if let resourceData = resourceDataArray?[indexPath.row] {
+                    let detailVC = ResourceDetailViewController()
+                    detailVC.resourceData = resourceData
+                    show(detailVC, sender: self)
+                    
+                }
+            }
+        }
+    }
 }
 

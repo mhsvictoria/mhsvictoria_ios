@@ -60,6 +60,8 @@
 		2ABF437F24DE254000F7A747 /* Form1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABF437E24DE254000F7A747 /* Form1ViewController.swift */; };
 		2ABF438124DE255B00F7A747 /* Form2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABF438024DE255B00F7A747 /* Form2ViewController.swift */; };
 		2ABF438324DE256900F7A747 /* Form3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABF438224DE256900F7A747 /* Form3ViewController.swift */; };
+		8B91E70C254787A8002991B0 /* MapViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B91E70B254787A8002991B0 /* MapViewExtension.swift */; };
+		8BAD5916254490C300690F99 /* ResourceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAD5915254490C300690F99 /* ResourceDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,6 +168,8 @@
 		2ABF437E24DE254000F7A747 /* Form1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form1ViewController.swift; sourceTree = "<group>"; };
 		2ABF438024DE255B00F7A747 /* Form2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form2ViewController.swift; sourceTree = "<group>"; };
 		2ABF438224DE256900F7A747 /* Form3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form3ViewController.swift; sourceTree = "<group>"; };
+		8B91E70B254787A8002991B0 /* MapViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewExtension.swift; sourceTree = "<group>"; };
+		8BAD5915254490C300690F99 /* ResourceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -348,6 +352,7 @@
 				2A2F125325251F7A007F097F /* ResourcesViewController.swift */,
 				2A2F125525251FE8007F097F /* ResourcesCell.swift */,
 				2A188B0A253E3C06001FB9E3 /* ResourceDetailsView.swift */,
+				8BAD5915254490C300690F99 /* ResourceDetailViewController.swift */,
 			);
 			path = resource;
 			sourceTree = "<group>";
@@ -357,6 +362,7 @@
 			children = (
 				2A2F10C3251EA3C0007F097F /* MapViewController.swift */,
 				2A2F125925260C23007F097F /* MapActionBar.swift */,
+				8B91E70B254787A8002991B0 /* MapViewExtension.swift */,
 			);
 			path = map;
 			sourceTree = "<group>";
@@ -459,7 +465,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1210;
 				ORGANIZATIONNAME = "Ron Allan";
 				TargetAttributes = {
 					2A00753A24BD4A7000BB1AEA = {
@@ -581,9 +587,11 @@
 				2A2F1250252503C0007F097F /* BrowserViewController.swift in Sources */,
 				2A2F10BD251E3693007F097F /* ResourceManager.swift in Sources */,
 				2A069CAD2519B29F00DCDFFE /* ViewUtil.swift in Sources */,
+				8B91E70C254787A8002991B0 /* MapViewExtension.swift in Sources */,
 				2ABF437B24DE247000F7A747 /* BaseViewController.swift in Sources */,
 				2A069C7E25198EA300DCDFFE /* DayCollectionViewCell.swift in Sources */,
 				2ABF437124DE07E200F7A747 /* ColorPalette.swift in Sources */,
+				8BAD5916254490C300690F99 /* ResourceDetailViewController.swift in Sources */,
 				2ABF437F24DE254000F7A747 /* Form1ViewController.swift in Sources */,
 				2A2F125A25260C23007F097F /* MapActionBar.swift in Sources */,
 				2A09FDA42512973B00CDF9CF /* MasterTableViewController.swift in Sources */,
@@ -676,6 +684,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -736,6 +745,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

@@ -34,6 +34,12 @@ let buttonBorderWidth: CGFloat = 1
 let lineHeight: Int = 10
 let lineWidth: CGFloat = 2
 
+
+// constants for resource detail page
+let mapViewHeight: CGFloat = 200
+let mapViewWidth: CGFloat = 200
+let iconViewHeight: CGFloat = 50
+
 // Once the number of forms is nailed down
 // we can update these values to match
 enum FormFlow: Int {
