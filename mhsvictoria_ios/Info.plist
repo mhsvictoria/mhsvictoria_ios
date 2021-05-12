@@ -2,6 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Karma-SemiBold</string>
+		<string>Karma-Regular</string>
+		<string>Karma-Medium</string>
+		<string>Karma-Light</string>
+		<string>Karma-Bold</string>
+		<string>AmaticSC-Bold.ttf</string>
+		<string>AmaticSC-Regular.ttf</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

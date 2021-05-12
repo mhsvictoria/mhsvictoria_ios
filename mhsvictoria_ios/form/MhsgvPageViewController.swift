@@ -18,7 +18,7 @@ class MhsgvPageViewController: UIPageViewController {
             NSLog("<><><> PAGE: currentSelection \(currentSelection)")
             goToPage(currentSelection)
             if let pControl = pageControl {
-                pControl.selected = currentSelection
+                //pControl.selected = currentSelection
             }
         }
     }
@@ -37,7 +37,6 @@ class MhsgvPageViewController: UIPageViewController {
         
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier) as? BaseViewController
         vc?.pageNumber = number
-        vc?.mhsgvPageViewController = self
         return vc!
         
     }
@@ -128,7 +127,7 @@ extension MhsgvPageViewController: UIPageViewControllerDelegate {
         func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
             if completed {
                 if let pControl = pageControl {
-                    pControl.selected = nextPage
+                    //pControl.selected = nextPage
                 }
             }
         }
@@ -141,9 +140,3 @@ extension MhsgvPageViewController: UIPageViewControllerDelegate {
         }
     }
 
-    extension MhsgvPageViewController: CustomPageControlDelegate {
-        
-        func buttonWasPressed(_ number: Int) {
-            self.currentSelection = number
-        }
-}

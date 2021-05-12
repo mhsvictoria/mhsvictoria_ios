@@ -10,11 +10,5 @@ import UIKit
 
 class BaseViewController: UIViewController {
 
-        var mhsgvPageViewController: MhsgvPageViewController?
-        var pageNumber = 0
-
-        override func viewDidLoad() {
-            super.viewDidLoad()
-        }
-        
+    var pageNumber = 0
 }

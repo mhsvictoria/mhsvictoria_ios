@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import CodableCSV
 //
 //  WebClient.swift
 //  This class is responsible for making web service calls using URLSession. The response from a GET or POST request
@@ -29,7 +29,7 @@ public class WebClient {
     }
     
     // ---- GET -----------------------------------------------------------
-    public func fileDownload(urlPath: String, successBlock: @escaping ([String])->(), failureBlock: @escaping (String) -> ()) throws {
+    public func fileDownload(urlPath: String, successBlock: @escaping ([Resource])->(), failureBlock: @escaping (String) -> ()) throws {
         
         var request = URLRequest(url: URL(string: urlPath)!)
         request.httpMethod = "GET"
@@ -45,7 +45,7 @@ public class WebClient {
         let task = session.dataTask(with: request) { (data, response, error) in
             guard let data = data, error == nil else {
                 DispatchQueue.main.async(execute: {
-                    failureBlock("error=\(error!)")
+                    print(error!.localizedDescription)
                 })
                 return
             }
@@ -59,16 +59,22 @@ public class WebClient {
                 return
             }
             
-            var csvArray = Array<String>()
-            let arr = data.split(separator: 0x0D)
-            for elem in arr {
-                if let str = String(data: elem, encoding: .utf8) {
-                    csvArray.append(str)
-                }
+            let decoder = CSVDecoder {
+                $0.boolStrategy = .insensitive
+                $0.headerStrategy = .firstLine
             }
-            DispatchQueue.main.async(execute: {
-                successBlock(csvArray)
-            })
+            
+            
+            do {
+                let resources = try decoder.decode([Resource].self, from: data)
+                DispatchQueue.main.async(execute: {
+                    successBlock(resources)
+                })
+            } catch {
+                print(error.localizedDescription)
+            }
+            
+            
             
         }
         task.resume()

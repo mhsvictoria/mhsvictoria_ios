@@ -7,43 +7,24 @@
 //
 
 import Foundation
+import CodableCSV
 
 class ResourceManager {
     
-    public var selected: Resource?
-    public var remoteResources: Dictionary<String, Array<Resource>>?
-    public static let shared = ResourceManager()
-
-    private init() {
-        // initializer code here
-    }
+    weak var delegate: ResourceManagerDelegate?
     
-    func retrieveRemoteResources(completion: @escaping (Bool)->()) {
-        if remoteResources != nil {
-            completion(true)
-            return
-        }
+    func fetchResources() {
         let url = dataDownloadUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let webClient = WebClient()
         do {
-            try webClient.fileDownload(urlPath: url!, successBlock: {(_ resp: Array<String>?) in
-                guard let _ = resp else {
-                    return
-                }
-                if resp!.count > 1 {
-                    self.remoteResources = Dictionary<String, Array<Resource>>()
-                    for i in 1..<resp!.count {
-                        self.createResource(resp![i])
-                    }
-                }
-                completion(true)
+            try webClient.fileDownload(urlPath: url!, successBlock: {(_ resp: [Resource]) in
+                
+                self.delegate?.didFetchResources(resources: resp)
             }, failureBlock: {(_ resp: String) in
                 NSLog("Failure: " + resp)
-                completion(false)
             })
         } catch {
             NSLog("Failure - in catch")
-            completion(false)
         }
     }
     
@@ -68,6 +49,7 @@ class ResourceManager {
     }
     
     private func createResource(_ str: String) {
+        /*
         let tokens = str.split(separator: Character(","))
         NSLog(">>>>>> TOKENS: \(tokens)")
         if tokens.count > 1 {
@@ -88,13 +70,50 @@ class ResourceManager {
             with: "",
             options: .regularExpression,
             range:nil)
-            let resource = Resource(id: name, name: name, category: category)
+            let resource = Resource(i name: name, category: category)
             
             if remoteResources?[resource.category] == nil {
                 remoteResources?[resource.category] = Array<Resource>()
             }
             remoteResources![resource.category]?.append(resource)
             
+        } */
+    }
+    
+    func fakeFetch() {
+        let csv = """
+                    category,name,serviceProvider,referralNeeded,location,rapidAccess,minAgeServed,maxAgeServed,cost,identity,language,emailAddress,phoneNumber,physicalAddress,virtualAddress,photoLink,description
+                    Crisis,National Suicide Hotline,,1,Phone,TRUE,0,120,0,,"English, French, Language Support",,1-800-SUICIDE,,https://www.crisisservicescanada.ca/en/,,
+                    """
+        let string = """
+            name,age,hasPet
+            John,22,true
+            """
+
+        let csvDecoder = CSVDecoder {
+            $0.headerStrategy = .firstLine
+            $0.boolStrategy = .insensitive
+        }
+        
+        
+        do {
+            let resource = try csvDecoder.decode(Student.self, from: string)
+            print(resource)
+        } catch {
+            print(error)
+            print(error.localizedDescription)
         }
     }
+    
+    
+
+}
+
+protocol ResourceManagerDelegate: class {
+    func didFetchResources(resources: [Resource])
+}
+
+struct Student: Codable {
+    var name: String
+    var age: Int
 }

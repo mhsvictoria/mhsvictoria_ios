@@ -19,19 +19,7 @@ class ResourcesViewController: UIViewController, MapPinDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         
-        ResourceManager.shared.retrieveRemoteResources(completion: {(_ success: Bool) in
-            if success {
-                self.remoteResources = ResourceManager.shared.remoteResources
-                var iter = self.remoteResources?.makeIterator()
-                self.resourceKeys = Array()
-                while let dict = iter?.next() {
-                    self.resourceKeys?.append(dict.key)
-                }
-                self.tableView.reloadData()
-            } else {
-                // ERROR!
-            }
-        })
+        
         
     }
     
@@ -87,11 +75,6 @@ extension ResourcesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    if let key = resourceKeys?[section] {
-        let headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: headerHeight), header: key, font: sectionHeaderFont, color: toolbarColor)
-        headerView.buttonName = "magnifyingglass"
-        return headerView
-        }
         return nil
     }
         

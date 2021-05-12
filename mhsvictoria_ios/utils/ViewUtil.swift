@@ -7,58 +7,7 @@
 //
 
 import UIKit
-import AppointmentKit
 
-class ViewUtil {
-    
-    static var dateFormat = "MMM dd,yyyy"
-    
-    static func formatStartEndDate(_ starting: Date, _ ending: Date) -> String {
-        let format = "MMM d, h:mm a"
-        let startTime = CalendarUtil.formattedDate(starting, timeZone: TimeZone.current.description, format: format)
-        
-        let endTime = CalendarUtil.formattedDate(ending, timeZone: TimeZone.current.description, format: format)
-        
-        return startTime + " - " + endTime
-    }
-    
-    static func formatStartEndTime(_ starting: Date, _ ending: Date) -> String {
-        
-        let startTime = CalendarUtil.formattedDate(starting, timeZone: TimeZone.current.description, format: "hh:mm a")
-        let endTime = CalendarUtil.formattedDate(ending, timeZone: TimeZone.current.description, format: "hh:mm a")
-        
-        return startTime + " - " + endTime
-    }
-    
-    static func formatStartEndDate(_ appointment: Appointment?) -> String {
-        
-        guard let _ = appointment else {
-            return ""
-        }
-        if (appointment?.isAllDay)! {
-            return "appointment.allday".localized
-        }
-        
-        let startEndTime = formatStartEndDate((appointment?.startTime)!, (appointment?.endTime)!)
-        
-        return startEndTime
-    }
-    
-    static func formatStartEndTime(_ appointment: Appointment?) -> String {
-        
-        guard let _ = appointment else {
-            return ""
-        }
-        if (appointment?.isAllDay)! {
-            return "appointment.allday".localized
-        }
-        
-        let startEndTime = formatStartEndTime((appointment?.startTime)!, (appointment?.endTime)!)
-        
-        return startEndTime
-    }
-    
-}
 
 extension String {
     var localized: String {
@@ -109,6 +58,15 @@ extension UIView {
         shadowLayer.shadowOpacity = 0.4
         shadowLayer.shadowRadius = 0.5
         layer.insertSublayer(shadowLayer, at: 0)
+    }
+    
+    public func addAndConstrainSubview(_ subview: UIView) {
+        subview.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(subview)
+        subview.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        subview.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        subview.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        subview.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
 }
 

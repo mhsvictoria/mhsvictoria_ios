@@ -9,7 +9,6 @@
 import UIKit
 import MapKit
 import MessageUI
-import AppointmentKit
 
 class ResourceDetailsView: UIView {
 
@@ -147,13 +146,7 @@ class ResourceDetailsView: UIView {
     }
 
     @objc func phoneButtonPressed() {
-        if let primaryPhone = data?.contact?.primaryPhone {
-            tryToCall(primaryPhone)
-        } else {
-            if let secondaryPhone = data?.contact?.secondaryPhone {
-                tryToCall(secondaryPhone)
-            }
-        }
+        
     }
 
     func tryToCall(_ number: String) {
@@ -162,9 +155,6 @@ class ResourceDetailsView: UIView {
     }
 
     @objc func sendEmail() {
-        if let email = data?.contact?.email {
-            tryToMail(email)
-        }
     }
 
     func tryToMail(_ email: String) {
