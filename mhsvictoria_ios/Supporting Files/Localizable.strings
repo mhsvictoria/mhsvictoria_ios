@@ -1,0 +1,51 @@
+/* 
+  mhsgv.strings
+  mhsvictoria_ios
+
+  Created by Ron Allan on 2020-09-12.
+  Copyright © 2020 Ron Allan. All rights reserved.
+*/
+"app.name" = "Mental Health Society of Greater Victoria";
+"age.label" = "I am %d years old....";
+
+"section.resource.search" = "Resources";
+"cell.personal.preferences" = "Search for resources ...";
+"resource.placeholder" = "Resource preferences will appear here.";
+
+"section.appointments" = "Appointments";
+"cell.appointment.management" = "Create appointments ...";
+"appointment.edit" = "Manage";
+"appointment.placeholder" = "Appointments will appear here.";
+
+"section.map" = "Mapped Locations";
+"cell.map.management" = "Add routes ...";
+"location.placeholder" = "Locations will appear here.";
+
+"placeholder.enter.title" = "Enter a title";
+"placeholder.enter.description" = "Enter a description";
+"time.starting.label" = "Starting";
+"time.ending.label" = "Ending";
+"appointment.allday" = "All Day";
+
+"appointment.title" = "Appointments";
+
+"browse.resources" = "Browse Resources";
+
+"menu.items.count" = "4";
+"menu.item.0" = "Appointments";
+"menu.item.1" = "Year";
+"menu.item.2" = "Month";
+"menu.item.3" = "Back";
+
+"calendar.month.0" = "January";
+"calendar.month.1" = "February";
+"calendar.month.2" = "March";
+"calendar.month.3" = "April";
+"calendar.month.4" = "May";
+"calendar.month.5" = "June";
+"calendar.month.6" = "July";
+"calendar.month.7" = "August";
+"calendar.month.8" = "September";
+"calendar.month.9" = "October";
+"calendar.month.10" = "November";
+"calendar.month.11" = "December";

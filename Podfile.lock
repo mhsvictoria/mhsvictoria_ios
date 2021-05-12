@@ -1,0 +1,20 @@
+PODS:
+  - CodableCSV (0.6.6)
+  - TextFieldEffects (1.6.0)
+
+DEPENDENCIES:
+  - CodableCSV
+  - TextFieldEffects
+
+SPEC REPOS:
+  trunk:
+    - CodableCSV
+    - TextFieldEffects
+
+SPEC CHECKSUMS:
+  CodableCSV: 1050e7edbc866b99bc1c6856835ee7070039ef41
+  TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
+
+PODFILE CHECKSUM: e6f7f007fdcf1b8f8993f9a22a12cb4474643b92
+
+COCOAPODS: 1.10.0
