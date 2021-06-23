@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1232BC950FDA211909C9AC17 /* libPods-mhsvictoria_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73AFF87A4C5496E44BD112AC /* libPods-mhsvictoria_ios.a */; };
 		2A00753F24BD4A7000BB1AEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A00753E24BD4A7000BB1AEA /* AppDelegate.swift */; };
 		2A00754124BD4A7000BB1AEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A00754024BD4A7000BB1AEA /* SceneDelegate.swift */; };
 		2A00754624BD4A7000BB1AEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A00754424BD4A7000BB1AEA /* Main.storyboard */; };
@@ -144,6 +145,7 @@
 		2ABF437E24DE254000F7A747 /* Form1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form1ViewController.swift; sourceTree = "<group>"; };
 		2ABF438024DE255B00F7A747 /* Form2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form2ViewController.swift; sourceTree = "<group>"; };
 		2ABF438224DE256900F7A747 /* Form3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form3ViewController.swift; sourceTree = "<group>"; };
+		73AFF87A4C5496E44BD112AC /* libPods-mhsvictoria_ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mhsvictoria_ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B010187264730C0006FB381 /* Dropdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dropdown.swift; sourceTree = "<group>"; };
 		8B3F0783263513D500F5F181 /* DropdownOption.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropdownOption.xib; sourceTree = "<group>"; };
 		8B3F07872635152000F5F181 /* DropdownOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownOption.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1232BC950FDA211909C9AC17 /* libPods-mhsvictoria_ios.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +204,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1DDAA740256292882990FDF3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				73AFF87A4C5496E44BD112AC /* libPods-mhsvictoria_ios.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2A00753224BD4A7000BB1AEA = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +220,7 @@
 				2A00755F24BD4A7100BB1AEA /* mhsvictoria_iosUITests */,
 				2A00753C24BD4A7000BB1AEA /* Products */,
 				A540BD451E12715D1B5B9722 /* Pods */,
+				1DDAA740256292882990FDF3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
